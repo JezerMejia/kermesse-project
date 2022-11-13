@@ -3,7 +3,7 @@
 class CategoriaProductos {
 
   // Attributes
-  private $id_categoria_productos;
+  private $id_categoria_producto;
   private $nombre;
   private $descripcion;
   private $estado;
