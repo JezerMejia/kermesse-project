@@ -13,30 +13,30 @@
 </div>
 </div>
 <!-- jQuery -->
-<script src="js/scripts.js"></script>
-<script src="js/jquery-3.6.0.min.js"></script>
+<script src="<?php echo $base_url?>/js/scripts.js"></script>
+<script src="<?php echo $base_url?>/js/jquery-3.6.0.min.js"></script>
 
 <!-- Descargar el bootstrap -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="<?php echo $base_url?>/js/bootstrap.bundle.min.js"></script>
 
 <!-- JS DATATABLES -->
-<script src="js/datatables.min.js"></script>
-<script src="js/dataTables.responsive.min.js"></script>
-<script src="js/responsive.dataTables.min.js"></script>
-<script src="js/dataTables.buttons.min.js"></script>
-<script src="js/buttons.bootstrap5.min.js"></script>
-<script src="js/jszip.min.js"></script>
-<script src="js/pdfmake.min.js"></script>
-<script src="js/vfs_fonts.js"></script>
-<script src="js/buttons.html5.min.js"></script>
-<script src="js/buttons.print.min.js"></script>
-<script src="js/buttons.colVis.min.js"></script>
+<script src="<?php echo $base_url?>/js/datatables.min.js"></script>
+<script src="<?php echo $base_url?>/js/dataTables.responsive.min.js"></script>
+<script src="<?php echo $base_url?>/js/responsive.dataTables.min.js"></script>
+<script src="<?php echo $base_url?>/js/dataTables.buttons.min.js"></script>
+<script src="<?php echo $base_url?>/js/buttons.bootstrap5.min.js"></script>
+<script src="<?php echo $base_url?>/js/jszip.min.js"></script>
+<script src="<?php echo $base_url?>/js/pdfmake.min.js"></script>
+<script src="<?php echo $base_url?>/js/vfs_fonts.js"></script>
+<script src="<?php echo $base_url?>/js/buttons.html5.min.js"></script>
+<script src="<?php echo $base_url?>/js/buttons.print.min.js"></script>
+<script src="<?php echo $base_url?>/js/buttons.colVis.min.js"></script>
 
 <script>
   $(document).ready(function() {
     $.extend(true, $.fn.dataTable.defaults, {
       responsive: true,
-      lengthChange: true,
+      lengthChange: false,
       searching: false,
       ordering: false,
       autoWidth: false,
