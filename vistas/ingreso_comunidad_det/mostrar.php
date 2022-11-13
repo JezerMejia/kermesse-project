@@ -1,10 +1,19 @@
 <?php
 include('entidades/ingreso_comunidad_det.php');
 $page_title = 'Ingreso Comunidad Det';
-$encabezados = [];
+$encabezados = ['ID','ID Ingreso de comunidad det','ID Ingreso de comunidad','ID Bono','Denominacion','Cantidad','Subtotal del bono'];
 $campo_id = 'id_ingreso_comunidad_det';
-$campos = ['id_ingreso_comunidad_det'];
-$datos = []
+$campos = ['id_ingreso_comunidad_det','id_ingreso_comunidad_det','id_bono','denominacion','cantidad','subtotal_bono'];
+
+$icd = new IngresoComunidadDet();
+$icd->__SET('id_ingreso_comunidad_det',1);
+$icd->__SET('id_ingreso_comunidad',1);
+$icd->__SET('id_bono',1);
+$icd->__SET('denominacion',1);
+$icd->__SET('cantidad',1);
+$icd->__SET('subtotal_bono',1);
+
+$datos = [$icd]
 ?>
 
 <?php include('./partials/_nav.php') ?>
