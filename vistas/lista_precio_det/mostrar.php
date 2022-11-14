@@ -1,10 +1,17 @@
 <?php
 include('entidades/lista_precio_det.php');
 $page_title = 'Lista Precio Det';
-$encabezados = [];
+$encabezados = ['ID', 'ID Lista precio','ID Producto','Precio venta','Opciones'];
 $campo_id = 'id_lista_precio_det';
-$campos = ['id_lista_precio_det'];
-$datos = []
+$campos = ['id_lista_precio_det','id_lista_precio','id_producto','precio_venta'];
+
+$lpd = new ListaPrecioDet();
+$lpd-> __SET('id_lista_precio_det',1);
+$lpd-> __SET('id_lista_precio',1);
+$lpd-> __SET('id_producto',1);
+$lpd-> __SET('precio_venta',200);
+
+$datos = [$lpd]
 ?>
 
 <?php include('./partials/_nav.php') ?>
