@@ -1,6 +1,6 @@
 <div class="card mb-4">
   <div class="card-header">
-    <a href="<?php echo (".$url/agregar") ?>">
+    <a href="<?php echo ("$base_url$url/agregar") ?>">
       <button type="button" class="btn btn-outline-primary btn-sm">
         <i class="fas fa-plus"></i>
         <span>Agregar <?php echo ($page_title) ?></span>
