@@ -276,16 +276,16 @@ switch (true) {
   case preg_match('/^\/tasa_cambio\/agregar$/', $url):
     require __DIR__ . '/vistas/tasa_cambio/agregar.php';
     break;
-  case preg_match('/^\/usuario\/?$/', $url):
+  case preg_match('/^\/usuarios\/?$/', $url):
     require __DIR__ . '/vistas/usuario/mostrar.php';
     break;
-  case preg_match('/^\/usuario\/\d*$/', $url):
+  case preg_match('/^\/usuarios\/\d*$/', $url):
     require __DIR__ . '/vistas/usuario/_id.php';
     break;
-  case preg_match('/^\/usuario\/editar\/\d*$/', $url):
+  case preg_match('/^\/usuarios\/editar\/\d*$/', $url):
     require __DIR__ . '/vistas/usuario/editar.php';
     break;
-  case preg_match('/^\/usuario\/agregar$/', $url):
+  case preg_match('/^\/usuarios\/agregar$/', $url):
     require __DIR__ . '/vistas/usuario/agregar.php';
     break;
 }
