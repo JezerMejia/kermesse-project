@@ -10,7 +10,7 @@ class Connection {
   private $pwd;
 
   public function connect() {
-    $server_name = '0.tcp.sa.ngrok.io:18064';
+    $server_name = 'localhost';
     $db_name = 'dbkermesse';
     $user_name = 'root';
     $pwd = 'Usuario123.';
