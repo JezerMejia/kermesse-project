@@ -14,7 +14,7 @@ $datos = $deno->get_data();
 
 foreach($datos as $deno) {
   $dt_moneda = $dt_moneda->find_by_id($deno->__GET('id_moneda'));
-  $krm->__SET('moneda', $parroquia->__GET('nombre'));
+  $deno->__SET('moneda', $parroquia->__GET('nombre'));
 }
 ?>
 
