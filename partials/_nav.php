@@ -9,12 +9,14 @@ $caja_nav = [
   "Arqueo Caja" => "arqueo_caja",
   "Arqueo Caja Det" => "arqueo_caja_det",
   "Tasa de Cambio Det" => "tasa_cambio_det",
+  "Denominación" => "denominacion",
   "Moneda" => "moneda",
 ];
 
 $ingresos_com_nav = [
   "Ingresos Comunidad" => "ingreso_comunidad",
   "Ingresos Comunidad Det" => "ingreso_comunidad_det",
+  "Control bonos" => "control_bonos",
   "Comunidad" => "comunidad",
 ];
 
