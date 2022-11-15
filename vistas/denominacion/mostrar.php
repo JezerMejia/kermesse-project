@@ -1,13 +1,21 @@
 <?php
 include('entidades/denominacion.php');
 include('datos/dt_denominacion.php');
+include('datos/dt_moneda.php');
 $page_title = 'Denominacion';
 $encabezados = ['ID', 'ID moneda', 'Valor', 'Valor letras', 'estado', 'Opciones'];
 $campo_id = 'id_denominacion';
 $campos = ['id_denominacion', 'id_moneda', 'valor', 'valor_letras', 'estado'];
 
 $deno = new DtDenominacion();
+$dt_moneda = new DtMoneda();
+
 $datos = $deno->get_data();
+
+foreach($datos as $deno) {
+  $dt_moneda = $dt_moneda->find_by_id($deno->__GET('id_moneda'));
+  $krm->__SET('moneda', $parroquia->__GET('nombre'));
+}
 ?>
 
 <?php include('./partials/_nav.php') ?>
