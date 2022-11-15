@@ -1,18 +1,13 @@
 <?php
 include('entidades/denominacion.php');
+include('datos/dt_denominacion.php');
 $page_title = 'Denominacion';
 $encabezados = ['ID', 'ID moneda', 'Valor', 'Valor letras', 'estado', 'Opciones'];
 $campo_id = 'id_denominacion';
 $campos = ['id_denominacion', 'id_moneda', 'valor', 'valor_letras', 'estado'];
 
-$deno = new Denominacion();
-$deno->__SET('id_denominacion', 1);
-$deno->__SET('id_moneda', 0);
-$deno->__SET('valor', 1000);
-$deno->__SET('valor_letras', 2000);
-$deno->__SET('estado', 1);
-
-$datos = [$deno]
+$deno = new DtDenominacion();
+$datos = $deno->get_data();
 ?>
 
 <?php include('./partials/_nav.php') ?>
