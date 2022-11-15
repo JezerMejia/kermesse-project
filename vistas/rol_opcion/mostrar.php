@@ -1,21 +1,13 @@
 <?php
 include('entidades/rol_opcion.php');
+include('datos/dt_rol_opcion.php');
 $page_title = 'Rol Opcion';
-$encabezados = ['ID Rol Opcion', 'ID Rol', 'ID Opcion'];
+$encabezados = ['ID Rol Opcion', 'ID Rol', 'ID Opcion', 'Opciones'];
 $campo_id = 'id_rol_opcion';
 $campos = ['id_rol_opcion', 'id_rol', 'id_opcion'];
 
-$tc = new RolOpcion();
-$tc->__SET('id_rol_opcion',1);
-$tc->__SET('id_rol',1);
-$tc->__SET('id_opcion',1);
-
-$tcx = new RolOpcion();
-$tcx->__SET('id_rol_opcion',2);
-$tcx->__SET('id_rol',2);
-$tcx->__SET('id_opcion',2);
-
-$datos = [$tc, $tcx];
+$dt_rol_opcion = new DtRolOpcion();
+$datos = $dt_rol_opcion->get_data()
 ?>
 
 <?php include('./partials/_nav.php') ?>
