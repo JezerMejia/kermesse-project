@@ -1,3 +1,56 @@
+<?php
+
+$kermesse_nav = [
+  "Parroquia" => "parroquia",
+  "Kermesse" => "kermesse",
+];
+
+$caja_nav = [
+  "Arqueo Caja" => "arqueo_caja",
+  "Arqueo Caja Det" => "arqueo_caja_det",
+  "Tasa de Cambio Det" => "tasa_cambio_det",
+  "Moneda" => "moneda",
+];
+
+$ingresos_com_nav = [
+  "Ingresos Comunidad" => "ingreso_comunidad",
+  "Ingresos Comunidad Det" => "ingreso_comunidad_det",
+  "Comunidad" => "comunidad",
+];
+
+$productos_nav = [
+  "Productos" => "producto",
+  "Categorías" => "categoria_productos",
+];
+
+$precios_nav = [
+  "Lista de Precios" => "lista_precio",
+  "Lista de Precios Det" => "lista_precio_det",
+];
+
+$gastos_nav = [
+  "Gastos" => "gasto",
+  "Categorías" => "categoria_gastos",
+];
+
+$seguridad_nav = [
+  "Usuarios" => "usuarios",
+  "Roles" => "rol",
+  "Opciones" => "opcion",
+  "Rol-Opciones" => "rol_opcion",
+  "Rol-Usuario" => "rol_usuario",
+];
+
+$navigations = [
+  "Kermesse" => $kermesse_nav,
+  "Caja" => $caja_nav,
+  "Comunidad" => $ingresos_com_nav,
+  "Productos" => $productos_nav,
+  "Precios" => $precios_nav,
+  "Gastos" => $gastos_nav,
+  "Seguridad" => $seguridad_nav,
+]
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -21,7 +74,7 @@
 <body class="sb-nav-fixed">
   <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
     <!-- Navbar Brand-->
-    <a class="navbar-brand ps-3" href="<?php echo $base_url?>/./">Kermesse Project</a>
+    <a class="navbar-brand ps-3" href="<?php echo $base_url?>/">Kermesse Project</a>
     <!-- Sidebar Toggle-->
     <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="<?php echo $base_url?>/#!"><i
         class="fas fa-bars"></i></button>
@@ -55,159 +108,32 @@
         <div class="sb-sidenav-menu">
           <div class="nav">
             <div class="sb-sidenav-menu-heading">Core</div>
-            <a class="nav-link" href="<?php echo $base_url?>/./hola">
+            <a class="nav-link" href="<?php echo $base_url?>/">
               <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
               Dashboard
             </a>
             <div class="sb-sidenav-menu-heading">Interface</div>
-            <a class="nav-link collapsed" href="<?php echo $base_url?>/#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts"
-              aria-expanded="false" aria-controls="collapseLayouts">
+
+          <?php foreach ($navigations as $nav_title => $nav_value): ?>
+          <a class="nav-link collapsed" href="<?php echo $base_url?>/#" data-bs-toggle="collapse" data-bs-target="<?php echo "#collapse_$nav_title" ?> "
+            aria-expanded="false" aria-controls="<?php echo "collapse_$nav_title" ?>">
               <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-              Layouts
+              <?php echo $nav_title; ?>
               <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
             </a>
-            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+            <div class="collapse" id="<?php echo "collapse_$nav_title" ?>" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
               <nav class="sb-sidenav-menu-nested nav">
-                <a class="nav-link" href="<?php echo $base_url?>/layout-static.html">Static Navigation</a>
-                <a class="nav-link" href="<?php echo $base_url?>/layout-sidenav-light.html">Light Sidenav</a>
+                <?php foreach($nav_value as $sub_title => $sub_value): ?>
+                  <a class="nav-link" href="<?php echo $base_url?>/<?php echo $sub_value ?>"><?php echo $sub_title ?></a>
+                <?php endforeach; ?>
               </nav>
             </div>
-            <a class="nav-link collapsed" href="<?php echo $base_url?>/#" data-bs-toggle="collapse" data-bs-target="#collapsePages"
-              aria-expanded="false" aria-controls="collapsePages">
-              <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-              Pages
-              <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-            </a>
-            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-              <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                <a class="nav-link collapsed" href="<?php echo $base_url?>/#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth"
-                  aria-expanded="false" aria-controls="pagesCollapseAuth">
-                  Authentication
-                  <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                </a>
-                <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne"
-                  data-bs-parent="#sidenavAccordionPages">
-                  <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link" href="<?php echo $base_url?>/login.html">Login</a>
-                    <a class="nav-link" href="<?php echo $base_url?>/register.html">Register</a>
-                    <a class="nav-link" href="<?php echo $base_url?>/password.html">Forgot Password</a>
-                  </nav>
-                </div>
-                <a class="nav-link collapsed" href="<?php echo $base_url?>/#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError"
-                  aria-expanded="false" aria-controls="pagesCollapseError">
-                  Error
-                  <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                </a>
-                <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne"
-                  data-bs-parent="#sidenavAccordionPages">
-                  <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link" href="<?php echo $base_url?>/401.html">401 Page</a>
-                    <a class="nav-link" href="<?php echo $base_url?>/404.html">404 Page</a>
-                    <a class="nav-link" href="<?php echo $base_url?>/500.html">500 Page</a>
-                  </nav>
-                </div>
-              </nav>
-            </div>
+          <?php endforeach; ?>
+
             <div class="sb-sidenav-menu-heading">Addons</div>
             <a class="nav-link" href="<?php echo $base_url?>/charts.html">
               <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
               Charts
-            </a>
-            <a class="nav-link" href="<?php echo $base_url?>/arqueo_caja">
-              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-              Arqueo caja
-            </a>
-            <a class="nav-link" href="<?php echo $base_url?>/arqueo_caja_det">
-              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-              Arqueo caja det
-            </a>
-            <a class="nav-link" href="<?php echo $base_url?>/categoria_gastos">
-              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-              Categoria gastos
-            </a>
-            <a class="nav-link" href="<?php echo $base_url?>/categoria_productos">
-              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-              Categoria productos
-            </a>
-            <a class="nav-link" href="<?php echo $base_url?>/comunidad">
-              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-              Comunidad
-            </a>
-            <a class="nav-link" href="<?php echo $base_url?>/control_bonos">
-              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-              Control bonos
-            </a>
-            <a class="nav-link" href="<?php echo $base_url?>/denominacion">
-              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-              Denominacion
-            </a>
-            <a class="nav-link" href="<?php echo $base_url?>/gasto">
-              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-              Gasto
-            </a>
-            <a class="nav-link" href="<?php echo $base_url?>/ingreso_comunidad">
-              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-              Ingreso Comunidad
-            </a>
-            <a class="nav-link" href="<?php echo $base_url?>/ingreso_comunidad_det">
-              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-              Ingreso Comunidad Det
-            </a>
-            <a class="nav-link" href="<?php echo $base_url?>/kermesse">
-              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-              Kermesse
-            </a>
-            <a class="nav-link" href="<?php echo $base_url?>/lista_precio">
-              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-              Lista precio
-            </a>
-            <a class="nav-link" href="<?php echo $base_url?>/lista_precio_det">
-              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-              Lista precio det
-            </a>
-            <a class="nav-link" href="<?php echo $base_url?>/moneda">
-              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-              Moneda
-            </a>
-            <a class="nav-link" href="<?php echo $base_url?>/opcion">
-              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-              Opcion
-            </a>
-            <a class="nav-link" href="<?php echo $base_url?>/parroquia">
-              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-              Parroquia
-            </a>
-            <a class="nav-link" href="<?php echo $base_url?>/producto">
-              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-              Producto
-            </a>
-            <a class="nav-link" href="<?php echo $base_url?>/rol">
-              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-              Rol
-            </a>
-            <a class="nav-link" href="<?php echo $base_url?>/rol_opcion">
-              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-              Rol Opcion
-            </a>
-            <a class="nav-link" href="<?php echo $base_url?>/rol_usuario">
-              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-              Rol Usuario
-            </a>
-            <a class="nav-link" href="<?php echo $base_url?>/tasa_cambio">
-              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-              Tasa cambio
-            </a>
-            <a class="nav-link" href="<?php echo $base_url?>/tasa_cambio_det">
-              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-              Tasa cambio det
-            </a>
-            <a class="nav-link" href="<?php echo $base_url?>/usuario">
-              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-              Usuario
-            </a>
-            <a class="nav-link" href="<?php echo $base_url?>/tables.html">
-              <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-              Tables
             </a>
           </div>
         </div>
