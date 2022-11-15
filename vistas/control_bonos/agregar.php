@@ -38,6 +38,9 @@ $datos = []
           <input class="form-control form-control-solid" id="exampleFormControlInput1"
           type="valor" placeholder="Valor"/>
         </div>
+
+        <button class="btn btn-primary" type="button">Agregar</button>
+
       </form>
       <!---->
       </div>
