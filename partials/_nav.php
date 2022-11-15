@@ -113,6 +113,30 @@
               <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
               Charts
             </a>
+            <a class="nav-link" href="<?php echo $base_url?>/control_bonos">
+              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+              Control bonos
+            </a>
+            <a class="nav-link" href="<?php echo $base_url?>/denominacion">
+              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+              Denominacion
+            </a>
+            <a class="nav-link" href="<?php echo $base_url?>/ingreso_comunidad">
+              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+              Ingreso Comunidad
+            </a>
+            <a class="nav-link" href="<?php echo $base_url?>/ingreso_comunidad_det">
+              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+              Ingreso Comunidad Det
+            </a>
+            <a class="nav-link" href="<?php echo $base_url?>/lista_precio">
+              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+              Lista precio
+            </a>
+            <a class="nav-link" href="<?php echo $base_url?>/lista_precio_det">
+              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+              Lista precio det
+            </a>
             <a class="nav-link" href="<?php echo $base_url?>/tables.html">
               <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
               Tables
