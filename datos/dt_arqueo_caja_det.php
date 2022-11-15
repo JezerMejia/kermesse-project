@@ -11,7 +11,7 @@ class DtArqueoCajaDet extends DataTableTemplate {
     $this->class_name = "ArqueoCajaDet";
     $this->primary_key = "idArqueoCaja_Det";
 
-    $this->db_fields = ["id_arqueo_caja_det","id_arqueo_caja","id_moneda","id_denominacion","cantidad","subtotal"];
-    $this->et_fields = ["idArqueoCaja_Det","idArqueoCaja","idMoneda","idDenominacion","cantidad","subtotal"];
+    $this->db_fields = ["idArqueoCaja_Det","idArqueoCaja","idMoneda","idDenominacion","cantidad","subtotal"];
+    $this->et_fields = ["id_arqueo_caja_det","id_arqueo_caja","id_moneda","id_denominacion","cantidad","subtotal"];
   }
 }

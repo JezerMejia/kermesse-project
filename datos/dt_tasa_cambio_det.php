@@ -11,7 +11,7 @@ class DtTasaCambioDet extends DataTableTemplate {
     $this->class_name = "TasaCambioDet";
     $this->primary_key = "id_tasaCambio_det";
 
-    $this->db_fields = ["id_tasa_cambio_det","id_tasa_cambio","fecha","tipo_cambio"];
-    $this->et_fields = ["id_tasaCambio_det","id_tasaCambio","fecha","tipoCambio"];
+    $this->db_fields = ["id_tasaCambio_det","id_tasaCambio","fecha","tipoCambio"];
+    $this->et_fields = ["id_tasa_cambio_det","id_tasa_cambio","fecha","tipo_cambio"];
   }
 }

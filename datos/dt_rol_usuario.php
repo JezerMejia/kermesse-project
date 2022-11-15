@@ -11,7 +11,7 @@ class DtRolUsuario extends DataTableTemplate {
     $this->class_name = "RolUsuario";
     $this->primary_key = "id_rol_usuario";
 
-    $this->db_fields = ["id_rol_usuario","id_usuario","id_rol"];
-    $this->et_fields = ["id_rol_usuario","tbl_usuario_id_usuario","tbl_rol_id_rol"];
+    $this->db_fields = ["id_rol_usuario","tbl_usuario_id_usuario","tbl_rol_id_rol"];
+    $this->et_fields = ["id_rol_usuario","id_usuario","id_rol"];
   }
 }

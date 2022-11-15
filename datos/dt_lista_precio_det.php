@@ -11,7 +11,7 @@ class DtListaPrecioDet extends DataTableTemplate {
     $this->class_name = "ListaPrecioDet";
     $this->primary_key = "id_listaprecio_det";
 
-    $this->db_fields = ["id_lista_precio_det","id_lista_precio","id_producto","precio_venta"];
-    $this->et_fields = ["id_listaprecio_det","id_lista_precio","id_producto","precio_venta"];
+    $this->db_fields = ["id_listaprecio_det","id_lista_precio","id_producto","precio_venta"];
+    $this->et_fields = ["id_lista_precio_det","id_lista_precio","id_producto","precio_venta"];
   }
 }

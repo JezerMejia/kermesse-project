@@ -11,7 +11,7 @@ class DtRolOpcion extends DataTableTemplate {
     $this->class_name = "RolOpcion";
     $this->primary_key = "id_rol_opciones";
 
-    $this->db_fields = ["id_rol_opcion","id_rol","id_opcion"];
-    $this->et_fields = ["id_rol_opciones","tbl_rol_id_rol","tbl_opciones_id_opciones"];
+    $this->db_fields = ["id_rol_opciones","tbl_rol_id_rol","tbl_opciones_id_opciones"];
+    $this->et_fields = ["id_rol_opcion","id_rol","id_opcion"];
   }
 }

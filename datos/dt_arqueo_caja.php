@@ -11,7 +11,7 @@ class DtArqueoCaja extends DataTableTemplate {
     $this->class_name = "ArqueoCaja";
     $this->primary_key = "id_ArqueoCaja";
 
-    $this->db_fields = ["id_arqueo_caja","id_kermesse","fecha_arqueo","gran_total","usuario_creacion","fecha_creacion","usuario_modificacion","fecha_modificacion","usuario_eliminacion","fecha_eliminacion","estado"];
-    $this->et_fields = ["id_ArqueoCaja","idKermesse","fechaArqueo","granTotal","usuario_creacion","fecha_creacion","usuario_modificacion","fecha_modificacion","usuario_eliminacion","fecha_eliminacion","estado"];
+    $this->db_fields = ["id_ArqueoCaja","idKermesse","fechaArqueo","granTotal","usuario_creacion","fecha_creacion","usuario_modificacion","fecha_modificacion","usuario_eliminacion","fecha_eliminacion","estado"];
+    $this->et_fields = ["id_arqueo_caja","id_kermesse","fecha_arqueo","gran_total","usuario_creacion","fecha_creacion","usuario_modificacion","fecha_modificacion","usuario_eliminacion","fecha_eliminacion","estado"];
   }
 }
