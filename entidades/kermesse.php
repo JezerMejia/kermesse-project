@@ -7,6 +7,7 @@ class Kermesse {
   private $id_parroquia;
   private $nombre;
   private $fecha_inicio;
+  private $fecha_final;
   private $descripcion;
   private $estado;
   private $usuario_creacion;

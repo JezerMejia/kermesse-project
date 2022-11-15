@@ -4,9 +4,8 @@ class TasaCambio {
 
   // Attributes
   private $id_tasa_cambio;
-  private $id_moneda;
-  private $id_monedaO;
-  private $id_monedaC;
+  private $id_moneda_o;
+  private $id_moneda_c;
   private $mes;
   private $anio;
   private $estado;
