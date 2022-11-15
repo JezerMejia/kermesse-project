@@ -3,18 +3,17 @@ include('entidades/moneda.php');
 $page_title = 'Moneda';
 $encabezados = ['ID', 'Nombre','Simbolo', 'Estado', 'Opciones'];
 $campo_id = 'id_moneda';
-$campos = ['id_moneda', 'nombre', 'estado'];
-$datos = []
+$campos = ['id_moneda', 'nombre', 'estado','simbolo','estado'];
 
 $tc = new Moneda();
 $tc->__SET('id_moneda',1);
-$tc->__SET('nombre',Cordoba);
+$tc->__SET('nombre',"Cordoba");
 $tc->__SET('estado',1);
 
 
 $tcx = new Moneda();
 $tcx->__SET('id_moneda',2);
-$tcx->__SET('nombre',Dolar);
+$tcx->__SET('nombre',"Dolar");
 $tcx->__SET('estado',1);
 
 $datos = [$tc, $tcx];
