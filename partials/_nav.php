@@ -149,11 +149,11 @@
               <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
               Ingreso Comunidad
             </a>
-            <a class="nav-link" href="<?php echo $base_url?>/kermesse">
+            <a class="nav-link" href="<?php echo $base_url?>/ingreso_comunidad_det">
               <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
               Ingreso Comunidad Det
             </a>
-            <a class="nav-link" href="<?php echo $base_url?>/ingreso_comunidad_det">
+            <a class="nav-link" href="<?php echo $base_url?>/kermesse">
               <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
               Kermesse
             </a>

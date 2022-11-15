@@ -7,7 +7,6 @@ $campo_id = 'id_bono';
 $campos = ['id_bono', 'nombre', 'valor', 'estado'];
 
 $dt_control_bonos = new DtControlBonos();
-
 $datos = $dt_control_bonos->get_data();
 ?>
 
