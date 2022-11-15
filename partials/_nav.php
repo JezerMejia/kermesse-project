@@ -113,6 +113,26 @@
               <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
               Charts
             </a>
+            <a class="nav-link" href="<?php echo $base_url?>/arqueo_caja">
+              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+              Arqueo caja
+            </a>
+            <a class="nav-link" href="<?php echo $base_url?>/arqueo_caja_det">
+              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+              Arqueo caja det
+            </a>
+            <a class="nav-link" href="<?php echo $base_url?>/categoria_gastos">
+              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+              Categoria gastos
+            </a>
+            <a class="nav-link" href="<?php echo $base_url?>/categoria_productos">
+              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+              Categoria productos
+            </a>
+            <a class="nav-link" href="<?php echo $base_url?>/comunidad">
+              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+              Comunidad
+            </a>
             <a class="nav-link" href="<?php echo $base_url?>/control_bonos">
               <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
               Control bonos
@@ -121,13 +141,21 @@
               <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
               Denominacion
             </a>
+            <a class="nav-link" href="<?php echo $base_url?>/gasto">
+              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+              Gasto
+            </a>
             <a class="nav-link" href="<?php echo $base_url?>/ingreso_comunidad">
               <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
               Ingreso Comunidad
             </a>
-            <a class="nav-link" href="<?php echo $base_url?>/ingreso_comunidad_det">
+            <a class="nav-link" href="<?php echo $base_url?>/kermesse">
               <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
               Ingreso Comunidad Det
+            </a>
+            <a class="nav-link" href="<?php echo $base_url?>/ingreso_comunidad_det">
+              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+              Kermesse
             </a>
             <a class="nav-link" href="<?php echo $base_url?>/lista_precio">
               <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
@@ -136,6 +164,46 @@
             <a class="nav-link" href="<?php echo $base_url?>/lista_precio_det">
               <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
               Lista precio det
+            </a>
+            <a class="nav-link" href="<?php echo $base_url?>/moneda">
+              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+              Moneda
+            </a>
+            <a class="nav-link" href="<?php echo $base_url?>/opcion">
+              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+              Opcion
+            </a>
+            <a class="nav-link" href="<?php echo $base_url?>/parroquia">
+              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+              Parroquia
+            </a>
+            <a class="nav-link" href="<?php echo $base_url?>/producto">
+              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+              Producto
+            </a>
+            <a class="nav-link" href="<?php echo $base_url?>/rol">
+              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+              Rol
+            </a>
+            <a class="nav-link" href="<?php echo $base_url?>/rol_opcion">
+              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+              Rol Opcion
+            </a>
+            <a class="nav-link" href="<?php echo $base_url?>/rol_usuario">
+              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+              Rol Usuario
+            </a>
+            <a class="nav-link" href="<?php echo $base_url?>/tasa_cambio">
+              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+              Tasa cambio
+            </a>
+            <a class="nav-link" href="<?php echo $base_url?>/tasa_cambio_det">
+              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+              Tasa cambio det
+            </a>
+            <a class="nav-link" href="<?php echo $base_url?>/usuario">
+              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+              Usuario
             </a>
             <a class="nav-link" href="<?php echo $base_url?>/tables.html">
               <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
