@@ -1,21 +1,21 @@
 <?php
-include('entidades/tasa_cambio.php');
+include('datos/dt_tasa_cambio.php');
+include('datos/dt_moneda.php');
 $page_title = 'Tasa Cambio';
-$encabezados = ['ID', 'Mes', 'Año', 'Opciones'];
+$encabezados = ['ID', 'Moneda O', 'Moneda C', 'Mes', 'Año', 'Estado', 'Opciones'];
 $campo_id = 'id_tasa_cambio';
-$campos = ['id_tasa_cambio', 'mes', 'anio',];
+$campos = ['id_tasa_cambio', 'moneda_o', 'moneda_c', 'mes', 'anio', 'estado'];
 
-$tc = new TasaCambio();
-$tc->__SET('id_tasa_cambio',1);
-$tc->__SET('mes',11);
-$tc->__SET('anio',2022);
+$dt_tc = new DtTasaCambio();
+$dt_moneda = new DtMoneda();
+$datos = $dt_tc->get_data();
 
-$tcx = new TasaCambio();
-$tcx->__SET('id_tasa_cambio',2);
-$tcx->__SET('mes',11);
-$tcx->__SET('anio',2022);
-
-$datos = [$tc, $tcx];
+foreach($datos as $dato) {
+  $moneda_o = $dt_moneda->find_by_id($dato->__GET('id_moneda_o'));
+  $moneda_c = $dt_moneda->find_by_id($dato->__GET('id_moneda_c'));
+  $dato->__SET('moneda_o', $moneda_o->__GET('nombre'));
+  $dato->__SET('moneda_c', $moneda_c->__GET('nombre'));
+}
 ?>
 
 <?php include('./partials/_nav.php') ?>

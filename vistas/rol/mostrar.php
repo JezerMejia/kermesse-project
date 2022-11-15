@@ -1,5 +1,4 @@
 <?php
-include('entidades/rol.php');
 include('datos/dt_rol.php');
 $page_title = 'Roles';
 $encabezados = ['ID', 'Descripción', 'Estado', 'Opciones'];

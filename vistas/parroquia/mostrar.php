@@ -3,8 +3,8 @@ include('entidades/parroquia.php');
 include('datos/dt_parroquia.php');
 $page_title = 'Parroquia';
 $encabezados = ['ID','Nombre', 'Direccion', 'Telefono', 'Parroco', 'Logo', 'Sitio web','Opciones'];
-$campo_id = 'idParroquia';
-$campos = ['idParroquia', 'nombre', 'direccion', 'telefono', 'parroco', 'logo', 'sitio_web'];
+$campo_id = 'id_parroquia';
+$campos = ['id_parroquia', 'nombre', 'direccion', 'telefono', 'parroco', 'logo', 'sitio_web'];
 
 $dt_parroquia = new DtParroquia();
 $datos = $dt_parroquia->get_data()

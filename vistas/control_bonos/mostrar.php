@@ -1,17 +1,13 @@
 <?php
 include('entidades/control_bonos.php');
+include('datos/dt_control_bonos.php');
 $page_title = 'Control Bonos';
 $encabezados = ['ID', 'Nombre', 'Valor', 'Estado', 'Opciones'];
 $campo_id = 'id_bono';
 $campos = ['id_bono', 'nombre', 'valor', 'estado'];
 
-$cb = new ControlBonos();
-$cb->__SET('id_bono', 1);
-$cb->__SET('nombre', 'hola');
-$cb->__SET('valor', 1000);
-$cb->__SET('estado', 1);
-
-$datos = [$cb];
+$dt_control_bonos = new DtControlBonos();
+$datos = $dt_control_bonos->get_data();
 ?>
 
 <?php include('./partials/_nav.php') ?>

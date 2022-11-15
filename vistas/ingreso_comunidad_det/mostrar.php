@@ -3,7 +3,7 @@ include('entidades/ingreso_comunidad_det.php');
 $page_title = 'Ingreso Comunidad Det';
 $encabezados = ['ID','ID Ingreso de comunidad','ID Bono','Denominacion','Cantidad','Subtotal del bono','Opciones'];
 $campo_id = 'id_ingreso_comunidad_det';
-$campos = ['id_ingreso_comunidad_det','id_ingreso_comunidad_det','id_bono','denominacion','cantidad','subtotal_bono'];
+$campos = ['id_ingreso_comunidad_det','id_ingreso_comunidad','id_bono','denominacion','cantidad','subtotal_bono'];
 
 $icd = new IngresoComunidadDet();
 $icd->__SET('id_ingreso_comunidad_det',1);

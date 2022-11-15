@@ -1,17 +1,13 @@
 <?php
-include('entidades/categoria_productos.php');
+include('datos/dt_categoria_productos.php');
 $page_title = 'Categoría Productos';
-$encabezados = ['ID', 'Nombre', 'Descripción', 'estado'];
+$encabezados = ['ID', 'Nombre', 'Descripción', 'Estado', 'Opciones'];
 $campo_id = 'id_categoria_producto';
 $campos = ['id_categoria_producto', 'nombre', 'descripcion', 'estado'];
 
-$cat1 = new CategoriaProductos();
-$cat1->__SET('id_categoria_producto', 1);
-$cat1->__SET('nombre', 'Herramientas');
-$cat1->__SET('descripcion', 'Herramientas varias');
-$cat1->__SET('estado', 0);
+$dt_cat = new DtCategoriaProductos();
 
-$datos = [$cat1]
+$datos = $dt_cat->get_data()
 ?>
 
 <?php include('./partials/_nav.php') ?>

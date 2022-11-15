@@ -1,6 +1,6 @@
 <?php
 
-include "data_table_template.php";
+include_once "data_table_template.php";
 include_once "entidades/parroquia.php";
 
 class DtParroquia extends DataTableTemplate {
@@ -12,6 +12,6 @@ class DtParroquia extends DataTableTemplate {
     $this->primary_key = "idParroquia";
 
     $this->db_fields = ['idParroquia', 'nombre', 'direccion', 'telefono', 'parroco', 'logo', 'sitio_web'];
-    $this->et_fields = ['idParroquia', 'nombre', 'direccion', 'telefono', 'parroco', 'logo', 'sitio_web'];
+    $this->et_fields = ['id_parroquia', 'nombre', 'direccion', 'telefono', 'parroco', 'logo', 'sitio_web'];
   }
 }
