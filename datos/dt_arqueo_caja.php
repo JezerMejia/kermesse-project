@@ -1,6 +1,6 @@
 <?php
 
-include "data_table_template.php";
+include_once "data_table_template.php";
 include_once "entidades/arqueo_caja.php";
 
 class DtArqueoCaja extends DataTableTemplate {

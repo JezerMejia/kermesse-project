@@ -1,29 +1,24 @@
 <?php
-include('entidades/gasto.php');
+include('datos/dt_gasto.php');
+include('datos/dt_kermesse.php');
+include('datos/dt_categoria_gastos.php');
 $page_title = 'Gastos';
-$encabezados = ['ID', 'Concepto', 'Monto', 'Fecha', 'Estado', 'Kermesse', 'Categoría'];
+$encabezados = ['ID', 'Concepto', 'Monto', 'Fecha', 'Estado', 'Kermesse', 'Categoría', 'Opciones'];
 $campo_id = 'id_gasto';
-$campos = ['id_gasto', 'concepto', 'monto', 'fecha_gasto', 'estado', 'id_kermesse', 'id_cat_gastos'];
+$campos = ['id_gasto', 'concepto', 'monto', 'fecha_gasto', 'estado', 'kermesse', 'cat_gastos'];
 
-$gasto1 = new Gasto();
-$gasto1->__SET('id_gasto', 1);
-$gasto1->__SET('id_kermesse', 1);
-$gasto1->__SET('id_cat_gastos', 1);
-$gasto1->__SET('fecha_gasto', '2022-11-13');
-$gasto1->__SET('concepto', 'Compra de un lápiz');
-$gasto1->__SET('monto', 15.99);
-$gasto1->__SET('estado', 0);
+$dt_gasto = new DtGasto();
+$dt_kermesse = new DtKermesse();
+$dt_categoria_gastos = new DtCategoriaGastos();
+$datos = $dt_gasto->get_data();
 
-$gasto2 = new Gasto();
-$gasto2->__SET('id_gasto', 2);
-$gasto2->__SET('id_kermesse', 1);
-$gasto2->__SET('id_cat_gastos', 2);
-$gasto2->__SET('fecha_gasto', '2022-11-13');
-$gasto2->__SET('concepto', 'Compra de un borrador');
-$gasto2->__SET('monto', 20.15);
-$gasto2->__SET('estado', 0);
+foreach ($datos as $dato) {
+  $ker = $dt_kermesse->find_by_id($dato->__GET('id_kermesse'));
+  $cat_gasto = $dt_categoria_gastos->find_by_id($dato->__GET('id_cat_gastos'));
+  $dato->__SET('kermesse', $ker->__GET('nombre'));
+  $dato->__SET('cat_gastos', $cat_gasto->__GET('nombre_categoria'));
+}
 
-$datos = [$gasto1, $gasto2]
 ?>
 
 <?php include('./partials/_nav.php') ?>

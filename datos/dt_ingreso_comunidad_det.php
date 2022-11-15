@@ -1,6 +1,6 @@
 <?php
 
-include "data_table_template.php";
+include_once "data_table_template.php";
 include_once "entidades/ingreso_comunidad_det.php";
 
 class DtIngresoComunidadDet extends DataTableTemplate {

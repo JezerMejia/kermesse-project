@@ -1,6 +1,6 @@
 <?php
 
-include "data_table_template.php";
+include_once "data_table_template.php";
 include_once "entidades/producto.php";
 
 class DtProducto extends DataTableTemplate {

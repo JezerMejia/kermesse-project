@@ -16,7 +16,7 @@ $tc->__SET('sitio_web', "www.JS.com.ni");
 
 $tcx = new Parroquia();
 $tcx->__SET('id_parroquia',2);
-$tcx->__SET('nombre', "Maria de los angeles");
+$tcx->__SET('nombre', "MariJa de los angeles");
 $tcx->__SET('direccion',"Manzana 10 comunidad el rama");
 $tcx->__SET('telefono', "+505 0504-1269");
 $tcx->__SET('parroco', "Moises Marillac");

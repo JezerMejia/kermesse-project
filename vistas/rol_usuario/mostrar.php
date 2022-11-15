@@ -1,21 +1,24 @@
 <?php
-include('entidades/rol_usuario.php');
+include('datos/dt_rol_usuario.php');
+include('datos/dt_rol.php');
+include('datos/dt_usuario.php');
 $page_title = 'Rol Usuario';
-$encabezados = ['ID', 'Usuario', 'Rol'];
+$encabezados = ['ID', 'Usuario', 'Rol', 'Opciones'];
 $campo_id = 'id_rol_usuario';
-$campos = ['id_rol_usuario', 'id_usuario', 'id_rol'];
+$campos = ['id_rol_usuario', 'usuario', 'rol'];
 
-$roluser1 = new RolUsuario();
-$roluser1->__SET('id_rol_usuario', 1);
-$roluser1->__SET('id_usuario', 1);
-$roluser1->__SET('id_rol', 1);
+$dt_rol_user = new DtRolUsuario();
+$dt_rol = new DtRol();
+$dt_user = new DtUsuario();
 
-$roluser2 = new RolUsuario();
-$roluser2->__SET('id_rol_usuario', 2);
-$roluser2->__SET('id_usuario', 2);
-$roluser2->__SET('id_rol', 1);
+$datos = $dt_rol_user->get_data();
 
-$datos = [$roluser1, $roluser2];
+foreach($datos as $dato) {
+  $rol = $dt_rol->find_by_id($dato->__GET('id_rol'));
+  $user = $dt_user->find_by_id($dato->__GET('id_usuario'));
+  $dato->__SET('rol', $rol->__GET('descripcion'));
+  $dato->__SET('usuario', $user->__GET('usuario'));
+}
 ?>
 
 <?php include('./partials/_nav.php') ?>

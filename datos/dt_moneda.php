@@ -1,6 +1,6 @@
 <?php
 
-include "data_table_template.php";
+include_once "data_table_template.php";
 include_once "entidades/moneda.php";
 
 class DtMoneda extends DataTableTemplate {

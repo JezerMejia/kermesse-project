@@ -1,6 +1,6 @@
 <?php
 
-include "connection.php";
+include_once "connection.php";
 
 class DataTableTemplate {
   public $conn;
@@ -15,7 +15,7 @@ class DataTableTemplate {
   protected function __construct() {
     $this->table_name = "";
 
-    $conn = new Connection();
+    $conn = Connection::getInstance();
     $this->conn = $conn->connect();
   }
 
