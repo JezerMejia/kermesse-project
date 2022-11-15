@@ -1,21 +1,13 @@
 <?php
-include('entidades/rol.php');
+include('datos/dt_rol.php');
 $page_title = 'Roles';
 $encabezados = ['ID', 'Descripción', 'Estado'];
 $campo_id = 'id_rol';
 $campos = ['id_rol', 'descripcion', 'estado'];
 
-$rol1 = new Rol();
-$rol1->__SET('id_rol', 1);
-$rol1->__SET('descripcion', 'Administrador');
-$rol1->__SET('estado', 0);
+$dt_rol = new DtRol();
 
-$rol2 = new Rol();
-$rol2->__SET('id_rol', 2);
-$rol2->__SET('descripcion', 'Usuario');
-$rol2->__SET('estado', 0);
-
-$datos = [$rol1, $rol2];
+$datos = $dt_rol->get_data();
 ?>
 
 <?php include('./partials/_nav.php') ?>

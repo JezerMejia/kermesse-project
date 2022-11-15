@@ -1,26 +1,20 @@
 <?php
-include('entidades/kermesse.php');
+include('datos/dt_kermesse.php');
+include('datos/dt_parroquia.php');
 $page_title = 'Kermesse';
-$encabezados = ['ID', 'ID Parroquia', 'Nombre', 'Fecha inicio', 'Desrcipción', 'Estado', 'Opciones'];
+$encabezados = ['ID', 'Nombre', 'Parroquia', 'Fecha inicio', 'Fecha fin', 'Desrcipción', 'Estado', 'Opciones'];
 $campo_id = 'id_kermesse';
-$campos = ['id_kermesse', 'id_parroquia', 'nombre', 'fecha_inicio', 'descripcion', 'estado'];
+$campos = ['id_kermesse', 'nombre', 'parroquia', 'fecha_inicio', 'fecha_final', 'descripcion', 'estado'];
 
-$krm1 = new Kermesse();
-$krm1->__set('id_kermesse', 1);
-$krm1->__set('id_parroquia', 1);
-$krm1->__set('nombre', 'Kermesse Noviembre');
-$krm1->__set('fecha_inicio', '12/11/2022');
-$krm1->__set('descripcion', 'aaaaaaaaaaaaaaaaaaa');
-$krm1->__set('estado', 1);
-$krm2 = new Kermesse();
-$krm2->__set('id_kermesse', 1);
-$krm2->__set('id_parroquia', 1);
-$krm2->__set('nombre', 'Kermesse Diciembre');
-$krm2->__set('fecha_inicio', '09/12/2022');
-$krm2->__set('descripcion', 'bbbbbbbbbbbb');
-$krm2->__set('estado', 1);
+$dt_krm = new DtKermesse();
+$dt_parroquia = new DtParroquia();
 
-$datos = [$krm1, $krm2];
+$datos = $dt_krm->get_data();
+
+foreach($datos as $krm) {
+  $parroquia = $dt_parroquia->find_by_id($krm->__GET('id_parroquia'));
+  $krm->__SET('parroquia', $parroquia->__GET('nombre'));
+}
 ?>
 
 <?php include('./partials/_nav.php') ?>

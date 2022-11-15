@@ -1,17 +1,13 @@
 <?php
-include('entidades/categoria_gastos.php');
+include('datos/dt_categoria_gastos.php');
 $page_title = 'Categoria Gastos';
-$encabezados = ['ID', 'Nombre', 'Descripción', 'Estado'];
+$encabezados = ['ID', 'Nombre', 'Descripción', 'Estado', 'Opciones'];
 $campo_id = 'id_categoria_gastos';
 $campos = ['id_categoria_gastos', 'nombre_categoria', 'descripcion', 'estado'];
 
-$cat1 = new CategoriaGastos();
-$cat1->__SET('id_categoria_gastos', 1);
-$cat1->__SET('nombre_categoria', 'Categoría 1');
-$cat1->__SET('descripcion', 'Otra categoría');
-$cat1->__SET('estado', 0);
+$dt_cat = new DtCategoriaGastos();
 
-$datos = [$cat1]
+$datos = $dt_cat->get_data();
 ?>
 
 <?php include('./partials/_nav.php') ?>
