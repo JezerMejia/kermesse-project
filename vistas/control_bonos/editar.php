@@ -41,9 +41,6 @@ $datos = []
             <input class="form-control" id="pwd" name="pwd" type="password" title="Ingrese el estado del bonos" required />
             <label for="pwd">Estado:</label>
           </div>
-          <div class="form-floating mb-3">
-            <input class="form-control" id="pwd" name="pwd" type="password" title="Ingrese las opciones del bono" required />
-            <label for="pwd">Opciones:</label>
           <div class="d-flex align-items-end justify-content-end mt-4 mb-0 gap-3">
             <input class="btn btn-primary" type="submit" value="Guardar" />
             <input class="btn btn-danger" type="reset" value="Cancelar" />

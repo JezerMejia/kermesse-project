@@ -64,10 +64,6 @@ $datos = []
             <input class="form-control" id="pwd" name="pwd" type="password" title="Ingrese la fecha de creación" required />
             <label for="pwd">Fecha de creacion:</label>
           </div>
-          <div class="form-floating mb-3">
-            <input class="form-control" id="pwd" name="pwd" type="password" title="Ingrese opciones" required />
-            <label for="pwd">Opciones:</label>
-          </div>
           <div class="d-flex align-items-end justify-content-end mt-4 mb-0 gap-3">
             <input class="btn btn-primary" type="submit" value="Guardar" />
             <input class="btn btn-danger" type="reset" value="Cancelar" />
