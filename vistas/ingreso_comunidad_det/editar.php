@@ -49,15 +49,15 @@ $datos = []
             <label for="nombres">ID Bono:</label>
           </div>
           <div class="form-floating mb-3">
-            <input class="form-control" id="apellidos" name="apellidos" type="text" title="Ingrese sus apellidos" required />
+            <input class="form-control" title="Ingrese sus apellidos" required />
             <label for="apellidos">Denominacion:</label>
           </div>
           <div class="form-floating mb-3">
-            <input class="form-control" id="pwd" name="pwd" type="password" title="Ingrese una contraseña segura" required />
+            <input class="form-control" title="Ingrese una contraseña segura" required />
             <label for="pwd">Cantidad:</label>
           </div>
           <div class="form-floating mb-3">
-            <input class="form-control" id="pwd" name="pwd" type="password" title="Ingrese una contraseña segura" required />
+            <input class="form-control" title="Ingrese una contraseña segura" required />
             <label for="pwd">Subtotal del bono:</label>
           </div>
           <div class="d-flex align-items-end justify-content-end mt-4 mb-0 gap-3">
