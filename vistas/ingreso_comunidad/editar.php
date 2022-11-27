@@ -9,9 +9,9 @@ $datos = []
 
 <?php include('./partials/_nav.php') ?>
 <main>
-<div class="container-fluid px-4">
-  <h1 class="mt-4"><?php echo ("$page_title - $id_from_url") ?></h1>
-  <div class="card mb-4">
+  <div class="container-fluid px-4">
+    <h1 class="mt-4"><?php echo ("$page_title - $id_from_url") ?></h1>
+    <div class="card mb-4">
       <div class="card-body">
         En este formulario podrá editar los datos de los Ingreso de comunidad del sistema.
       </div>
@@ -35,7 +35,7 @@ $datos = []
             <label for="nombres">ID Kermesse:</label>
           </div>
           <div class="form-floating mb-3">
-            <input class="form-control" id="user" name="user" type="text"  readonly required />
+            <input class="form-control" id="user" name="user" type="text" readonly required />
             <input class="form-control" id="userHidden" name="userHidden" type="hidden" />
             <label for="nombres">ID Comunidad:</label>
           </div>
@@ -45,23 +45,25 @@ $datos = []
             <label for="nombres">ID Producto:</label>
           </div>
           <div class="form-floating mb-3">
-            <input class="form-control" id="apellidos" name="apellidos" type="text" title="Ingrese la cantidad de productos" required />
+            <input class="form-control"title="Ingrese la cantidad de productos" required />
             <label for="apellidos">Cantidad de productos:</label>
           </div>
           <div class="form-floating mb-3">
-            <input class="form-control" id="pwd" name="pwd" type="password" title="Ingrese el total de bonos" required />
+            <input class="form-control" title="Ingrese el total de bonos" required />
             <label for="pwd">Total Bonos:</label>
           </div>
           <div class="form-floating mb-3">
-            <input class="form-control" id="pwd" name="pwd" type="password" title="Ingrese el estado" required />
+            <input class="form-control" title="Ingrese el estado" required />
             <label for="pwd">Estado:</label>
           </div>
           <div class="form-floating mb-3">
-            <input class="form-control" id="pwd" name="pwd" type="password" title="Ingrese el ususario" required />
+            <input class="form-control" title="Ingrese el ususario" required />
             <label for="pwd">Usuario:</label>
           </div>
           <div class="form-floating mb-3">
-            <input class="form-control" id="pwd" name="pwd" type="password" title="Ingrese la fecha de creación" required />
+            <!--<input class="form-control" id="pwd" name="pwd" type="password" title="Ingrese la fecha de creacion" required />
+            <label for="pwd">Fecha de creacion:</label>-->
+            <input class="form-control" type=datetime-local step="1" title="Ingrese la fecha de creacion" required/>
             <label for="pwd">Fecha de creacion:</label>
           </div>
           <div class="d-flex align-items-end justify-content-end mt-4 mb-0 gap-3">
@@ -71,7 +73,6 @@ $datos = []
         </form>
       </div>
     </div>
-
-</div>
+  </div>
 </main>
 <?php include('./partials/_footer.php') ?>
