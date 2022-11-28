@@ -8,6 +8,7 @@ $usuario = new Usuario();
 
 if ($_POST) {
   $editar = $_POST['id_usuario'] != 0;
+  // echo $_POST;
 
   $usuario->__SET('usuario', $_POST['usuario']);
   $usuario->__SET('pwd', $_POST['pwd']);
@@ -18,10 +19,11 @@ if ($_POST) {
 
   if ($editar) {
     $usuario->__SET('id_usuario', $_POST['id_usuario']);
-    echo ('caca');
+    $dt_usuario->update($usuario);
+    header("Location: /kermesse-project/usuarios/");
   } else {
     $dt_usuario->insert($usuario);
+    header("Location: /kermesse-project/usuarios");
   }
-  header("Location: /kermesse-project/usuarios");
 
 }

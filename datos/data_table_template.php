@@ -98,4 +98,28 @@ class DataTableTemplate {
       die($e->getMessage());
     }
   }
+
+  public function update($entity) {
+
+    $db_fields = $this->db_fields;
+    array_shift($db_fields);
+    $et_fields = $this->et_fields;
+    array_shift($et_fields);
+
+    $map = function($db_field, $et_field) use ($entity){
+      return "$db_field = '". $entity->__GET($et_field) . "'";
+    };
+
+    $update = implode(",", array_map($map, $db_fields, $et_fields));
+
+    $condition = $this->primary_key . " = '" . $entity->__GET($this->et_fields[0]) . "';";
+
+    $query = "UPDATE $this->table_name SET $update WHERE $condition";
+    echo $query;
+    try {
+      $this->conn->query($query);
+    } catch (Exception $e) {
+      die($e->getMessage());
+    }
+  }
 }
