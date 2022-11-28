@@ -77,4 +77,25 @@ class DataTableTemplate {
       return NULL;
     }
   }
+
+  public function insert($entity) {
+
+    $get_values = function($field) use($entity){
+      $value = $entity->__GET($field);
+      return "'$value'";
+    };
+    $db_fields = $this->db_fields;
+    array_shift($db_fields);
+    $et_fields = $this->et_fields;
+    array_shift($et_fields);
+
+    $fields = implode(",", $db_fields);
+    $values = implode(",", array_map($get_values, $et_fields));
+    $query = "INSERT INTO $this->table_name ($fields) VALUES ($values)";
+    try {
+      $this->conn->query($query);
+    } catch (Exception $e) {
+      die($e->getMessage());
+    }
+  }
 }
