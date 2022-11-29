@@ -14,6 +14,9 @@ function insert($dt_parroquia) {
   }
 
   $dt_parroquia->insert($parroquia);
+
+  $alert_msj = new AlertMsj("La parroquia fue añadida con éxito", MSJ_SUCCESS);
+  $_SESSION["alert_msj"] = $alert_msj;
 }
 
 function update($dt_parroquia) {
@@ -23,11 +26,16 @@ function update($dt_parroquia) {
     $parroquia->__SET($key, $_POST[$key]);
   }
 
+  $alert_msj = new AlertMsj("La parroquia fue modificada con éxito", MSJ_PRIMARY);
+  $_SESSION["alert_msj"] = $alert_msj;
   $dt_parroquia->update($parroquia);
 }
 function remove($dt_parroquia) {
   $parroquia = $dt_parroquia->find_by_id($_POST['id']);
   $dt_parroquia->delete($parroquia);
+
+  $alert_msj = new AlertMsj("La parroquia fue eliminada", MSJ_DANGER);
+  $_SESSION["alert_msj"] = $alert_msj;
 }
 
 if ($_POST) {
