@@ -24,32 +24,29 @@ $datos = []
       <div class="card-body">
         <form method="POST" action="./negocio/NgUsuario.php">
           <input type="hidden" value="2" name="txtaccion" id="txtaccion" />
-          <div class="form-floating mb-3">
-            <input class="form-control" id="id_user" name="id_user" type="text" readonly required />
-            <input class="form-control" id="idU" name="idU" type="hidden" />
-            <label for="nombres">ID:</label>
+          <div class="mb-3">
+            <label>ID:</label>
+            <input class="form-control" type="text" name="id_denominacion" readonly required />
           </div>
-          <div class="form-floating mb-3">
-            <input class="form-control" id="id_user" name="id_user" type="text" readonly required />
-            <input class="form-control" id="idU" name="idU" type="hidden" />
-            <label for="nombres">ID moneda:</label>
+          <div class="mb-3">
+            <label>ID Moneda:</label>
+            <input class="form-control" type="text" name="id_moneda" readonly required />
           </div>
-          <div class="form-floating mb-3">
-            <input class="form-control" title="Ingrese el nombre de la denominación" required />
-            <label for="apellidos">Valor:</label>
+          <div class="mb-3">
+            <label>Valor:</label>
+            <input class="form-control" type="Text" name="valor" required />
           </div>
-          <div class="form-floating mb-3">
-            <input class="form-control" title="Ingrese el valor de la denominación" required />
-            <label for="pwd">Valor letras:</label>
+          <div class="mb-3">
+            <label>Valor letras:</label>
+            <input class="form-control" type="Text" name="valor_letras" required />
           </div>
-          <div class="form-floating mb-3">
-            <input class="form-control" title="Ingrese el estado de la denominación " required />
-            <label for="pwd">Estado:</label>
-          </div>  
-            <div class="d-flex align-items-end justify-content-end mt-4 mb-0 gap-3">
-              <input class="btn btn-primary" type="submit" value="Guardar" />
-              <input class="btn btn-danger" type="reset" value="Cancelar" />
-            </div>
+          
+          <input class="form-check-input" id="estado" type="hidden" value="1" name="estado">
+
+          <div class="mt-4 d-flex gap-3">
+            <button class="btn btn-primary" type="submit">Aceptar</button>
+            <button class="btn btn-secondary" type="button">Cancelar</button>
+          </div>
         </form>
       </div>
     </div>
