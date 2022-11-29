@@ -8,6 +8,10 @@ $campo_id = 'id_arqueo_caja_det';
 $campos = ['id_arqueo_caja_det', 'moneda', 'denominacion', 'cantidad', 'subtotal'];
 $tabla = "arqueo_caja_det";
 
+if($mostrar) {
+  array_pop($encabezados);
+}
+
 $dt_arqueo_caja_det = new DtArqueoCajaDet();
 $dt_moneda = new DtMoneda();
 $dt_denominacion = new DtDenominacion();

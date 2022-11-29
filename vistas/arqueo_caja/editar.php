@@ -29,7 +29,10 @@ $kermesses = $dt_kermesse->get_data();
             <label>Kermesse</label>
             <select class="form-control" name="id_kermesse">
               <?php foreach ($kermesses as $kermesse) : ?>
-                <option value="<?php echo $kermesse->__GET('id_kermesse') ?>">
+                <option 
+                <?php echo $kermesse->__GET('id_kermesse') == $arqueo->__GET('id_kermesse') ? "selected" : "disabled" ?>
+                value="<?php echo $kermesse->__GET('id_kermesse') ?>"
+                >
                   <?php echo ($kermesse->__GET('nombre')) ?>
                 </option>
               <?php endforeach; ?>
