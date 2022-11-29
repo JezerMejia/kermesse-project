@@ -74,6 +74,9 @@ if(!$has_access) {
     case preg_match('/^\/arqueo_caja\/editar\/\d*$/', $url):
       require __DIR__ . '/vistas/arqueo_caja/editar.php';
       break;
+    case preg_match('/^\/arqueo_caja\/eliminar\/\d*$/', $url):
+      require __DIR__ . '/vistas/arqueo_caja/eliminar.php';
+      break;
     case preg_match('/^\/arqueo_caja\/agregar$/', $url):
       require __DIR__ . '/vistas/arqueo_caja/agregar.php';
       break;
