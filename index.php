@@ -112,6 +112,9 @@ if(!$has_access) {
     case preg_match('/^\/categoria_productos\/editar\/\d*$/', $url):
       require __DIR__ . '/vistas/categoria_productos/editar.php';
       break;
+    case preg_match('/^\/categoria_productos\/eliminar\/\d*$/', $url):
+      require __DIR__ . '/vistas/categoria_productos/eliminar.php';
+      break;
     case preg_match('/^\/categoria_productos\/agregar$/', $url):
       require __DIR__ . '/vistas/categoria_productos/agregar.php';
       break;
