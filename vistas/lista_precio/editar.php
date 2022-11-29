@@ -13,6 +13,7 @@ $id_kermesses = $lista_precio->__GET("id_kermesse");
 $kermesses = $dt_kermesse->get_data();
 
 $page_title = 'Editar Listra precio';
+$mostrar = false;
 ?>
 
 <?php include('./partials/_nav.php') ?>
@@ -75,6 +76,8 @@ $page_title = 'Editar Listra precio';
         </form>
       </div>
     </div>
+    <h2>Detalles</h2>
+    <?php include_once 'vistas/lista_precio_det/mostrar.php' ?>
   </div>
 </main>
 <?php include('./partials/_footer.php') ?>
