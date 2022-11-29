@@ -1,5 +1,4 @@
 <?php
-include('entidades/comunidad.php');
 include('datos/dt_comunidad.php');
 $page_title = 'Comunidad';
 $encabezados = ['ID', 'Nombre', 'Responsable', 'Contribución', 'Estado', 'Opciones'];
@@ -8,6 +7,7 @@ $campos = ['id_comunidad', 'nombre', 'responsable','desc_contribucion','estado']
 
 $dt_comunidad = new DtComunidad();
 $datos = $dt_comunidad->get_data()
+
 ?>
 
 <?php include('./partials/_nav.php') ?>

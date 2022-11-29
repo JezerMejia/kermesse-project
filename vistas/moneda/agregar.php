@@ -2,7 +2,7 @@
 include('datos/dt_moneda.php');
 $page_title = 'Agregar Moneda';
 $dt_moneda = new DtMoneda();
-$monedas = $dt_moneda->get_data();
+$moneda = $dt_moneda->get_data();
 ?>
 
 <?php include('./partials/_nav.php') ?>
@@ -44,3 +44,5 @@ $monedas = $dt_moneda->get_data();
     </div>
   </div>
 </main>
+
+<?php include('./partials/_footer.php') ?>

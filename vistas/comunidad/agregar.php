@@ -1,6 +1,8 @@
 <?php
 include('datos/dt_comunidad.php');
 $page_title = 'Agregar Comunidad';
+$dt_comunidad = new DtComunidad();
+$comunidad = $dt_comunidad->get_data();
 ?>
 
 <?php include('./partials/_nav.php') ?>
