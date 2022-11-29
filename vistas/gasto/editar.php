@@ -17,6 +17,7 @@ $kermesses = $dt_kermesse->get_data();
 $categorias = $dt_cat_gasto->get_data();
 
 $page_title = 'Editar Gasto';
+$current_date = new DateTime()->format('Y-m-d H:i:s');
 ?>
 
 <?php include('./partials/_nav.php') ?>
@@ -26,6 +27,11 @@ $page_title = 'Editar Gasto';
     <div class="card mb-4 w-100 p-2">
       <div class="card-body">
       <form action="<?php echo $base_url?>/negocio/ng_gasto.php" method="POST">
+          <input type="hidden" name="usuario_modificacion"
+          value="<?php echo $logged_user->__GET('id_usuario'); ?>">
+          <input type="hidden" name="fecha_modificacion"
+          value="<?php echo $current_date; ?>">
+
           <div class="mb-3">
             <label>ID</label>
             <input class="form-control" readonly type="number" name="id_gasto"

@@ -1,10 +1,8 @@
 <?php
-include('entidades/lista_precio.php');
-$page_title = 'Agregar Lista Precio';
-$encabezados = [];
-$campo_id = 'id_lista_precio';
-$campos = ['id_lista_precio'];
-$datos = []
+include('datos/dt_kermesse.php');
+$page_title = 'Agregar lista precio';
+$dt_kermesse = new DtKermesse();
+$kermesses = $dt_kermesse->get_data();
 ?>
 
 <?php include('./partials/_nav.php') ?>
@@ -21,9 +19,20 @@ $datos = []
         <i class="fas fa-table me-1"></i>
         Agregar lista precio
       </div>
+
       <div class="card-body">
-        <form method="POST" action="./negocio/NgUsuario.php">
-          <input type="hidden" value="2" name="txtaccion" id="txtaccion" />
+        <form action="<?php echo $base_url ?>/negocio/ng_lista_precio.php" method="POST">
+          <div class="mb-3">
+            <label>Kermesse</label>
+            <select class="form-control" name="id_kermesse">
+              <?php foreach ($kermesses as $kermesse) : ?>
+                <option value="<?php echo $kermesse->__GET('id_kermesse') ?>">
+                  <?php echo ($kermesse->__GET('nombre')) ?>
+                </option>
+              <?php endforeach; ?>
+            </select>
+          </div>
+
           <div class="mb-3">
             <label for="apellidos">Nombre:</label>
             <input class="form-control" type="Text" name="nombre" required />
