@@ -50,6 +50,9 @@ if(!$has_access) {
     case preg_match('/^\/rol_usuario\/editar\/\d*$/', $url):
       require __DIR__ . '/vistas/rol_usuario/editar.php';
       break;
+    case preg_match('/^\/rol_usuario\/eliminar\/\d*$/', $url):
+      require __DIR__ . '/vistas/rol_usuario/eliminar.php';
+      break;
     case preg_match('/^\/rol_usuario\/agregar$/', $url):
       require __DIR__ . '/vistas/rol_usuario/agregar.php';
       break;
