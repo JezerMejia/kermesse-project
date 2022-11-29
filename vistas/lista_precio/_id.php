@@ -1,10 +1,18 @@
 <?php
 include('entidades/lista_precio.php');
-$page_title = 'Lista Precio';
-$encabezados = [];
-$campo_id = 'id_lista_precio';
-$campos = ['id_lista_precio'];
-$datos = []
+include('datos/dt_lista_precio.php');
+include('datos/dt_kermesse.php');
+
+$dt_lista_precio = new DtListaPrecio();
+$dt_kermesse = new DtKermesse();
+
+
+$lista_precio = $dt_lista_precio->find_by_id($id_from_url);
+$id_kermesse = $lista_precio->__GET("id_kermesse");
+
+$kermesses = $dt_kermesse->get_data();
+
+$page_title = 'Editar Listra precio';
 ?>
 
 <?php include('./partials/_nav.php') ?>
@@ -23,22 +31,36 @@ $datos = []
         <form>
           <div class="mb-3">
             <label for="exampleFormControlInput1">ID</label>
-            <input class="form-control form-control-solid" id="exampleFormControlInput1" type="id" placeholder="ID" disabled />
+            <input class="form-control form-control-solid" id="exampleFormControlInput1" type="id" placeholder="ID"
+            value="<?php echo $lista_precio->__GET('id_lista_precio') ?>" disabled />
           </div>
 
           <div class="mb-3">
-            <label for="exampleFormControlInput1">ID Kermesse</label>
-            <input class="form-control form-control-solid" id="exampleFormControlInput1" type="id_kermesse" placeholder="ID Kermesse" disabled />
+          <label>Kermesse</label>
+            <select class="form-control" name="id_kermesse">
+              <?php foreach ($kermesses as $kermesse) : ?>
+                <?php
+                  $ker_id = $kermesse->__GET('id_kermesse');
+                  $ker_name = $kermesse->__GET('nombre');
+                ?>
+                <option value="<?php echo $ker_id?>"
+                  <?php echo ($id_kermesse == $ker_id) ? "selected" : ""?>>
+                  <?php echo ($ker_name) ?>
+                </option>
+              <?php endforeach; ?>
+            </select>
           </div>
 
           <div class="mb-3">
             <label for="exampleFormControlInput1">Nombre</label>
-            <input class="form-control form-control-solid" id="exampleFormControlInput1" type="nombre" placeholder="Nombre" disabled />
+            <input class="form-control form-control-solid" id="exampleFormControlInput1" type="nombre" placeholder="Nombre"
+            value="<?php echo $lista_precio->__GET('nombre') ?>" disabled />
           </div>
 
           <div class="mb-3">
             <label for="exampleFormControlInput1">Descripcion</label>
-            <input class="form-control form-control-solid" id="exampleFormControlInput1" type="descripcion" placeholder="Descripcion" disabled />
+            <input class="form-control form-control-solid" id="exampleFormControlInput1" type="descripcion" placeholder="Descripcion"
+            value="<?php echo $lista_precio->__GET('descripccion') ?>" disabled />
           </div>
 
           <div class="mb-3">
