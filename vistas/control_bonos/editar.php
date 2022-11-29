@@ -1,7 +1,6 @@
 <?php
 include('entidades/control_bonos.php');
 include('datos/dt_control_bonos.php');
-
 $dt_control_bonos = new DtControlBonos();
 $control_bonos = $dt_control_bonos->find_by_id($id_from_url);
 
