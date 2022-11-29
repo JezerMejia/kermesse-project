@@ -20,7 +20,7 @@ class DataTableTemplate {
   }
 
   protected function fetch_all() {
-    $query = "SELECT * FROM " . $this->table_name . ";";
+    $query = "SELECT * FROM $this->table_name WHERE estado != 3;";
 
     try {
       $result = $this->conn->query($query);
@@ -165,7 +165,7 @@ class DataTableTemplate {
       throw new Exception("DELETE: Could not find entity of table '$this->table_name'");
     }
 
-    $query = "DELETE FROM $this->table_name WHERE $this->primary_key=$id;";
+    $query = "UPDATE $this->table_name SET estado=3 WHERE $this->primary_key=$id";
     try {
       $this->conn->query($query);
     } catch (Exception $e) {

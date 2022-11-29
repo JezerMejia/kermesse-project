@@ -1,7 +1,12 @@
 <?php
 
+$now = new DateTime();
+$current_date = $now->format("Y-m-d H:i:s");
+
 $data = [
   "id" => $id_from_url,
+  "usuario_eliminacion" => $logged_user->__GET("id_usuario"),
+  "fecha_eliminacion" => $current_date,
   "delete" => true,
 ];
 $sesname = session_name();
