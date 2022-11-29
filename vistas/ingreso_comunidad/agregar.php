@@ -9,6 +9,9 @@ $dt_producto = new DtProducto();
 $kermesses = $dt_kermesse->get_data();
 $comunidades = $dt_comunidad->get_data();
 $productos = $dt_producto->get_data();
+
+$now = new DateTime();
+$current_date = $now->format('Y-m-d H:i:s');
 ?>
 
 <?php include('./partials/_nav.php') ?>
@@ -26,8 +29,9 @@ $productos = $dt_producto->get_data();
         Agregar ingreso comunidad
       </div>
       <div class="card-body">
-        <form action="<?php echo $base_url?>/negocio/ng_ingreso_comunidad.php" method="POST">
-          <input type="hidden" value="2" name="txtaccion" id="txtaccion" />
+        <form action="<?php echo $base_url ?>/negocio/ng_ingreso_comunidad.php" method="POST">
+          <input type="hidden" name="usuario_creacion" value="<?php echo $logged_user->__GET('id_usuario'); ?>">
+          <input type="hidden" name="fecha_creacion" value="<?php echo $current_date; ?>">
 
           <div class="mb-3">
             <label>Kermesse</label>
@@ -72,6 +76,7 @@ $productos = $dt_producto->get_data();
           </div>
 
           <input class="form-check-input" id="estado" type="hidden" value="1" name="estado">
+
           <div class="mt-4 d-flex gap-3">
             <button class="btn btn-primary" type="submit">Aceptar</button>
             <button class="btn btn-secondary" type="button">Cancelar</button>
