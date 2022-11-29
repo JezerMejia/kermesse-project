@@ -26,13 +26,11 @@ function remove($dt_tasa_cambio) {
   $id_tasa_cambio = $_POST['id'];
   $dt_tasa_cambio->delete_by_id($id_tasa_cambio);
 }
-
 if ($_POST) {
   $dt_tasa_cambio = new DtTasaCambio();
 
   $editar = array_key_exists('id_tasa_cambio', $_POST) || !empty($_POST['id_tasa_cambio']);
   $delete = array_key_exists('delete', $_POST);
-
   if ($delete) {
     remove($dt_tasa_cambio);
     header("Location: /kermesse-project/tasa_cambio");
