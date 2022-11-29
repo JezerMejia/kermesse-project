@@ -144,6 +144,9 @@ switch (true) {
   case preg_match('/^\/gasto\/editar\/\d*$/', $url):
     require __DIR__ . '/vistas/gasto/editar.php';
     break;
+  case preg_match('/^\/gasto\/eliminar\/\d*$/', $url):
+    require __DIR__ . '/vistas/gasto/eliminar.php';
+    break;
   case preg_match('/^\/gasto\/agregar$/', $url):
     require __DIR__ . '/vistas/gasto/agregar.php';
     break;
