@@ -12,53 +12,46 @@ $datos = []
   <div class="container-fluid px-4">
     <h1 class="mt-4"><?php echo ("$page_title") ?></h1>
 
-    <div class="card mb-4 w-100 p-1">
-    <div class="card-body">
-        En este formulario se agregaran datos a denomonaciones.
+    <div class="card mb-4">
+      <div class="card-body">
+        En este formulario se agregaran a las denominacion.
+      </div>
     </div>
 
     <div class="card mb-4">
+      <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        Agregar la denominación
+      </div>
       <div class="card-body">
-      <!---->
-      <form>
-      <div class="mb-3">
-        <label for="exampleFormControlInput1">ID</label>
-        <input class="form-control form-control-solid" id="exampleFormControlInput1"
-          type="id" placeholder="ID" disabled />
-      </div>
+        <form method="POST" action="./negocio/NgUsuario.php">
+          <input type="hidden" value="2" name="txtaccion" id="txtaccion" />
+          <div class="mb-3">
+            <label>ID:</label>
+            <input class="form-control" type="text" name="id_denominacion" readonly required />
+          </div>
+          <div class="mb-3">
+            <label>ID Moneda:</label>
+            <input class="form-control" type="text" name="id_moneda" readonly required />
+          </div>
+          <div class="mb-3">
+            <label>Valor:</label>
+            <input class="form-control" type="Text" name="valor" required />
+          </div>
+          <div class="mb-3">
+            <label>Valor letras:</label>
+            <input class="form-control" type="text" name="valor_letras" required />
+          </div>
+          
+          <input class="form-check-input" id="estado" type="hidden" value="1" name="estado">
 
-      <div class="mb-3">
-        <label for="exampleFormControlInput1">ID Moneda</label>
-        <input class="form-control form-control-solid" id="exampleFormControlInput1"
-          type="id" placeholder="ID Moneda" disabled />
-      </div>
-
-      <div class="mb-3">
-        <label for="exampleFormControlInput1">Valor</label>
-        <input class="form-control form-control-solid" id="exampleFormControlInput1"
-          type="valor" placeholder="Valor" />
-      </div>
-
-      <div class="mb-3">
-        <label for="exampleFormControlInput1">Valor Letras</label>
-        <input class="form-control form-control-solid" id="exampleFormControlInput1"
-          type="valor" placeholder="Valor Letras" />
-      </div>
-
-      <div class="mb-3">
-        <label for="exampleFormControlInput1">Estado</label>
-        <input class="form-control form-control-solid" id="exampleFormControlInput1"
-          type="estado" placeholder="Estado"/>
-      </div>
-
-      <button class="btn btn-primary" type="button">Agregar</button>
-
-    </form>
-      <!---->
+          <div class="mt-4 d-flex gap-3">
+            <button class="btn btn-primary" type="submit">Aceptar</button>
+            <button class="btn btn-secondary" type="button">Cancelar</button>
+          </div>
+        </form>
       </div>
     </div>
-  </div>
-
   </div>
 </main>
 <?php include('./partials/_footer.php') ?>
