@@ -1,10 +1,16 @@
 <?php
 include('entidades/denominacion.php');
-$page_title = 'Editar Denominacion';
-$encabezados = [];
-$campo_id = 'id_denominacion';
-$campos = ['id_denominacion'];
-$datos = []
+include('datos/dt_denominacion.php');
+include('datos/dt_moneda.php');
+
+$dt_denominacion = new DtDenominacion();
+$dt_moneda = new DtMoneda();
+
+$denominacion = $dt_denominacion->find_by_id($id_from_url);
+$id_moneda = $denominacion->__GET("id_moneda");
+
+$moneda = $dt_moneda->get_data();
+$page_title = 'Editar denominacion';
 ?>
 
 <?php include('./partials/_nav.php') ?>
@@ -26,19 +32,33 @@ $datos = []
           <input type="hidden" value="2" name="txtaccion" id="txtaccion" />
           <div class="mb-3">
             <label>ID:</label>
-            <input class="form-control" type="text" name="id_denominacion" readonly required />
+            <input class="form-control" type="text" name="id_denominacion"
+            value="<?php echo $denominacion->__GET('id_denominacion') ?>" readonly required />
           </div>
           <div class="mb-3">
-            <label>ID Moneda:</label>
-            <input class="form-control" type="text" name="id_moneda" readonly required />
+            <label>Moneda:</label>
+            <select class="form-control" name="id_moneda">
+              <?php foreach ($moneda as $moneda) : ?>
+                <?php
+                  $mon_id = $moneda->__GET('id_moneda');
+                  $mon_name = $moneda->__GET('nombre');
+                ?>
+                <option value="<?php echo $mon_id?>"
+                  <?php echo ($id_moneda == $mon_id) ? "selected" : ""?>>
+                  <?php echo ($mon_name) ?>
+                </option>
+              <?php endforeach; ?>
+            </select>
           </div>
           <div class="mb-3">
             <label>Valor:</label>
-            <input class="form-control" type="Text" name="valor" required />
+            <input class="form-control" type="Text" name="valor"
+            value="<?php echo $denominacion->__GET('valor') ?>" required />
           </div>
           <div class="mb-3">
             <label>Valor letras:</label>
-            <input class="form-control" type="Text" name="valor_letras" required />
+            <input class="form-control" type="Text" name="valor_letras"
+            value="<?php echo $denominacion->__GET('valor_letras') ?>" required />
           </div>
           
           <input class="form-check-input" id="estado" type="hidden" value="1" name="estado">
