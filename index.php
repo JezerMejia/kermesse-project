@@ -6,7 +6,6 @@ if (isset($_SESSION['usuario'])) {
   $logged_user = $_SESSION['usuario'];
 }
 
-
 $base_url = '/' . basename(__DIR__);
 $req_url = $_SERVER['REQUEST_URI'];
 $url = rtrim(str_replace($base_url, '', $req_url), '/');
@@ -29,6 +28,9 @@ if(!$has_access) {
     case preg_match('/^\/login\/?$/', $url):
       require __DIR__ . '/vistas/login.php';
       break;
+    case preg_match('/^\/logout\/?$/', $url):
+      require __DIR__ . '/vistas/logout.php';
+      break;
     case preg_match('/^\/rol_opcion\/?$/', $url):
       require __DIR__ . '/vistas/rol_opcion/mostrar.php';
       break;
@@ -49,6 +51,9 @@ if(!$has_access) {
       break;
     case preg_match('/^\/rol_usuario\/editar\/\d*$/', $url):
       require __DIR__ . '/vistas/rol_usuario/editar.php';
+      break;
+    case preg_match('/^\/rol_usuario\/eliminar\/\d*$/', $url):
+      require __DIR__ . '/vistas/rol_usuario/eliminar.php';
       break;
     case preg_match('/^\/rol_usuario\/agregar$/', $url):
       require __DIR__ . '/vistas/rol_usuario/agregar.php';
@@ -107,6 +112,9 @@ if(!$has_access) {
     case preg_match('/^\/categoria_gastos\/editar\/\d*$/', $url):
       require __DIR__ . '/vistas/categoria_gastos/editar.php';
       break;
+    case preg_match('/^\/categoria_gastos\/eliminar\/\d*$/', $url):
+      require __DIR__ . '/vistas/categoria_gastos/eliminar.php';
+      break;
     case preg_match('/^\/categoria_gastos\/agregar$/', $url):
       require __DIR__ . '/vistas/categoria_gastos/agregar.php';
       break;
@@ -118,6 +126,9 @@ if(!$has_access) {
       break;
     case preg_match('/^\/categoria_productos\/editar\/\d*$/', $url):
       require __DIR__ . '/vistas/categoria_productos/editar.php';
+      break;
+    case preg_match('/^\/categoria_productos\/eliminar\/\d*$/', $url):
+      require __DIR__ . '/vistas/categoria_productos/eliminar.php';
       break;
     case preg_match('/^\/categoria_productos\/agregar$/', $url):
       require __DIR__ . '/vistas/categoria_productos/agregar.php';
@@ -289,6 +300,9 @@ if(!$has_access) {
       break;
     case preg_match('/^\/rol\/editar\/\d*$/', $url):
       require __DIR__ . '/vistas/rol/editar.php';
+      break;
+    case preg_match('/^\/rol\/eliminar\/\d*$/', $url):
+      require __DIR__ . '/vistas/rol/eliminar.php';
       break;
     case preg_match('/^\/rol\/agregar$/', $url):
       require __DIR__ . '/vistas/rol/agregar.php';
