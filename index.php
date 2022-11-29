@@ -6,7 +6,6 @@ if (isset($_SESSION['usuario'])) {
   $logged_user = $_SESSION['usuario'];
 }
 
-
 $base_url = '/' . basename(__DIR__);
 $req_url = $_SERVER['REQUEST_URI'];
 $url = rtrim(str_replace($base_url, '', $req_url), '/');
@@ -28,6 +27,9 @@ if(!$has_access) {
       break;
     case preg_match('/^\/login\/?$/', $url):
       require __DIR__ . '/vistas/login.php';
+      break;
+    case preg_match('/^\/logout\/?$/', $url):
+      require __DIR__ . '/vistas/logout.php';
       break;
     case preg_match('/^\/rol_opcion\/?$/', $url):
       require __DIR__ . '/vistas/rol_opcion/mostrar.php';

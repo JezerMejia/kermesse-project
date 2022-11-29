@@ -1,5 +1,12 @@
 <?php
 
+if (session_status() != PHP_SESSION_ACTIVE) {
+  session_start();
+  if (isset($_SESSION['usuario'])) {
+    $logged_user = $_SESSION['usuario'];
+  }
+}
+
 $kermesse_nav = [
   "Parroquia" => "parroquia",
   "Kermesse" => "kermesse",
@@ -88,18 +95,22 @@ $navigations = [
         <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
       </div>
     </form>
-    <!-- Navbar-->
+    <!-- Navbar account-->
     <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="<?php echo $base_url?>/#" role="button" data-bs-toggle="dropdown"
           aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+<?php if (isset($logged_user) && $logged_user != null): ?>
           <li><a class="dropdown-item" href="<?php echo $base_url?>/#!">Settings</a></li>
           <li><a class="dropdown-item" href="<?php echo $base_url?>/#!">Activity Log</a></li>
           <li>
             <hr class="dropdown-divider" />
           </li>
-          <li><a class="dropdown-item" href="<?php echo $base_url?>/#!">Logout</a></li>
+          <li><a class="dropdown-item" href="<?php echo $base_url?>/logout">Logout</a></li>
+<?php else: ?>
+          <li><a class="dropdown-item" href="<?php echo $base_url?>/login">Login</a></li>
+<?php endif; ?>
         </ul>
       </li>
     </ul>
@@ -140,8 +151,12 @@ $navigations = [
           </div>
         </div>
         <div class="sb-sidenav-footer">
+<?php if (isset($logged_user) && $logged_user != null): ?>
           <div class="small">Logged in as:</div>
-          Start Bootstrap
+          <?php echo $logged_user->get_full_name(); ?>
+<?php else: ?>
+          <div class="small">Not logged in</div>
+<?php endif; ?>
         </div>
       </nav>
     </div>
