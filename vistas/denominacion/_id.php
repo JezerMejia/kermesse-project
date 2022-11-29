@@ -1,10 +1,16 @@
 <?php
 include('entidades/denominacion.php');
-$page_title = 'Denominacion';
-$encabezados = [];
-$campo_id = 'id_denominacion';
-$campos = ['id_denominacion'];
-$datos = []
+include('datos/dt_denominacion.php');
+include('datos/dt_moneda.php');
+
+$dt_denominacion = new DtDenominacion();
+$dt_moneda = new DtMoneda();
+
+$denominacion = $dt_denominacion->find_by_id($id_from_url);
+$id_moneda = $denominacion->__GET("id_moneda");
+
+$moneda = $dt_moneda->get_data();
+$page_title = 'Editar denominacion';
 ?>
 
 <?php include('./partials/_nav.php') ?>
@@ -22,22 +28,36 @@ $datos = []
         <form>
           <div class="mb-3">
             <label for="exampleFormControlInput1">ID</label>
-            <input class="form-control form-control-solid" id="exampleFormControlInput1" type="id" placeholder="ID" disabled />
+            <input class="form-control form-control-solid" id="exampleFormControlInput1" type="id" placeholder="ID"
+            value="<?php echo $denominacion->__GET('valor') ?>" disabled />
           </div>
 
           <div class="mb-3">
-            <label for="exampleFormControlInput1">ID Moneda</label>
-            <input class="form-control form-control-solid" id="exampleFormControlInput1" type="id" placeholder="ID Moneda" disabled />
+          <label>Moneda:</label>
+            <select class="form-control" name="id_moneda" disabled>
+              <?php foreach ($moneda as $moneda) : ?>
+                <?php
+                  $mon_id = $moneda->__GET('id_moneda');
+                  $mon_name = $moneda->__GET('nombre');
+                ?>
+                <option value="<?php echo $mon_id?>"
+                  <?php echo ($id_moneda == $mon_id) ? "selected" : ""?>>
+                  <?php echo ($mon_name) ?>
+                </option>
+              <?php endforeach; ?>
+            </select>
           </div>
 
           <div class="mb-3">
             <label for="exampleFormControlInput1">Valor</label>
-            <input class="form-control form-control-solid" id="exampleFormControlInput1" type="valor" placeholder="Valor" disabled />
+            <input class="form-control form-control-solid" id="exampleFormControlInput1" type="valor" placeholder="Valor"
+            value="<?php echo $denominacion->__GET('valor') ?>" disabled />
           </div>
 
           <div class="mb-3">
             <label for="exampleFormControlInput1">Valor Letras</label>
-            <input class="form-control form-control-solid" id="exampleFormControlInput1" type="valor" placeholder="Valor Letras" disabled />
+            <input class="form-control form-control-solid" id="exampleFormControlInput1" type="valor" placeholder="Valor Letras"
+            value="<?php echo $denominacion->__GET('valor_letras') ?>" disabled />
           </div>
 
           <div class="mb-3">
