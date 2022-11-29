@@ -287,6 +287,9 @@ if(!$has_access) {
     case preg_match('/^\/rol\/editar\/\d*$/', $url):
       require __DIR__ . '/vistas/rol/editar.php';
       break;
+    case preg_match('/^\/rol\/eliminar\/\d*$/', $url):
+      require __DIR__ . '/vistas/rol/eliminar.php';
+      break;
     case preg_match('/^\/rol\/agregar$/', $url):
       require __DIR__ . '/vistas/rol/agregar.php';
       break;
