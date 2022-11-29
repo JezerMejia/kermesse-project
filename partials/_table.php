@@ -29,7 +29,7 @@
               <a href="<?php echo ("$base_url$url/editar/" . $dato->__GET($campo_id)) ?>" target="_self" title="Editar">
                 <i class="fa-solid fa-edit"></i>
               </a>&nbsp;
-              <a href="#" target="_self" title="Eliminar">
+              <a href="<?php echo ("$base_url$url/eliminar/" . $dato->__GET($campo_id))?>" target="_self" title="Eliminar">
                 <i class="fa-solid fa-trash"></i>
               </a>
             </td>
