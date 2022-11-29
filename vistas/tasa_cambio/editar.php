@@ -77,10 +77,8 @@ $meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agost
         </form>
       </div>
     </div>
-    <h1>Detalles</h1>
-    <div class="card mb-4 w-100 p-2">
-      <?php include_once 'vistas/tasa_cambio_det/mostrar.php' ?>
-    </div>
+    <h2>Detalles</h2>
+    <?php include_once 'vistas/tasa_cambio_det/mostrar.php' ?>
   </div>
 </main>
 <?php include('./partials/_footer.php') ?>
