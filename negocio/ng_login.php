@@ -8,15 +8,17 @@ $dt_usuario = new DtUsuario();
 if ($_POST) {
   $username = $_POST["usuario"];
   $password = $_POST["pwd"];
-
-  if (!empty($usuario) && !empty($password)) {
+  
+  if (!empty($username) && !empty($password)) {
     $usuario = $dt_usuario->login($username, $password);
-    session_start();
-    $_SESSION['usuario'] = $logged_user;
-    if (!isset($_SESSION['acceso'])) {
-      header("Location: /kermesse-project/login");
-    } else {
-      header("Location: /kermesse-project");
+    if (!empty($usuario)) {
+      session_start();
+      $_SESSION['usuario'] = $usuario;
+      if (!isset($_SESSION['usuario'])) {
+        header("Location: /kermesse-project/login");
+      } else {
+        header("Location: /kermesse-project");
+      }
     }
   }
 }

@@ -17,16 +17,16 @@
                 <div class="card-body">
                   <form action="<?php echo $base_url?>/negocio/ng_login.php" method="POST">
                     <div class="form-floating mb-3">
-                      <input class="form-control" id="inputEmail" type="usuario" placeholder="Usuario" />
+                      <input class="form-control" id="inputEmail" name="usuario" placeholder="Usuario" />
                       <label for="inputEmail">Usuario</label>
                     </div>
                     <div class="form-floating mb-3">
-                      <input class="form-control" id="inputPassword" type="pwd" placeholder="Contraseña" />
+                      <input class="form-control" id="inputPassword" name="pwd" type="password" placeholder="Contraseña" />
                       <label for="inputPassword">Contraseña</label>
                     </div>
                     <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                      <a class="small opacity-0" href="password.html">Forgot Password?</a>
-                      <a class="btn btn-primary w-25" href="index.html">Login</a>
+                      <a class="small opacity-0">Forgot Password?</a>
+                      <button class="btn btn-primary w-25" type="submit">Login</a>
                     </div>
                   </form>
                 </div>
@@ -52,4 +52,3 @@
     </div>
   </div>
 </main>
-<?php include dirname(__DIR__) . '/partials/_footer.php' ?>

@@ -89,9 +89,19 @@ class DataTableTemplate {
     $et_fields = $this->et_fields;
     array_shift($et_fields);
 
-    $fields = implode(",", $db_fields);
-    $values = implode(",", array_map($get_values, $et_fields));
-    $query = "INSERT INTO $this->table_name ($fields) VALUES ($values)";
+    $fields = [];
+    $values = [];
+
+    for ($i = 0; $i < count($db_fields); $i++) {
+      if($entity->__GET($et_fields[$i])) {
+        array_push($fields, $db_fields[$i]);
+        array_push($values, $et_fields[$i]);
+      }
+    }
+
+    $fields_string = implode(",", $fields);
+    $values_string = implode(",", array_map($get_values, $values));
+    $query = "INSERT INTO $this->table_name ($fields_string) VALUES ($values_string)";
     echo $query;
     try {
       $this->conn->query($query);

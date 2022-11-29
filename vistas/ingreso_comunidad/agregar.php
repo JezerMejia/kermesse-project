@@ -9,78 +9,46 @@ $datos = []
 
 <?php include('./partials/_nav.php') ?>
 <main>
-<div class="container-fluid px-4">
-  <h1 class="mt-4"><?php echo ("$page_title") ?></h1>
-  <div class="card mb-4 w-100 p-1">
-    <div class="card-body">
-        En este formulario se agregaran datos a ingreso comunidad.
-    </div>
-
+  <div class="container-fluid px-4">
+    <h1 class="mt-4"><?php echo ("$page_title") ?></h1>
     <div class="card mb-4">
       <div class="card-body">
-      <!---->
-      <form>
-        <div class="mb-3">
-          <label for="exampleFormControlInput1">ID</label>
-          <input class="form-control form-control-solid" id="exampleFormControlInput1" 
-            type="id" placeholder="ID" disabled/>
-        </div>
+        En este formulario podrá agregar los datos de los Ingreso de comunidad del sistema.
+      </div>
+    </div>
+    <div class="card mb-4">
+      <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        Agregar ingreso comunidad
+      </div>
+      <div class="card-body">
+        <form method="POST" action="./negocio/NgUsuario.php">
+          <input type="hidden" value="2" name="txtaccion" id="txtaccion" />
+          <div class="mb-3">
+            <label>Cantidad de productos:</label>
+            <input class="form-control" type="text" name="cant_productos" required />
+          </div>
+          <div class="mb-3">
+            <label for="pwd">Total Bonos:</label>
+            <input class="form-control" type="text" name="total_bonos" required />
+          </div>
+          <div class="mb-3">
+            <label for="pwd">Usuario:</label>
+            <input class="form-control" type="text" name="usuario" required />
+          </div>
+          <div class="mb-3">
+            <label>Fecha de creacion:</label>
+            <input class="form-control" type=datetime-local step="1" title="Ingrese la fecha de creacion" required />
+          </div>
 
-        <div class="mb-3">
-          <label for="exampleFormControlInput1">ID Kermesse</label>
-          <input class="form-control form-control-solid" id="exampleFormControlInput1" 
-            type="id" placeholder="ID Kermesse" disabled/>
-        </div>
-
-        <div class="mb-3">
-          <label for="exampleFormControlInput1">ID Comunidad</label>
-          <input class="form-control form-control-solid" id="exampleFormControlInput1" 
-            type="id" placeholder="ID Comunidad" disabled/>
-        </div>
-
-        <div class="mb-3">
-          <label for="exampleFormControlInput1">ID Producto</label>
-          <input class="form-control form-control-solid" id="exampleFormControlInput1" 
-            type="id" placeholder="ID Producto" disabled/>
-        </div>
-
-        <div class="mb-3">
-          <label for="exampleFormControlInput1">Cantidad de productos</label>
-          <input class="form-control form-control-solid" id="exampleFormControlInput1" 
-          type="cant_productos" placeholder="Cantidad de productos"/>
-        </div>
-
-        <div class="mb-3">
-          <label for="exampleFormControlInput1">Total Bonos</label>
-          <input class="form-control form-control-solid" id="exampleFormControlInput1" 
-          type="total_bonos" placeholder="Total Bonos"/>
-        </div>
-
-        <div class="mb-3">
-          <label for="exampleFormControlInput1">Estado</label>
-          <input class="form-control form-control-solid" id="exampleFormControlInput1" 
-          type="estado" placeholder="Estado"/>
-        </div>
-
-        <div class="mb-3">
-          <label for="exampleFormControlInput1">Usuario</label>
-          <input class="form-control form-control-solid" id="exampleFormControlInput1" 
-          type="usuario_creacion" placeholder="Usuario"/>
-        </div>
-
-        <div class="mb-3">
-          <label for="exampleFormControlInput1">Fecha de creacion</label>
-          <input class="form-control form-control-solid" id="exampleFormControlInput1" 
-          type="fecha_creacion" placeholder="Nombre del usuario"/>
-        </div>
-
-        <button class="btn btn-primary" type="button">Agregar</button>
-
-      </form>
-      <!---->
+          <input class="form-check-input" id="estado" type="hidden" value="1" name="estado">
+          <div class="mt-4 d-flex gap-3">
+            <button class="btn btn-primary" type="submit">Aceptar</button>
+            <button class="btn btn-secondary" type="button">Cancelar</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
-</div>
 </main>
 <?php include('./partials/_footer.php') ?>
