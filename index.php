@@ -10,6 +10,7 @@ if (isset($_SESSION['usuario'])) {
 $base_url = '/' . basename(__DIR__);
 $req_url = $_SERVER['REQUEST_URI'];
 $url = rtrim(str_replace($base_url, '', $req_url), '/');
+$url = explode('?', $url)[0];
 $id_from_url = (int)filter_var($url, FILTER_SANITIZE_NUMBER_INT);
 
 include_once dirname(__DIR__) . "/kermesse-project/partials/_login.php";
