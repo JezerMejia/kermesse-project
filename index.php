@@ -16,7 +16,7 @@ $id_from_url = (int)filter_var($url, FILTER_SANITIZE_NUMBER_INT);
 include_once dirname(__DIR__) . "/kermesse-project/partials/_login.php";
 // echo "<h1>" . $url_opcion . "</h1>";
 
-if(!$has_access) {
+if (!$has_access) {
   echo "El usuario no tiene acceso a " . $url_opcion;
 } else {
   switch (true) {
@@ -158,6 +158,9 @@ if(!$has_access) {
     case preg_match('/^\/control_bonos\/agregar$/', $url):
       require __DIR__ . '/vistas/control_bonos/agregar.php';
       break;
+    case preg_match('/^\/control_bonos\/eliminar\/\d*$/', $url):
+      require __DIR__ . '/vistas/control_bonos/eliminar.php';
+      break;
     case preg_match('/^\/denominacion\/?$/', $url):
       require __DIR__ . '/vistas/denominacion/mostrar.php';
       break;
@@ -167,8 +170,14 @@ if(!$has_access) {
     case preg_match('/^\/denominacion\/editar\/\d*$/', $url):
       require __DIR__ . '/vistas/denominacion/editar.php';
       break;
+    case preg_match('/^\/denominacion\/eliminar\/\d*$/', $url):
+      require __DIR__ . '/vistas/denominacion/eliminar.php';
+      break;
     case preg_match('/^\/denominacion\/agregar$/', $url):
       require __DIR__ . '/vistas/denominacion/agregar.php';
+
+    case preg_match('/^\/denominacion\/eliminar$/', $url):
+      require __DIR__ . '/vistas/denominacion/eliminar.php.php';
       break;
     case preg_match('/^\/gasto\/?$/', $url):
       require __DIR__ . '/vistas/gasto/mostrar.php';
@@ -343,4 +352,3 @@ if(!$has_access) {
       break;
   }
 }
-
