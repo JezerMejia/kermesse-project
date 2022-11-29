@@ -77,4 +77,97 @@ class DataTableTemplate {
       return NULL;
     }
   }
+
+  public function insert($entity) {
+
+    $get_values = function($field) use($entity){
+      $value = $entity->__GET($field);
+      return "'$value'";
+    };
+    $db_fields = $this->db_fields;
+    array_shift($db_fields);
+    $et_fields = $this->et_fields;
+    array_shift($et_fields);
+
+    $fields = implode(",", $db_fields);
+    $values = implode(",", array_map($get_values, $et_fields));
+    $query = "INSERT INTO $this->table_name ($fields) VALUES ($values)";
+    echo $query;
+    try {
+      $this->conn->query($query);
+    } catch (Exception $e) {
+      die($e->getMessage());
+    }
+  }
+
+  public function update($entity) {
+    if (is_null($entity)) {
+      throw new Exception("UPDATE: Entity is null");
+    }
+    $primary_value = $entity->__GET($this->primary_key);
+    $found_entity = $this->find_by_id($primary_value);
+
+    if (is_null($found_entity)) {
+      throw new Exception("UPDATE: Could not find entity of table '$this->table_name'");
+    }
+
+    $parse_update = function(string $column, $value) use($entity) {
+      return "$column='$value'";
+    };
+    $columns = [];
+    $values = [];
+
+    $db_fields = $this->db_fields;
+    array_shift($db_fields);
+    $et_fields = $this->et_fields;
+    array_shift($et_fields);
+
+    for ($i = 0; $i < count($db_fields); $i++) {
+      $db_field = $db_fields[$i];
+      $et_field = $et_fields[$i];
+
+      if ($db_field == $this->primary_key) continue;
+
+      $old_value = $found_entity->__GET($et_field);
+      $new_value = $entity->__GET($et_field);
+
+      if ($old_value == $new_value) continue;
+
+      array_push($columns, $db_field);
+      array_push($values, $new_value);
+    }
+    if (count($columns) == 0) return;
+
+    $assignment = implode(",", array_map($parse_update, $columns, $values));
+    $query = "UPDATE $this->table_name SET $assignment WHERE $this->primary_key=$primary_value;";
+
+    try {
+      $this->conn->query($query);
+    } catch (Exception $e) {
+      die($e->getMessage());
+    }
+  }
+
+  public function delete_by_id(int $id) {
+    $found_entity = $this->find_by_id($id);
+
+    if (is_null($found_entity)) {
+      throw new Exception("DELETE: Could not find entity of table '$this->table_name'");
+    }
+
+    $query = "DELETE FROM $this->table_name WHERE $this->primary_key=$id;";
+    try {
+      $this->conn->query($query);
+    } catch (Exception $e) {
+      die($e->getMessage());
+    }
+  }
+
+  public function delete($entity) {
+    if (is_null($entity)) {
+      throw new Exception("DELETE: Entity is null");
+    }
+    $primary_value = $entity->__GET($this->primary_key);
+    $this->delete_by_id($primary_value);
+  }
 }

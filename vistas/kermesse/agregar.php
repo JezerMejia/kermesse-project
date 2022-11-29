@@ -11,45 +11,47 @@ $parroquias = $dt_parroquia->get_data();
     <h1 class="mt-4"><?php echo ("$page_title") ?></h1>
     <div class="card mb-4 w-100 p-2">
       <div class="card-body">
-        <form>
+        <form action="<?php echo $base_url?>/negocio/ng_kermesse.php" method="POST">
+
+          <input name="id_kermesse" class="form-control form-control-solid" type="hidden" placeholder="ID" value="0"/>
+
+          
           <div class="mb-3">
-            <label>ID</label>
-            <input class="form-control form-control-solid" type="number" placeholder="ID" disabled />
+            <label>Nombre</label>
+            <input class="form-control" type="text" name="nombre">
           </div>
 
           <div class="mb-3">
             <label>Parroquia</label>
-            <select class="form-control">
+            <select class="form-control" name="id_parroquia">
               <?php foreach ($parroquias as $parroquia) : ?>
-                <option><?php echo ($parroquia->__GET('nombre')) ?></option>
+                <option value="<?php echo $parroquia->__GET('id_parroquia')?>">
+                  <?php echo ($parroquia->__GET('nombre')) ?>
+                </option>
               <?php endforeach; ?>
             </select>
           </div>
 
           <div class="mb-3">
             <label>Fecha Inicio</label>
-            <input class="form-control" type="date">
+            <input class="form-control" type="date" name="fecha_inicio">
           </div>
 
           <div class="mb-3">
             <label>Fecha Fin</label>
-            <input class="form-control" type="date">
+            <input class="form-control" type="date" name="fecha_final">
           </div>
 
           <div class="mb-3">
             <label>Descripción</label>
-            <input class="form-control" type="text">
+            <input class="form-control" type="text" name="descripcion">
           </div>
 
-          <div class="mb-3">
-            <div class="form-check">
-              <label class="form-check-label" for="estado">Activo?</label>
-              <input class="form-check-input" id="estado" type="checkbox" value="">
-            </div>
-          </div>
+          <input class="form-check-input" id="estado" type="hidden" value="1" name="estado">
+
           
           <div class="mt-4 d-flex gap-3">
-            <button class="btn btn-primary" type="button">Agregar</button>
+            <button class="btn btn-primary" type="submit">Agregar</button>
             <button class="btn btn-secondary" type="button">Cancelar</button>
           </div>
             

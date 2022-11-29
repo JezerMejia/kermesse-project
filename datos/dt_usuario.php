@@ -1,7 +1,7 @@
 <?php
 
-include_once "data_table_template.php";
-include_once "entidades/usuario.php";
+include_once dirname(__DIR__) . "/datos/data_table_template.php";
+include_once dirname(__DIR__) . "/entidades/usuario.php";
 
 class DtUsuario extends DataTableTemplate {
 
@@ -13,5 +13,9 @@ class DtUsuario extends DataTableTemplate {
 
     $this->db_fields = ["id_usuario","usuario","pwd","nombres","apellidos","email","estado"];
     $this->et_fields = ["id_usuario","usuario","pwd","nombres","apellidos","email","estado"];
+  }
+
+  function login() {
+    
   }
 }
