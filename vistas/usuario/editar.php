@@ -1,6 +1,6 @@
 <?php
-include('entidades/usuario.php');
-include('datos/dt_usuario.php');
+include_once('entidades/usuario.php');
+include_once('datos/dt_usuario.php');
 $dt_usuario = new DtUsuario();
 $usuario = $dt_usuario->find_by_id($id_from_url);
 $page_title = 'Editar Usuario';

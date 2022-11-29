@@ -10,6 +10,7 @@ if (isset($_SESSION['usuario'])) {
 $base_url = '/' . basename(__DIR__);
 $req_url = $_SERVER['REQUEST_URI'];
 $url = rtrim(str_replace($base_url, '', $req_url), '/');
+$url = explode('?', $url)[0];
 $id_from_url = (int)filter_var($url, FILTER_SANITIZE_NUMBER_INT);
 
 include_once dirname(__DIR__) . "/kermesse-project/partials/_login.php";
@@ -199,6 +200,9 @@ if(!$has_access) {
     case preg_match('/^\/kermesse\/editar\/\d*$/', $url):
       require __DIR__ . '/vistas/kermesse/editar.php';
       break;
+    case preg_match('/^\/kermesse\/eliminar\/\d*$/', $url):
+      require __DIR__ . '/vistas/kermesse/eliminar.php';
+      break;
     case preg_match('/^\/kermesse\/agregar$/', $url):
       require __DIR__ . '/vistas/kermesse/agregar.php';
       break;
@@ -306,6 +310,9 @@ if(!$has_access) {
       break;
     case preg_match('/^\/usuarios\/editar\/\d*$/', $url):
       require __DIR__ . '/vistas/usuario/editar.php';
+      break;
+    case preg_match('/^\/usuarios\/eliminar\/\d*$/', $url):
+      require __DIR__ . '/vistas/usuario/eliminar.php';
       break;
     case preg_match('/^\/usuarios\/agregar$/', $url):
       require __DIR__ . '/vistas/usuario/agregar.php';
