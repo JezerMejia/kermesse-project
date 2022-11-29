@@ -2,6 +2,9 @@
 
 include_once('../entidades/denominacion.php');
 include_once('../datos/dt_denominacion.php');
+include_once('../entidades/alert_msj.php');
+
+session_start();
 
 function insert($dt_denominacion) {
   $denominacion = new denominacion();
@@ -11,6 +14,8 @@ function insert($dt_denominacion) {
   }
 
   $dt_denominacion->insert($denominacion);
+  $alert_msj = new AlertMsj("La denominacion fue añadida exitosamente", MSJ_SUCCESS);
+  $_SESSION["alert_msj"] = $alert_msj;
 }
 
 function update($dt_denominacion) {
@@ -21,10 +26,14 @@ function update($dt_denominacion) {
   }
 
   $dt_denominacion->update($denominacion);
+  $alert_msj = new AlertMsj("La denominacion fue editada exitosamente", MSJ_PRIMARY);
+  $_SESSION["alert_msj"] = $alert_msj;
 }
 function remove($dt_denominacion) {
   $id_denominacion = $_POST['id'];
   $dt_denominacion->delete_by_id($id_denominacion);
+  $alert_msj = new AlertMsj("La denominacion fue eliminada", MSJ_DANGER);
+  $_SESSION["alert_msj"] = $alert_msj;
 }
 
 if ($_POST) {
@@ -41,6 +50,6 @@ if ($_POST) {
     header("Location: /kermesse-project/denominacion/");
   } else {
     insert($dt_denominacion);
-    header("Location: /kermesse-project/denominacion");
+    header("Location: /kermesse-project/denominacion/");
   }
 }

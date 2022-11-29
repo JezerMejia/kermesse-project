@@ -1,10 +1,6 @@
 <?php
-include('entidades/control_bonos.php');
-$page_title = 'Agregar Control Bonos';
-$encabezados = [];
-$campo_id = 'id_control_bonos';
-$campos = ['id_control_bonos'];
-$datos = []
+
+$page_title = 'Agregar Control Bono';
 ?>
 
 <?php include('./partials/_nav.php') ?>
@@ -24,12 +20,7 @@ $datos = []
         Agregar el control de bonos
       </div>
       <div class="card-body">
-        <form method="POST" action="./negocio/NgUsuario.php">
-          <input type="hidden" value="2" name="txtaccion" id="txtaccion" />
-          <div class="mb-3">
-            <label>ID:</label>
-            <input class="form-control" type="text" name="id_denominacion" readonly required />
-          </div>
+        <form form action="<?php echo $base_url ?>/negocio/ng_control_bonos.php" method="POST">
           <div class="mb-3">
             <label>Nombre:</label>
             <input class="form-control" type="text" name="nombre" required />
@@ -38,6 +29,8 @@ $datos = []
             <label>Valor:</label>
             <input class="form-control" type="Text" name="valor" required />
           </div>
+
+          <input name="estado" type="hidden" value="1">
 
           <div class="mt-4 d-flex gap-3">
             <button class="btn btn-primary" type="submit">Aceptar</button>

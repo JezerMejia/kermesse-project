@@ -2,6 +2,9 @@
 
 include_once('../entidades/control_bonos.php');
 include_once('../datos/dt_control_bonos.php');
+include_once('../entidades/alert_msj.php');
+
+session_start();
 
 function insert($dt_control_bonos) {
   $control_bonos = new ControlBonos();
@@ -11,6 +14,9 @@ function insert($dt_control_bonos) {
   }
 
   $dt_control_bonos->insert($control_bonos);
+
+  $alert_msj = new AlertMsj("El control bonos fue añadido exitosamente", MSJ_SUCCESS);
+  $_SESSION["alert_msj"] = $alert_msj;
 }
 
 function update($dt_control_bonos) {
@@ -21,10 +27,16 @@ function update($dt_control_bonos) {
   }
 
   $dt_control_bonos->update($control_bonos);
+
+  $alert_msj = new AlertMsj("El control bono fue modificado con éxito", MSJ_PRIMARY);
+  $_SESSION["alert_msj"] = $alert_msj;
 }
 function remove($dt_control_bonos) {
   $id_control_bonos = $_POST['id'];
   $dt_control_bonos->delete_by_id($id_control_bonos);
+
+  $alert_msj = new AlertMsj("El control bono fue eliminado", MSJ_DANGER);
+  $_SESSION["alert_msj"] = $alert_msj;
 }
 
 if ($_POST) {
@@ -41,6 +53,6 @@ if ($_POST) {
     header("Location: /kermesse-project/control_bonos/");
   } else {
     insert($dt_control_bonos);
-    header("Location: /kermesse-project/control_bonos");
+    header("Location: /kermesse-project/control_bonos/");
   }
 }
