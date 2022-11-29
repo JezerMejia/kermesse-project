@@ -1,10 +1,25 @@
 <?php
 include('entidades/ingreso_comunidad.php');
-$page_title = 'Ingreso Comunidad';
-$encabezados = [];
-$campo_id = 'id_ingreso_comunidad';
-$campos = ['id_ingreso_comunidad'];
-$datos = []
+include('datos/dt_ingreso_comunidad.php');
+include('datos/dt_kermesse.php');
+include('datos/dt_comunidad.php');
+include('datos/dt_producto.php');
+
+$dt_ingreso_comunidad = new DtIngresoComunidad();
+$dt_kermesse = new DtKermesse();
+$dt_comunidad = new DtComunidad();
+$dt_producto = new DtProducto();
+
+$ingreso_comunidad = $dt_ingreso_comunidad->find_by_id($id_from_url);
+$id_kermesses = $ingreso_comunidad->__GET("id_kermesses");
+$id_comunidad = $ingreso_comunidad->__GET("id_comunidad");
+$id_producto = $ingreso_comunidad->__GET("id_producto");
+
+$kermesses = $dt_kermesse->get_data();
+$comunidad = $dt_comunidad->get_data();
+$producto = $dt_producto->get_data();
+
+$page_title = 'Visualizar Ingreso comunidad';
 ?>
 
 <?php include('./partials/_nav.php') ?>
@@ -23,32 +38,64 @@ $datos = []
         <form>
           <div class="mb-3">
             <label for="exampleFormControlInput1">ID</label>
-            <input class="form-control form-control-solid" id="exampleFormControlInput1" type="id" placeholder="ID" disabled />
+            <input class="form-control form-control-solid" id="exampleFormControlInput1" type="id" placeholder="ID" value="<?php echo $ingreso_comunidad->__GET('id_ingreso_comunidad') ?>" disabled />
           </div>
 
           <div class="mb-3">
-            <label for="exampleFormControlInput1">ID Kermesse</label>
-            <input class="form-control form-control-solid" id="exampleFormControlInput1" type="id" placeholder="ID Kermesse" disabled />
+            <label>Kermesse:</label>
+            <select class="form-control" name="id_kermesses" disabled>
+              <?php foreach ($kermesses as $kermesses) : ?>
+                <?php
+                $ker_id = $kermesses->__GET('id_kermesses');
+                $ker_name = $kermesses->__GET('nombre');
+                ?>
+                <option value="<?php echo $ker_id ?>" <?php echo ($id_kermesses == $ker_id) ? "selected" : "" ?>>
+                  <?php echo ($ker_name) ?>
+                </option>
+              <?php endforeach; ?>
+            </select>
           </div>
 
           <div class="mb-3">
-            <label for="exampleFormControlInput1">ID Comunidad</label>
-            <input class="form-control form-control-solid" id="exampleFormControlInput1" type="id" placeholder="ID Comunidad" disabled />
+            <label>Comunidad:</label>
+            <select class="form-control" name="id_comunidad" disabled>
+              <?php foreach ($comunidad as $comunidad) : ?>
+                <?php
+                $com_id = $comunidad->__GET('id_comunidad');
+                $com_name = $comunidad->__GET('nombre');
+                ?>
+                <option value="<?php echo $com_id ?>" <?php echo ($id_comunidad == $com_id) ? "selected" : "" ?>>
+                  <?php echo ($com_name) ?>
+                </option>
+              <?php endforeach; ?>
+            </select>
           </div>
 
           <div class="mb-3">
-            <label for="exampleFormControlInput1">ID Producto</label>
-            <input class="form-control form-control-solid" id="exampleFormControlInput1" type="id" placeholder="ID Producto" disabled />
+            <label>Producto:</label>
+            <select class="form-control" name="id_producto" disabled>
+              <?php foreach ($producto as $producto) : ?>
+                <?php
+                $pro_id = $producto->__GET('id_producto');
+                $pro_name = $producto->__GET('nombre');
+                ?>
+                <option value="<?php echo $pro_id ?>" <?php echo ($id_producto == $pro_id) ? "selected" : "" ?>>
+                  <?php echo ($pro_name) ?>
+                </option>
+              <?php endforeach; ?>
+            </select>
           </div>
 
           <div class="mb-3">
             <label for="exampleFormControlInput1">Cantidad de productos</label>
-            <input class="form-control form-control-solid" id="exampleFormControlInput1" type="cant_productos" placeholder="Cantidad de productos" disabled />
+            <input class="form-control form-control-solid" id="exampleFormControlInput1" type="cant_productos" placeholder="Cantidad de productos"
+            value="<?php echo $ingreso_comunidad->__GET('cant_productos') ?>" disabled />
           </div>
 
           <div class="mb-3">
             <label for="exampleFormControlInput1">Total Bonos</label>
-            <input class="form-control form-control-solid" id="exampleFormControlInput1" type="total_bonos" placeholder="Total Bonos" disabled />
+            <input class="form-control form-control-solid" id="exampleFormControlInput1" type="total_bonos" placeholder="Total Bonos"
+            value="<?php echo $ingreso_comunidad->__GET('total_bonos') ?>" disabled />
           </div>
 
           <div class="mb-3">
@@ -58,12 +105,38 @@ $datos = []
 
           <div class="mb-3">
             <label for="exampleFormControlInput1">Usuario</label>
-            <input class="form-control form-control-solid" id="exampleFormControlInput1" type="usuario_creacion" placeholder="Usuario" disabled />
+            <input class="form-control form-control-solid" id="exampleFormControlInput1" type="usuario_creacion" placeholder="Usuario"
+            value="<?php echo $ingreso_comunidad->__GET('usuario_creacion') ?>" disabled />
           </div>
 
           <div class="mb-3">
             <label for="exampleFormControlInput1">Fecha de creacion</label>
-            <input class="form-control form-control-solid" id="exampleFormControlInput1" type="fecha_creacion" placeholder="Nombre del usuario" disabled />
+            <input class="form-control" type=datetime-local step="1" title="Ingrese la fecha de creacion"
+            value="<?php echo $ingreso_comunidad->__GET('fecha_creacion') ?>" disabled required />
+          </div>
+
+          <div class="mb-3">
+            <label for="pwd">Usuario modificación:</label>
+            <input class="form-control" type="text" name="usuario_modificado" required
+            value="<?php echo $ingreso_comunidad->__GET('usuario_modificacion') ?>" disabled />
+          </div>
+
+          <div class="mb-3">
+            <label>Fecha modificación:</label>
+            <input class="form-control" type=datetime-local step="1" title="Ingrese la fecha de edicion"
+            value="<?php echo $ingreso_comunidad->__GET('fecha_modificacion') ?>" disabled required />
+          </div>
+
+          <div class="mb-3">
+            <label for="pwd">Usuario eliminación:</label>
+            <input class="form-control" type="text" name="usuario_eliminado" required
+            value="<?php echo $ingreso_comunidad->__GET('usuario_eliminacion') ?>" disabled/>
+          </div>
+
+          <div class="mb-3">
+            <label>Fecha eliminación:</label>
+            <input class="form-control" type=datetime-local step="1" title="Ingrese la fecha de eliminación"
+            value="<?php echo $ingreso_comunidad->__GET('fecha_eliminacion') ?>"  disabled required />
           </div>
         </form>
         <!---->
