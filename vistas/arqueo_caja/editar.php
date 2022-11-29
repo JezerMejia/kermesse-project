@@ -1,6 +1,7 @@
 <?php
-include('datos/dt_kermesse.php');
-include('datos/dt_arqueo_caja.php');
+include_once('datos/dt_arqueo_caja.php');
+include_once('datos/dt_arqueo_caja_det.php');
+include_once('datos/dt_kermesse.php');
 $page_title = 'Editar Arqueo Caja';
 $dt_kermesse = new DtKermesse();
 $dt_arqueo_caja = new DtArqueoCaja();
@@ -21,8 +22,7 @@ $kermesses = $dt_kermesse->get_data();
 
           <div class="mb-3">
             <label>ID</label>
-            <input name="id_arqueo_caja" type="text" readonly class="form-control"
-            value="<?php echo $arqueo->__GET('id_arqueo_caja') ?>" />
+            <input name="id_arqueo_caja" type="text" readonly class="form-control" value="<?php echo $arqueo->__GET('id_arqueo_caja') ?>" />
           </div>
 
           <div class="mb-3">
@@ -43,8 +43,7 @@ $kermesses = $dt_kermesse->get_data();
 
           <div class="mb-3">
             <label>Gran total</label>
-            <input class="form-control" type="number" name="gran_total" step="0.0001"
-            value="<?php echo $arqueo->__GET('gran_total') ?>">
+            <input class="form-control" type="number" name="gran_total" step="0.0001" value="<?php echo $arqueo->__GET('gran_total') ?>">
           </div>
 
           <div class="mt-4 d-flex gap-3">
@@ -55,6 +54,8 @@ $kermesses = $dt_kermesse->get_data();
         </form>
       </div>
     </div>
+    <h2>Detalles</h2>
+    <?php include_once 'vistas/arqueo_caja_det/mostrar.php' ?>
   </div>
 </main>
 <?php include('./partials/_footer.php') ?>

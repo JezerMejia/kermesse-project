@@ -1,7 +1,7 @@
 <?php
 
-include_once "data_table_template.php";
-include_once "entidades/arqueo_caja.php";
+include_once dirname(__DIR__) . "/datos/data_table_template.php";
+include_once dirname(__DIR__) . "/entidades/arqueo_caja.php";
 
 class DtArqueoCaja extends DataTableTemplate {
 
