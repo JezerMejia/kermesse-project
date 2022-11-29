@@ -59,5 +59,4 @@ $parroquias = $dt_parroquia->get_data();
       </div>
     </div>
 </main>
-</main>
 <?php include('./partials/_footer.php') ?>

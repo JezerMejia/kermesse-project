@@ -1,28 +1,38 @@
 <?php
 
-include('../entidades/kermesse.php');
-include('../datos/dt_kermesse.php');
+include_once('../entidades/kermesse.php');
+include_once('../datos/dt_kermesse.php');
 
-$dt_kermesse = new DtKermesse();
-$kermesse = new Kermesse();
-
-if ($_POST) {
-  $editar = $_POST['id_kermesse'] != 0;
+function insert($dt_kermesse) {
+  $kermesse = new Kermesse();
 
   foreach($_POST as $key => $value) {
     $kermesse->__SET($key, $_POST[$key]);
   }
 
-  if ($editar) {
-    $kermesse->__SET('id_kermesse', $_POST['id_kermesse']);
-    // $dt_kermesse->update($kermesse);
-    // header("Location: /kermesse-project/kermesse/");
-  } else {
-    foreach (get_object_vars($kermesse) as $key => $value) {
-      echo 'hola';
-    }
-    $dt_kermesse->insert($kermesse);
-    // header("Location: /kermesse-project/kermesse");
+  $dt_kermesse->insert($kermesse);
+}
+
+function update($dt_kermesse) {
+  $kermesse = $dt_kermesse->find_by_id($_POST['id_kermesse']);
+
+  foreach($_POST as $key => $value) {
+    $kermesse->__SET($key, $_POST[$key]);
   }
 
+  $dt_kermesse->update($kermesse);
+}
+
+if ($_POST) {
+  $dt_kermesse = new DtKermesse();
+
+  $editar = array_key_exists('id_kermesse', $_POST) || !empty($_POST['id_kermesse']);
+
+  if ($editar) {
+    update($dt_kermesse);
+    header("Location: /kermesse-project/kermesse/");
+  } else {
+    insert($dt_kermesse);
+    header("Location: /kermesse-project/kermesse");
+  }
 }
