@@ -1,7 +1,7 @@
 <?php
 
 include_once "data_table_template.php";
-include_once "entidades/gasto.php";
+include_once "../entidades/gasto.php";
 
 class DtGasto extends DataTableTemplate {
 
