@@ -1,6 +1,6 @@
 <?php
-include('entidades/usuario.php');
-include('datos/dt_usuario.php');
+include_once('entidades/usuario.php');
+include_once('datos/dt_usuario.php');
 $dt_usuario = new DtUsuario();
 $page_title = 'Usuario';
 $encabezados = ['ID', 'Usuario', 'Nombres', 'Apellidos', 'E-mail', 'Estado', 'Opciones'];

@@ -22,13 +22,21 @@ function update($dt_gasto) {
 
   $dt_gasto->update($gasto);
 }
+function remove($dt_gasto) {
+  $id_gasto = $_POST['id'];
+  $dt_gasto->delete_by_id($id_gasto);
+}
 
 if ($_POST) {
   $dt_gasto = new DtGasto();
 
   $editar = array_key_exists('id_gasto', $_POST) || !empty($_POST['id_gasto']);
+  $delete = array_key_exists('delete', $_POST);
 
-  if ($editar) {
+  if ($delete) {
+    remove($dt_gasto);
+    header("Location: /kermesse-project/gasto");
+  } else if ($editar) {
     update($dt_gasto);
     header("Location: /kermesse-project/gasto/");
   } else {
