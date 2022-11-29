@@ -3,9 +3,9 @@ include('entidades/lista_precio.php');
 include('datos/dt_lista_precio.php');
 include('datos/dt_kermesse.php');
 $page_title = 'Lista Precio';
-$encabezados = ['ID', 'ID Kermesse','Nombre','Descripcion','estado','Opciones'];
+$encabezados = ['ID', 'Kermesse','Nombre','Descripcion','Estado','Opciones'];
 $campo_id = 'id_lista_precio';
-$campos = ['id_lista_precio', 'id_kermesse','nombre','descripcion','estado'];
+$campos = ['id_lista_precio', 'kermesse','nombre','descripcion','estado'];
 
 $lp = new DtListaPrecio();
 $dt_kermesse = new DtKermesse();
