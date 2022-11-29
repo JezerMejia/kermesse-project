@@ -1,6 +1,6 @@
 <?php
 include('datos/dt_moneda.php');
-$page_title = 'Agregar Kermesse';
+$page_title = 'Agregar denominacion';
 $dt_moneda = new DtMoneda();
 $monedas = $dt_moneda->get_data();
 ?>
