@@ -4,7 +4,7 @@ include_once ('../entidades/parroquia.php');
 include_once ('../datos/dt_parroquia.php');
 
 function insert($dt_parroquia) {
-  $paroquia = new parroquia();
+  $parroquia = new parroquia();
 
   foreach($_POST as $key => $value) {
     $parroquia->__SET($key, $_POST[$key]);

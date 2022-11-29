@@ -145,6 +145,9 @@ if(!$has_access) {
     case preg_match('/^\/comunidad\/agregar$/', $url):
       require __DIR__ . '/vistas/comunidad/agregar.php';
       break;
+    case preg_match('/^\/comunidad\/eliminar\/\d*$/', $url):
+      require __DIR__ . '/vistas/comunidad/eliminar.php';
+      break;
     case preg_match('/^\/control_bonos\/?$/', $url):
       require __DIR__ . '/vistas/control_bonos/mostrar.php';
       break;
