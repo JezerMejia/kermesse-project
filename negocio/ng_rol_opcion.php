@@ -1,13 +1,13 @@
 <?php
 
-include_once ('../entidades/rol_opcion.php');
-include_once ('../datos/dt_rol_opcion.php');
+include_once('../entidades/rol_opcion.php');
+include_once('../datos/dt_rol_opcion.php');
 include_once('../entidades/alert_msj.php');
 
 session_start();
 
 function insert($dt_rol_opcion) {
-  $rol_opcion = new rol_opcion();
+  $rol_opcion = new RolOpcion();
 
   foreach($_POST as $key => $value) {
     $rol_opcion->__SET($key, $_POST[$key]);
