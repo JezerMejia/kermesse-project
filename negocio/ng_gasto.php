@@ -12,6 +12,7 @@ function insert($dt_gasto) {
   foreach($_POST as $key => $value) {
     $gasto->__SET($key, $_POST[$key]);
   }
+  $gasto->__SET('estado', 1);
 
   $dt_gasto->insert($gasto);
 
@@ -25,10 +26,11 @@ function update($dt_gasto) {
   foreach($_POST as $key => $value) {
     $gasto->__SET($key, $_POST[$key]);
   }
+  $gasto->__SET('estado', 2);
 
   $dt_gasto->update($gasto);
 
-  $alert_msj = new AlertMsj("El gasto fue modificado con exito", MSJ_PRIMARY);
+  $alert_msj = new AlertMsj("El gasto fue modificado con éxito", MSJ_PRIMARY);
   $_SESSION["alert_msj"] = $alert_msj;
 }
 function remove($dt_gasto) {

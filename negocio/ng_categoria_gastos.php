@@ -2,6 +2,9 @@
 
 include_once('../entidades/categoria_gastos.php');
 include_once('../datos/dt_categoria_gastos.php');
+include_once('../entidades/alert_msj.php');
+
+session_start();
 
 function insert($dt_cat_gastos) {
   $cat_gasto = new CategoriaGastos();
@@ -12,6 +15,9 @@ function insert($dt_cat_gastos) {
   $cat_gasto->__SET('estado', 1);
 
   $dt_cat_gastos->insert($cat_gasto);
+
+  $alert_msj = new AlertMsj("La categoría de gastos fue añadida exitosamente", MSJ_SUCCESS);
+  $_SESSION["alert_msj"] = $alert_msj;
 }
 
 function update($dt_cat_gastos) {
@@ -23,10 +29,16 @@ function update($dt_cat_gastos) {
   $cat_gasto->__SET('estado', 2);
 
   $dt_cat_gastos->update($cat_gasto);
+
+  $alert_msj = new AlertMsj("La categoría de gastos fue modificada con éxito", MSJ_PRIMARY);
+  $_SESSION["alert_msj"] = $alert_msj;
 }
 function remove($dt_cat_gastos) {
   $id_cat_gastos = $_POST['id'];
   $dt_cat_gastos->delete_by_id($id_cat_gastos);
+
+  $alert_msj = new AlertMsj("La categoría de gastos fue eliminada", MSJ_DANGER);
+  $_SESSION["alert_msj"] = $alert_msj;
 }
 
 if ($_POST) {

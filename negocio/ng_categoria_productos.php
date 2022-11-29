@@ -2,6 +2,9 @@
 
 include_once('../entidades/categoria_productos.php');
 include_once('../datos/dt_categoria_productos.php');
+include_once('../entidades/alert_msj.php');
+
+session_start();
 
 function insert($dt_cat_prod) {
   $cat_prod = new CategoriaProductos();
@@ -12,6 +15,9 @@ function insert($dt_cat_prod) {
   $cat_prod->__SET('estado', 1);
 
   $dt_cat_prod->insert($cat_prod);
+
+  $alert_msj = new AlertMsj("La categoría de productos fue añadida exitosamente", MSJ_SUCCESS);
+  $_SESSION["alert_msj"] = $alert_msj;
 }
 
 function update($dt_cat_prod) {
@@ -23,10 +29,16 @@ function update($dt_cat_prod) {
   $cat_prod->__SET('estado', 2);
 
   $dt_cat_prod->update($cat_prod);
+
+  $alert_msj = new AlertMsj("La categoría de productos fue modificada con éxito", MSJ_PRIMARY);
+  $_SESSION["alert_msj"] = $alert_msj;
 }
 function remove($dt_cat_prod) {
   $id_cat_prod = $_POST['id'];
   $dt_cat_prod->delete_by_id($id_cat_prod);
+
+  $alert_msj = new AlertMsj("La categoría de productos fue eliminada", MSJ_DANGER);
+  $_SESSION["alert_msj"] = $alert_msj;
 }
 
 if ($_POST) {

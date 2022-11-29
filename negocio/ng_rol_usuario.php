@@ -2,6 +2,9 @@
 
 include_once('../entidades/rol_usuario.php');
 include_once('../datos/dt_rol_usuario.php');
+include_once('../entidades/alert_msj.php');
+
+session_start();
 
 function insert($dt_rol_usuario) {
   $rol_usuario = new RolUsuario();
@@ -12,6 +15,9 @@ function insert($dt_rol_usuario) {
   $rol_usuario->__SET('estado', 1);
 
   $dt_rol_usuario->insert($rol_usuario);
+
+  $alert_msj = new AlertMsj("Se asignó un rol a un usuario exitosamente", MSJ_SUCCESS);
+  $_SESSION["alert_msj"] = $alert_msj;
 }
 
 function update($dt_rol_usuario) {
@@ -23,10 +29,16 @@ function update($dt_rol_usuario) {
   $rol_usuario->__SET('estado', 2);
 
   $dt_rol_usuario->update($rol_usuario);
+
+  $alert_msj = new AlertMsj("Se modificó la asignación de rol a usuario con éxito", MSJ_PRIMARY);
+  $_SESSION["alert_msj"] = $alert_msj;
 }
 function remove($dt_rol_usuario) {
   $id_rol_usuario = $_POST['id'];
   $dt_rol_usuario->delete_by_id($id_rol_usuario);
+
+  $alert_msj = new AlertMsj("Se eliminó la relación de rol a usuario", MSJ_DANGER);
+  $_SESSION["alert_msj"] = $alert_msj;
 }
 
 if ($_POST) {

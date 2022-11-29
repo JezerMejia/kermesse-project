@@ -2,6 +2,9 @@
 
 include_once('../entidades/rol.php');
 include_once('../datos/dt_rol.php');
+include_once('../entidades/alert_msj.php');
+
+session_start();
 
 function insert($dt_rol) {
   $rol = new Rol();
@@ -12,6 +15,9 @@ function insert($dt_rol) {
   $rol->__SET('estado', 1);
 
   $dt_rol->insert($rol);
+
+  $alert_msj = new AlertMsj("El rol fue añadido exitosamente", MSJ_SUCCESS);
+  $_SESSION["alert_msj"] = $alert_msj;
 }
 
 function update($dt_rol) {
@@ -23,10 +29,16 @@ function update($dt_rol) {
   $rol->__SET('estado', 2);
 
   $dt_rol->update($rol);
+
+  $alert_msj = new AlertMsj("El rol fue modificado con éxito", MSJ_PRIMARY);
+  $_SESSION["alert_msj"] = $alert_msj;
 }
 function remove($dt_rol) {
   $id_rol = $_POST['id'];
   $dt_rol->delete_by_id($id_rol);
+
+  $alert_msj = new AlertMsj("El rol fue eliminado", MSJ_DANGER);
+  $_SESSION["alert_msj"] = $alert_msj;
 }
 
 if ($_POST) {
