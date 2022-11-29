@@ -177,7 +177,17 @@ class DataTableTemplate {
     if (is_null($entity)) {
       throw new Exception("DELETE: Entity is null");
     }
-    $primary_value = $entity->__GET($this->et_fields[0]);
-    $this->delete_by_id($primary_value);
+    $entity->__SET("estado", 3);
+
+    if ($_POST) {
+      if (property_exists($entity, "usuario_eliminacion")) {
+        $entity->__SET("usuario_eliminacion", $_POST["usuario_eliminacion"]);
+      }
+      if (property_exists($entity, "fecha_eliminacion")) {
+        $entity->__SET("fecha_eliminacion", $_POST["fecha_eliminacion"]);
+      }
+    }
+
+    $this->update($entity);
   }
 }
