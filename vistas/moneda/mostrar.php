@@ -7,7 +7,7 @@ $campo_id = 'id_moneda';
 $campos = ['id_moneda', 'nombre', 'simbolo', 'estado'];
 
 $dt_moneda = new DtMoneda();
-$datos = $dt_moneda->get_data()
+$datos = $dt_moneda->get_data();
 ?>
 
 <?php include('./partials/_nav.php') ?>

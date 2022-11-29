@@ -16,7 +16,7 @@ $page_title = 'Editar Moneda';
           <div class="mb-3">
             <label>ID</label>
             <input class="form-control" readonly name="id_moneda" type="text"
-              value="<?php echo $moneda__GET('id_moneda') ?>"/>
+              value="<?php echo $moneda->__GET('id_moneda') ?>"/>
           </div>
 
           <div class="mb-3">
@@ -31,8 +31,6 @@ $page_title = 'Editar Moneda';
               value="<?php echo $moneda->__GET('simbolo') ?>">
           </div>
 
-          <input name="estado" type="hidden" value="1">
-
           <div class="mt-4 d-flex gap-3">
             <button class="btn btn-primary" type="submit">Guardar</button>
             <button class="btn btn-secondary" type="button">Cancelar</button>
@@ -43,3 +41,4 @@ $page_title = 'Editar Moneda';
 </div>
 </main>
 <?php include('./partials/_footer.php') ?>
+
