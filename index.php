@@ -296,6 +296,9 @@ if(!$has_access) {
     case preg_match('/^\/tasa_cambio\/editar\/\d*$/', $url):
       require __DIR__ . '/vistas/tasa_cambio/editar.php';
       break;
+    case preg_match('/^\/tasa_cambio\/eliminar\/\d*$/', $url):
+      require __DIR__ . '/vistas/tasa_cambio/eliminar.php';
+      break;
     case preg_match('/^\/tasa_cambio\/agregar$/', $url):
       require __DIR__ . '/vistas/tasa_cambio/agregar.php';
       break;
