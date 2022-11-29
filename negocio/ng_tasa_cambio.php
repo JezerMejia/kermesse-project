@@ -11,6 +11,9 @@ function insert($dt_tasa_cambio) {
   }
 
   $dt_tasa_cambio->insert($tasa_cambio);
+  
+  $alert_msj = new AlertMsj("La tasa de cambio fue añadida exitosamente", MSJ_SUCCESS);
+  $_SESSION["alert_msj"] = $alert_msj;
 }
 
 function update($dt_tasa_cambio) {
@@ -21,10 +24,16 @@ function update($dt_tasa_cambio) {
   }
 
   $dt_tasa_cambio->update($tasa_cambio);
+
+  $alert_msj = new AlertMsj("La tasa de cambio fue modificada con éxito", MSJ_PRIMARY);
+  $_SESSION["alert_msj"] = $alert_msj;
 }
 function remove($dt_tasa_cambio) {
   $id_tasa_cambio = $_POST['id'];
   $dt_tasa_cambio->delete_by_id($id_tasa_cambio);
+  
+  $alert_msj = new AlertMsj("La tasa de cambio fue eliminada", MSJ_DANGER);
+  $_SESSION["alert_msj"] = $alert_msj;
 }
 if ($_POST) {
   $dt_tasa_cambio = new DtTasaCambio();
