@@ -14,7 +14,7 @@ $detalle = $dt_lista_precio_det->find_by_id($id_from_url);
 <?php include('./partials/_nav.php') ?>
 <main>
 <div class="container-fluid px-4">
-<h1 class="mt-4"><?php echo ("$page_title - $id_from_url") ?></h1>
+  <h1 class="mt-4"><?php echo ("$page_title - $id_from_url") ?></h1>
   <div class="card mb-4">
       <div class="card-body">
         En este formulario podrá editar los datos de los Ingreso de comunidad del sistema.
@@ -54,6 +54,16 @@ $detalle = $dt_lista_precio_det->find_by_id($id_from_url);
           <div class="mb-3">
             <label>Precio venta</label>
             <input class="form-control" step="0.01" type="number" name="cantidad" value="<?php echo $detalle->__GET('precio_venta') ?>">
+          </div>
+
+          <div class="mb-3">
+            <label>Cantidad</label>
+            <input class="form-control" step="0.01" type="number" name="cantidad" value="<?php echo $detalle->__GET('cantidad') ?>">
+          </div>
+
+          <div class="mb-3">
+            <label>Subtotal</label>
+            <input class="form-control" step="0.01" type="number" name="subtotal" value="<?php echo $detalle->__GET('subtotal_bono') ?>">
           </div>
 
           <div class="mt-4 d-flex gap-3">

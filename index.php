@@ -177,7 +177,7 @@ if (!$has_access) {
       require __DIR__ . '/vistas/denominacion/agregar.php';
 
     case preg_match('/^\/denominacion\/eliminar$/', $url):
-      require __DIR__ . '/vistas/denominacion/eliminar.php.php';
+      require __DIR__ . '/vistas/denominacion/eliminar.php';
       break;
     case preg_match('/^\/gasto\/?$/', $url):
       require __DIR__ . '/vistas/gasto/mostrar.php';
