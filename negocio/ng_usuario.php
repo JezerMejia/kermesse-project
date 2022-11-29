@@ -11,6 +11,9 @@ function insert($dt_usuario) {
   }
 
   $dt_usuario->insert($usuario);
+
+  $alert_msj = new AlertMsj("El usuario fue añadido exitosamente", MSJ_SUCCESS);
+  $_SESSION["alert_msj"] = $alert_msj;
 }
 
 function update($dt_usuario) {
@@ -21,10 +24,16 @@ function update($dt_usuario) {
   }
 
   $dt_usuario->update($usuario);
+
+  $alert_msj = new AlertMsj("El usuario fue modificado con éxito", MSJ_PRIMARY);
+  $_SESSION["alert_msj"] = $alert_msj;
 }
 function remove($dt_usuario) {
   $id_usuario = $_POST['id'];
   $dt_usuario->delete_by_id($id_usuario);
+
+  $alert_msj = new AlertMsj("El usuario fue eliminado", MSJ_DANGER);
+  $_SESSION["alert_msj"] = $alert_msj;
 }
 
 if ($_POST) {
