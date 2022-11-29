@@ -20,7 +20,24 @@
         <?php foreach ($datos as $dato) : ?>
           <tr>
             <?php foreach ($campos as $index => $campo) : ?>
-              <td><?php echo ($dato->__GET($campo)) ?></td>
+<?php
+$value = $dato->__GET($campo);
+
+if ($campo == "estado") {
+  switch ($value) {
+    case 1:
+      $value = "Agregado";
+      break;
+    case 2:
+      $value = "Modificado";
+      break;
+    case 3:
+      $value = "Eliminado";
+      break;
+  }
+}
+?>
+              <td><?php echo $value ?></td>
             <?php endforeach; ?>
             <td>
               <a href="<?php echo ("$base_url$url/" . $dato->__GET($campo_id)) ?>" target="_self" title="Mostrar">
