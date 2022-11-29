@@ -101,22 +101,48 @@ class DataTableTemplate {
   }
 
   public function update($entity) {
+    if (is_null($entity)) {
+      throw new Exception("UPDATE: Entity is null");
+    }
+    $primary_value = $entity->__GET($this->primary_key);
+    $found_entity = $this->find_by_id($primary_value);
+
+    if (is_null($primary_value)) {
+      throw new Exception("UPDATE: Could not find entity of table '$this->table_name'");
+    }
+
+    $parse_update = function(string $column, $value) use($entity) {
+      return "$column='$value'";
+    };
+    $columns = [];
+    $values = [];
 
     $db_fields = $this->db_fields;
     array_shift($db_fields);
     $et_fields = $this->et_fields;
     array_shift($et_fields);
 
-    $map = function($db_field, $et_field) use ($entity){
-      return "$db_field = '". $entity->__GET($et_field) . "'";
-    };
+    for ($i = 0; $i < count($db_fields); $i++) {
+      $db_field = $db_fields[$i];
+      $et_field = $et_fields[$i];
 
-    $update = implode(",", array_map($map, $db_fields, $et_fields));
+      if ($db_field == $this->primary_key) continue;
 
-    $condition = $this->primary_key . " = '" . $entity->__GET($this->et_fields[0]) . "';";
+      $old_value = $found_entity->__GET($et_field);
+      $new_value = $entity->__GET($et_field);
 
-    $query = "UPDATE $this->table_name SET $update WHERE $condition";
-    echo $query;
+      if ($old_value == $new_value) continue;
+
+      array_push($columns, $db_field);
+      array_push($values, $new_value);
+    }
+    if (count($columns) == 0) {
+      throw new Exception("UPDATE: There is no data to be updated");
+    }
+
+    $assignment = implode(",", array_map($parse_update, $columns, $values));
+    $query = "UPDATE $this->table_name SET $assignment WHERE $this->primary_key=$primary_value;";
+
     try {
       $this->conn->query($query);
     } catch (Exception $e) {
