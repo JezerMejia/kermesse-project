@@ -1,10 +1,16 @@
 <?php
 include('entidades/control_bonos.php');
-$page_title = 'Editar Control Bonos';
+include('datos/dt_control_bonos.php');
+/*$page_title = 'Editar Control Bonos';
 $encabezados = [];
 $campo_id = 'id_control_bonos';
 $campos = ['id_control_bonos'];
-$datos = []
+$datos = []*/
+
+$dt_control_bonos = new DtControlBonos();
+$control_bonos = $dt_control_bonos->find_by_id($id_from_url);
+
+$page_title = 'Editar Control Bonos';
 ?>
 
 <?php include('./partials/_nav.php') ?>
@@ -26,15 +32,18 @@ $datos = []
           <input type="hidden" value="2" name="txtaccion" id="txtaccion" />
           <div class="mb-3">
             <label for="nombres">ID:</label>
-            <input class="form-control" type="Text" name="id" readonly required />
+            <input class="form-control" type="Text" name="id"
+            value="<?php echo $control_bonos->__GET('id_bono') ?>" readonly required />
           </div>
           <div class="mb-3">
             <label for="apellidos">Nombre:</label>
-            <input class="form-control" type="Text" name="nombre" required />
+            <input class="form-control" type="Text" name="nombre"
+            value="<?php echo $control_bonos->__GET('nombre') ?>" required />
           </div>
           <div class="mb-3">
             <label for="pwd">Valor:</label>
-            <input class="form-control" type="Text" name="valor" required />
+            <input class="form-control" type="Text" name="valor"
+            value="<?php echo $control_bonos->__GET('valor') ?>" required />
           </div>
 
           <input class="form-check-input" id="estado" type="hidden" value="1" name="estado">
