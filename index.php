@@ -1,5 +1,6 @@
 <?php
 include_once dirname(__DIR__) . "/kermesse-project/entidades/usuario.php";
+include_once dirname(__DIR__) . "/kermesse-project/entidades/alert_msj.php";
 
 session_start();
 if (isset($_SESSION['usuario'])) {
@@ -177,6 +178,9 @@ if(!$has_access) {
       break;
     case preg_match('/^\/gasto\/editar\/\d*$/', $url):
       require __DIR__ . '/vistas/gasto/editar.php';
+      break;
+    case preg_match('/^\/gasto\/eliminar\/\d*$/', $url):
+      require __DIR__ . '/vistas/gasto/eliminar.php';
       break;
     case preg_match('/^\/gasto\/agregar$/', $url):
       require __DIR__ . '/vistas/gasto/agregar.php';

@@ -2,6 +2,9 @@
 
 include_once('../entidades/gasto.php');
 include_once('../datos/dt_gasto.php');
+include_once('../entidades/alert_msj.php');
+
+session_start();
 
 function insert($dt_gasto) {
   $gasto = new Gasto();
@@ -9,8 +12,12 @@ function insert($dt_gasto) {
   foreach($_POST as $key => $value) {
     $gasto->__SET($key, $_POST[$key]);
   }
+  $gasto->__SET('estado', 1);
 
   $dt_gasto->insert($gasto);
+
+  $alert_msj = new AlertMsj("El gasto fue añadido exitosamente", MSJ_SUCCESS);
+  $_SESSION["alert_msj"] = $alert_msj;
 }
 
 function update($dt_gasto) {
@@ -19,12 +26,19 @@ function update($dt_gasto) {
   foreach($_POST as $key => $value) {
     $gasto->__SET($key, $_POST[$key]);
   }
+  $gasto->__SET('estado', 2);
 
   $dt_gasto->update($gasto);
+
+  $alert_msj = new AlertMsj("El gasto fue modificado con éxito", MSJ_PRIMARY);
+  $_SESSION["alert_msj"] = $alert_msj;
 }
 function remove($dt_gasto) {
   $id_gasto = $_POST['id'];
   $dt_gasto->delete_by_id($id_gasto);
+
+  $alert_msj = new AlertMsj("El gasto fue eliminado", MSJ_DANGER);
+  $_SESSION["alert_msj"] = $alert_msj;
 }
 
 if ($_POST) {

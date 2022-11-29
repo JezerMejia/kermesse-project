@@ -1,3 +1,13 @@
+<?php
+$alert_msj = $_SESSION["alert_msj"] ?? null;
+?>
+
+<?php if ($alert_msj != null): ?>
+<div id="alert_message" class="alert <?php echo $alert_msj->type; ?> fade hide position-fixed bottom-0 start-50 translate-middle" role="alert">
+  <?php echo $alert_msj->message; ?>
+</div>
+<?php endif ?>
+
 <footer class="py-4 bg-light mt-auto">
   <div class="container-fluid px-4">
     <div class="d-flex align-items-center justify-content-between small">
@@ -46,8 +56,20 @@
 
     $("#tbl_usuarios").DataTable().buttons().container().appendTo('#tbl_usuarios_wrapper .col-md-6:eq(0)');
 
+<?php if ($alert_msj != null): ?>
+    const alertMessage = $("#alert_message").removeClass("hide").addClass("show")
+
+    setTimeout(() => {
+      alertMessage.removeClass("show").addClass("hide");
+    }, 5000);
+<?php endif ?>
+
   });
 </script>
 </body>
+
+<?php
+$_SESSION["alert_msj"] = null;
+?>
 
 </html>
