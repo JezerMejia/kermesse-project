@@ -293,6 +293,9 @@ if (!$has_access) {
     case preg_match('/^\/opcion\/agregar$/', $url):
       require __DIR__ . '/vistas/opcion/agregar.php';
       break;
+    case preg_match('/^\/opcion\/eliminar\/\d*$/', $url):
+      require __DIR__ . '/vistas/opcion/eliminar.php';
+      break;
     case preg_match('/^\/parroquia\/?$/', $url):
       require __DIR__ . '/vistas/parroquia/mostrar.php';
       break;

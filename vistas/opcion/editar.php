@@ -1,6 +1,6 @@
 <?php
-include('entidades/opcion.php');
-include('datos/dt_opcion.php');
+include_once('entidades/opcion.php');
+include_once('datos/dt_opcion.php');
 $dt_opcion = new DtOpcion();
 $opcion = $dt_opcion->find_by_id($id_from_url);
 $page_title = 'Editar Opcion';
@@ -16,16 +16,14 @@ $page_title = 'Editar Opcion';
           <div class="mb-3">
             <label>ID</label>
             <input class="form-control" readonly name="id_opcion" type="text"
-              value="<?php echo $opcion__GET('id_opcion') ?>"/>
+              value="<?php echo $opcion->__GET('id_opcion') ?>"/>
           </div>
 
           <div class="mb-3">
-            <label>Opcion Descripcion</label>
-            <input required class="form-control" type="text" name="opcion_descripcion"
-              value="<?php echo $opcion->__GET('opcion_descripcion') ?>">
+            <label>Descripcion</label>
+            <input required class="form-control" type="text" name="descripcion"
+              value="<?php echo $opcion->__GET('descripcion') ?>">
           </div>
-
-          <input name="estado" type="hidden" value="1">
 
           <div class="mt-4 d-flex gap-3">
             <button class="btn btn-primary" type="submit">Guardar</button>
@@ -37,3 +35,4 @@ $page_title = 'Editar Opcion';
 </div>
 </main>
 <?php include('./partials/_footer.php') ?>
+

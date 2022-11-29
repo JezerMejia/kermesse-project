@@ -55,7 +55,6 @@ $page_title = 'Parroquia';
             <input class="form-control" readonly type="text" name="sitio_web"
               value="<?php echo $parroquia->__GET('sitio_web')?>"/>
           </div>
-          </div>
         </form>
       </div>
     </div>

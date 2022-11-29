@@ -37,8 +37,6 @@ $page_title = 'Comunidad';
             <input class="form-control" readonly type="date" name="contribucion"
               value="<?php echo $comunidad->__GET('contribucion')?>">
           </div>
-
-          </div>
         </form>
       </div>
     </div>
