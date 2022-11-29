@@ -6,6 +6,7 @@ $page_title = 'Arqueo Caja Det';
 $encabezados = ['ID', 'Moneda', 'Denominación', 'Cantidad', 'Subtotal', 'Opciones'];
 $campo_id = 'id_arqueo_caja_det';
 $campos = ['id_arqueo_caja_det', 'moneda', 'denominacion', 'cantidad', 'subtotal'];
+$tabla = "arqueo_caja_det";
 
 $dt_arqueo_caja_det = new DtArqueoCajaDet();
 $dt_moneda = new DtMoneda();
