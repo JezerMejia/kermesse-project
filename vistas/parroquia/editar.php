@@ -4,10 +4,7 @@ include('datos/dt_parroquia.php');
 $dt_parroquia = new DtParroquia();
 $parroquia = $dt_parroquia->find_by_id($id_from_url);
 $page_title = 'Editar Parroquia';
-$parroquia = $dt_parroquia->get_data();
 ?>
-
-
 
 <?php include('./partials/_nav.php') ?>
 <main>
