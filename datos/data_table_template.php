@@ -107,7 +107,7 @@ class DataTableTemplate {
     $primary_value = $entity->__GET($this->primary_key);
     $found_entity = $this->find_by_id($primary_value);
 
-    if (is_null($primary_value)) {
+    if (is_null($found_entity)) {
       throw new Exception("UPDATE: Could not find entity of table '$this->table_name'");
     }
 
@@ -148,5 +148,28 @@ class DataTableTemplate {
     } catch (Exception $e) {
       die($e->getMessage());
     }
+  }
+
+  public function delete_by_id(int $id) {
+    $found_entity = $this->find_by_id($id);
+
+    if (is_null($found_entity)) {
+      throw new Exception("DELETE: Could not find entity of table '$this->table_name'");
+    }
+
+    $query = "DELETE FROM $this->table_name WHERE $this->primary_key=$id;";
+    try {
+      $this->conn->query($query);
+    } catch (Exception $e) {
+      die($e->getMessage());
+    }
+  }
+
+  public function delete($entity) {
+    if (is_null($entity)) {
+      throw new Exception("DELETE: Entity is null");
+    }
+    $primary_value = $entity->__GET($this->primary_key);
+    $this->delete_by_id($primary_value);
   }
 }
