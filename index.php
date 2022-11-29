@@ -97,6 +97,9 @@ if(!$has_access) {
     case preg_match('/^\/categoria_gastos\/editar\/\d*$/', $url):
       require __DIR__ . '/vistas/categoria_gastos/editar.php';
       break;
+    case preg_match('/^\/categoria_gastos\/eliminar\/\d*$/', $url):
+      require __DIR__ . '/vistas/categoria_gastos/eliminar.php';
+      break;
     case preg_match('/^\/categoria_gastos\/agregar$/', $url):
       require __DIR__ . '/vistas/categoria_gastos/agregar.php';
       break;
