@@ -2,12 +2,11 @@
 include('entidades/ingreso_comunidad_det.php');
 include('datos/dt_ingreso_comunidad_det.php');
 include('datos/dt_control_bonos.php');
-$page_title = 'Agregar lista precio';
+$page_title = 'Editar lista precio';
 $dt_ingreso_comunidad_det = new DtIngresoComunidadDet();
 $dt_control_bonos = new DtControlBonos();
 $control_bonos = $dt_control_bonos->get_data();
 $detalle = $dt_ingreso_comunidad_det->find_by_id($id_from_url);
-?>
 ?>
 
 <?php include('./partials/_nav.php') ?>
