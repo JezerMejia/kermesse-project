@@ -24,51 +24,43 @@ $datos = []
       <div class="card-body">
         <form method="POST" action="./negocio/NgUsuario.php">
           <input type="hidden" value="2" name="txtaccion" id="txtaccion" />
-          <div class="form-floating mb-3">
-            <input class="form-control" id="id_user" name="id_user" type="text" readonly required />
-            <input class="form-control" id="idU" name="idU" type="hidden" />
+          <div class="mb-3">
             <label for="nombres">ID Usuario:</label>
+            <input class="form-control" type="text" name="id_usuario" readonly required />
           </div>
-          <div class="form-floating mb-3">
-            <input class="form-control" id="user" name="user" type="text" readonly required />
-            <input class="form-control" id="userHidden" name="userHidden" type="hidden" />
+          <div class="mb-3">
             <label for="nombres">ID Kermesse:</label>
+            <input class="form-control" id="user" type="text" name="id_kermesse" readonly required />
           </div>
-          <div class="form-floating mb-3">
-            <input class="form-control" id="user" name="user" type="text" readonly required />
-            <input class="form-control" id="userHidden" name="userHidden" type="hidden" />
+          <div class="mb-3">
             <label for="nombres">ID Comunidad:</label>
+            <input class="form-control" id="user" type="text" name="id_comunidad" readonly required />
           </div>
-          <div class="form-floating mb-3">
-            <input class="form-control" id="user" name="user" type="text" readonly required />
-            <input class="form-control" id="userHidden" name="userHidden" type="hidden" />
+          <div class="mb-3">
             <label for="nombres">ID Producto:</label>
+            <input class="form-control" id="user" type="text" name="id_producto" readonly required />
           </div>
-          <div class="form-floating mb-3">
-            <input class="form-control"title="Ingrese la cantidad de productos" required />
-            <label for="apellidos">Cantidad de productos:</label>
+          <div class="mb-3">
+            <label>Cantidad de productos:</label>
+            <input class="form-control" type="text" name="cant_productos" required />
           </div>
-          <div class="form-floating mb-3">
-            <input class="form-control" title="Ingrese el total de bonos" required />
+          <div class="mb-3">
             <label for="pwd">Total Bonos:</label>
+            <input class="form-control" type="text" name="total_bonos" required />
           </div>
-          <div class="form-floating mb-3">
-            <input class="form-control" title="Ingrese el estado" required />
-            <label for="pwd">Estado:</label>
-          </div>
-          <div class="form-floating mb-3">
-            <input class="form-control" title="Ingrese el ususario" required />
+          <div class="mb-3">
             <label for="pwd">Usuario:</label>
+            <input class="form-control" type="text" name="usuario" required />
           </div>
-          <div class="form-floating mb-3">
-            <!--<input class="form-control" id="pwd" name="pwd" type="password" title="Ingrese la fecha de creacion" required />
-            <label for="pwd">Fecha de creacion:</label>-->
-            <input class="form-control" type=datetime-local step="1" title="Ingrese la fecha de creacion" required/>
-            <label for="pwd">Fecha de creacion:</label>
+          <div class="mb-3">
+            <label>Fecha de creacion:</label>
+            <input class="form-control" type=datetime-local step="1" title="Ingrese la fecha de creacion" required />
           </div>
-          <div class="d-flex align-items-end justify-content-end mt-4 mb-0 gap-3">
-            <input class="btn btn-primary" type="submit" value="Guardar" />
-            <input class="btn btn-danger" type="reset" value="Cancelar" />
+
+          <input class="form-check-input" id="estado" type="hidden" value="1" name="estado">
+          <div class="mt-4 d-flex gap-3">
+            <button class="btn btn-primary" type="submit">Aceptar</button>
+            <button class="btn btn-secondary" type="button">Cancelar</button>
           </div>
         </form>
       </div>
