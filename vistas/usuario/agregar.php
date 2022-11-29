@@ -1,5 +1,5 @@
 <?php
-include('entidades/usuario.php');
+include_once('entidades/usuario.php');
 $page_title = 'Agregar Usuario';
 ?>
 
