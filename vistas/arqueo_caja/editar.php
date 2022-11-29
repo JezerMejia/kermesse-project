@@ -7,6 +7,7 @@ $dt_kermesse = new DtKermesse();
 $dt_arqueo_caja = new DtArqueoCaja();
 $arqueo = $dt_arqueo_caja->find_by_id($id_from_url);
 $kermesses = $dt_kermesse->get_data();
+$mostrar = false;
 ?>
 
 <?php include('./partials/_nav.php') ?>

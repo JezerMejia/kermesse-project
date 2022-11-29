@@ -8,7 +8,8 @@ $tasa_cambio = $dt_tasa_cambio->find_by_id($id_from_url);
 var_dump($tasa_cambio);
 $dt_moneda = new DtMoneda();
 $monedas = $dt_moneda->get_data();
-$meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+$meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+$mostrar = false;
 ?>
 
 <?php include('./partials/_nav.php') ?>
