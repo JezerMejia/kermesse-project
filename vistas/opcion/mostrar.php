@@ -1,10 +1,10 @@
 <?php
-include('entidades/opcion.php');
-include('datos/dt_opcion.php');
+include_once('entidades/opcion.php');
+include_once('datos/dt_opcion.php');
 $page_title = 'Opcion';
 $encabezados = ['ID', 'Descripcion', 'Estado','Opciones'];
-$campo_id = 'id_opciones';
-$campos = ['id_opciones','opcion_descripcion', 'estado'];
+$campo_id = 'id_opcion';
+$campos = ['id_opcion','descripcion', 'estado'];
 
 $dt_opcion = new DtOpcion();
 $datos = $dt_opcion->get_data()

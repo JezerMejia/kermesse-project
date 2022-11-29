@@ -1,5 +1,4 @@
 <?php
-include('entidades/comunidad.php');
 include('datos/dt_comunidad.php');
 $page_title = 'Comunidad';
 $encabezados = ['ID', 'Nombre', 'Responsable', 'Contribución', 'Estado', 'Opciones'];

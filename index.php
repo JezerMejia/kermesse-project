@@ -146,6 +146,9 @@ if (!$has_access) {
     case preg_match('/^\/comunidad\/agregar$/', $url):
       require __DIR__ . '/vistas/comunidad/agregar.php';
       break;
+    case preg_match('/^\/comunidad\/eliminar\/\d*$/', $url):
+      require __DIR__ . '/vistas/comunidad/eliminar.php';
+      break;
     case preg_match('/^\/control_bonos\/?$/', $url):
       require __DIR__ . '/vistas/control_bonos/mostrar.php';
       break;
@@ -275,6 +278,9 @@ if (!$has_access) {
     case preg_match('/^\/moneda\/agregar$/', $url):
       require __DIR__ . '/vistas/moneda/agregar.php';
       break;
+    case preg_match('/^\/moneda\/eliminar\/\d*$/', $url):
+      require __DIR__ . '/vistas/moneda/eliminar.php';
+      break;
     case preg_match('/^\/opcion\/?$/', $url):
       require __DIR__ . '/vistas/opcion/mostrar.php';
       break;
@@ -286,6 +292,9 @@ if (!$has_access) {
       break;
     case preg_match('/^\/opcion\/agregar$/', $url):
       require __DIR__ . '/vistas/opcion/agregar.php';
+      break;
+    case preg_match('/^\/opcion\/eliminar\/\d*$/', $url):
+      require __DIR__ . '/vistas/opcion/eliminar.php';
       break;
     case preg_match('/^\/parroquia\/?$/', $url):
       require __DIR__ . '/vistas/parroquia/mostrar.php';
@@ -299,6 +308,9 @@ if (!$has_access) {
     case preg_match('/^\/parroquia\/agregar$/', $url):
       require __DIR__ . '/vistas/parroquia/agregar.php';
       break;
+    case preg_match('/^\/parroquia\/eliminar\/\d*$/', $url):
+      require __DIR__ . '/vistas/parroquia/eliminar.php';
+        break;
     case preg_match('/^\/producto\/?$/', $url):
       require __DIR__ . '/vistas/producto/mostrar.php';
       break;
@@ -310,6 +322,9 @@ if (!$has_access) {
       break;
     case preg_match('/^\/producto\/agregar$/', $url):
       require __DIR__ . '/vistas/producto/agregar.php';
+      break;
+    case preg_match('/^\/producto\/eliminar\/\d*$/', $url):
+      require __DIR__ . '/vistas/producto/eliminar.php';
       break;
     case preg_match('/^\/rol\/?$/', $url):
       require __DIR__ . '/vistas/rol/mostrar.php';

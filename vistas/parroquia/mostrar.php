@@ -7,7 +7,9 @@ $encabezados = ['ID','Nombre', 'Direccion', 'Telefono', 'Parroco', 'Logo', 'Siti
 $campo_id = 'id_parroquia';
 $campos = ['id_parroquia', 'nombre', 'direccion', 'telefono', 'parroco', 'logo', 'sitio_web'];
 
+$dt_parroquia = new DtParroquia();
 $datos = $dt_parroquia->get_data();
+
 ?>
 
 <?php include('./partials/_nav.php') ?>
