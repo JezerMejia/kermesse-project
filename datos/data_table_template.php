@@ -20,7 +20,22 @@ class DataTableTemplate {
   }
 
   protected function fetch_all() {
+    $has_estado_query = "SHOW COLUMNS FROM $this->table_name LIKE 'estado';";
     $query = "SELECT * FROM $this->table_name WHERE estado != 3;";
+
+    try {
+      $p = $this->conn->prepare($has_estado_query);
+      $p->execute();
+
+      $result = $p->rowCount();
+      echo "COLUMNAS: $result";
+
+      if ($result == 0) {
+        $query = "SELECT * FROM $this->table_name;";
+      }
+    } catch (Exception $e) {
+      die($e->getMessage());
+    }
 
     try {
       $result = $this->conn->query($query);
