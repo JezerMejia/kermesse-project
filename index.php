@@ -203,6 +203,9 @@ if (!$has_access) {
     case preg_match('/^\/ingreso_comunidad\/editar\/\d*$/', $url):
       require __DIR__ . '/vistas/ingreso_comunidad/editar.php';
       break;
+      case preg_match('/^\/ingreso_comunidad\/eliminar\/\d*$/', $url):
+        require __DIR__ . '/vistas/ingreso_comunidad/eliminar.php';
+        break;
     case preg_match('/^\/ingreso_comunidad\/agregar$/', $url):
       require __DIR__ . '/vistas/ingreso_comunidad/agregar.php';
       break;
@@ -241,6 +244,9 @@ if (!$has_access) {
       break;
     case preg_match('/^\/lista_precio\/editar\/\d*$/', $url):
       require __DIR__ . '/vistas/lista_precio/editar.php';
+      break;
+    case preg_match('/^\/lista_precio\/eliminar\/\d*$/', $url):
+      require __DIR__ . '/vistas/lista_precio/eliminar.php';
       break;
     case preg_match('/^\/lista_precio\/agregar$/', $url):
       require __DIR__ . '/vistas/lista_precio/agregar.php';
