@@ -7,8 +7,7 @@ $dt_cat_gasto = new DtCategoriaGastos();
 $kermesses = $dt_kermesse->get_data();
 $categorias = $dt_cat_gasto->get_data();
 
-$now = new DateTime();
-$current_date = $now->format('Y-m-d H:i:s');
+$current_date = new DateTime()->format('Y-m-d H:i:s');
 ?>
 
 <?php include('./partials/_nav.php') ?>
