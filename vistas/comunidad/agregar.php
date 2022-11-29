@@ -3,6 +3,11 @@ include_once('entidades/comunidad.php');
 $page_title = 'Agregar Comunidad';
 ?>
 
+<form action="form-input-2.php">
+  <p>Nombre: <input type="text" name="nombre"></p>
+  <p><input type="submit" value="Enviar"></p>
+</form>
+
 <?php include('./partials/_nav.php') ?>
 <main>
 <div class="container-fluid px-4">

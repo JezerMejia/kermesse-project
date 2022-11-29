@@ -11,6 +11,9 @@ function insert($dt_tasa_cambio_det) {
   }
 
   $dt_tasa_cambio_det->insert($tasa_cambio_det);
+
+  $alert_msj = new AlertMsj("El detalle fue modificado con éxito", MSJ_PRIMARY);
+  $_SESSION["alert_msj"] = $alert_msj;
 }
 
 function update($dt_tasa_cambio_det) {
@@ -21,10 +24,16 @@ function update($dt_tasa_cambio_det) {
   }
 
   $dt_tasa_cambio_det->update($tasa_cambio_det);
+
+  $alert_msj = new AlertMsj("El detalle fue modificado con éxito", MSJ_PRIMARY);
+  $_SESSION["alert_msj"] = $alert_msj;
 }
 function remove($dt_tasa_cambio_det) {
   $id_tasa_cambio_det = $_POST['id'];
   $dt_tasa_cambio_det->delete_by_id($id_tasa_cambio_det);
+
+  $alert_msj = new AlertMsj("El detalle fue eliminado", MSJ_DANGER);
+  $_SESSION["alert_msj"] = $alert_msj;
 }
 if ($_POST) {
   $dt_tasa_cambio_det = new DtTasaCambioDet();

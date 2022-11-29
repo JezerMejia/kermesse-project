@@ -11,6 +11,9 @@ function insert($dt_arqueo_caja) {
   }
 
   $dt_arqueo_caja->insert($arqueo_caja);
+
+  $alert_msj = new AlertMsj("El arqueo de caja fue añadido exitosamente", MSJ_SUCCESS);
+  $_SESSION["alert_msj"] = $alert_msj;
 }
 
 function update($dt_arqueo_caja) {
@@ -21,10 +24,16 @@ function update($dt_arqueo_caja) {
   }
 
   $dt_arqueo_caja->update($arqueo_caja);
+  
+  $alert_msj = new AlertMsj("El arqueo de caja fue modificado con éxito", MSJ_PRIMARY);
+  $_SESSION["alert_msj"] = $alert_msj;
 }
 function remove($dt_arqueo_caja) {
   $id_arqueo_caja = $_POST['id'];
   $dt_arqueo_caja->delete_by_id($id_arqueo_caja);
+
+  $alert_msj = new AlertMsj("El arqueo de caja fue eliminado", MSJ_DANGER);
+  $_SESSION["alert_msj"] = $alert_msj;
 }
 
 if ($_POST) {
