@@ -1,10 +1,18 @@
 <?php
 include('entidades/lista_precio.php');
-$page_title = 'Editar Lista Precio';
-$encabezados = [];
-$campo_id = 'id_lista_precio';
-$campos = ['id_lista_precio'];
-$datos = []
+include('datos/dt_lista_precio.php');
+include('datos/dt_kermesse.php');
+
+$dt_lista_precio = new DtListaPrecio();
+$dt_kermesse = new DtKermesse();
+
+
+$lista_precio = $dt_lista_precio->find_by_id($id_from_url);
+$id_kermesse = $lista_precio->__GET("id_kermesse");
+
+$kermesses = $dt_kermesse->get_data();
+
+$page_title = 'Editar Listra precio';
 ?>
 
 <?php include('./partials/_nav.php') ?>
@@ -13,7 +21,7 @@ $datos = []
     <h1 class="mt-4"><?php echo ("$page_title - $id_from_url") ?></h1>
     <div class="card mb-4">
       <div class="card-body">
-        En este formulario podrá editar los datos dede la denominaciónes.
+        En este formulario podrá editar los datos de la lista precio.
       </div>
     </div>
     <div class="card mb-4">
@@ -24,21 +32,38 @@ $datos = []
       <div class="card-body">
         <form method="POST" action="./negocio/NgUsuario.php">
           <input type="hidden" value="2" name="txtaccion" id="txtaccion" />
+          
           <div class="mb-3">
             <label for="nombres">ID:</label>
-            <input class="form-control" type="Text" name="id" readonly required />
+            <input class="form-control" type="Text" name="id"
+            value="<?php echo $lista_precio->__GET('id_lista_precio') ?>" readonly required />
           </div>
+          
           <div class="mb-3">
-            <label for="nombres">ID Kermesse:</label>
-            <input class="form-control" type="Text" name="id_kermesse" readonly required />
+          <label>Kermesse:</label>
+            <select class="form-control" name="id_kermesses">
+              <?php foreach ($kermesses as $kermesses) : ?>
+                <?php
+                $ker_id = $kermesses->__GET('id_kermesses');
+                $ker_name = $kermesses->__GET('nombre');
+                ?>
+                <option value="<?php echo $ker_id ?>" <?php echo ($id_kermesses == $ker_id) ? "selected" : "" ?>>
+                  <?php echo ($ker_name) ?>
+                </option>
+              <?php endforeach; ?>
+            </select> 
           </div>
+          
           <div class="mb-3">
             <label for="apellidos">Nombre:</label>
-            <input class="form-control" type="Text" name="nombre" required />
+            <input class="form-control" type="Text" name="nombre"
+            value="<?php echo $lista_precio->__GET('nombre') ?>" required />
           </div>
+          
           <div class="mb-3">
             <label for="pwd">Descripcion:</label>
-            <input class="form-control" type="Text" name="descripcion" required />
+            <input class="form-control" type="Text" name="descripcion"
+            value="<?php echo $lista_precio->__GET('descripccion') ?>" required />
           </div>
 
           <input class="form-check-input" id="estado" type="hidden" value="1" name="estado">
