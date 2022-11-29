@@ -33,7 +33,6 @@ $page_title = 'Editar Moneda';
 
           <input name="estado" type="hidden" value="1">
 
-
           <div class="mt-4 d-flex gap-3">
             <button class="btn btn-primary" type="submit">Guardar</button>
             <button class="btn btn-secondary" type="button">Cancelar</button>

@@ -17,32 +17,32 @@ $page_title = 'Agregar Parroquia';
 
           <div class="mb-3">
             <label>Nombre</label>
-            <input class="form-control" type="text">
+            <input class="form-control" type="text" name="nombre">
           </div>
 
           <div class="mb-3">
             <label>Direccion</label>
-            <input class="form-control" type="text">
+            <input class="form-control" type="text" name="direccion">
           </div>
 
           <div class="mb-3">
             <label>Telefono</label>
-            <input class="form-control" type="number">
+            <input class="form-control" type="number" name="telefono">
           </div>
 
           <div class="mb-3">
             <label>Parroco</label>
-            <input class="form-control" type="text">
+            <input class="form-control" type="text" name="parroco">
           </div>
 
           <div class="mb-3">
             <label>Logo</label>
-            <input class="form-control" type="text">
+            <input class="form-control" type="text" name="logo">
           </div>
 
           <div class="mb-3">
             <label>Sitio Web</label>
-            <input class="form-control" type="text">
+            <input class="form-control" type="text" name="sitio_web">
           </div>
 
           <div class="mt-4 d-flex gap-3">

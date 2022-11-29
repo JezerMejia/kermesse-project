@@ -19,12 +19,12 @@ $moneda = $dt_moneda->get_data();
 
           <div class="mb-3">
             <label>Nombre</label>
-            <input class="form-control" type="text">
+            <input class="form-control" type="text" name="nombre">
           </div>
 
           <div class="mb-3">
             <label>Simbolo</label>
-            <input class="form-control" type="text">
+            <input class="form-control" type="text" name="simbolo">
           </div>
 
           <div class="mb-3">
