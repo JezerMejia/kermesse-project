@@ -92,6 +92,7 @@ class DataTableTemplate {
     $fields = implode(",", $db_fields);
     $values = implode(",", array_map($get_values, $et_fields));
     $query = "INSERT INTO $this->table_name ($fields) VALUES ($values)";
+    echo $query;
     try {
       $this->conn->query($query);
     } catch (Exception $e) {

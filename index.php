@@ -12,6 +12,9 @@ switch (true) {
   default:
     require __DIR__ . '/vistas/404.php';
     break;
+  case preg_match('/^\/login\/?$/', $url):
+    require __DIR__ . '/vistas/login.php';
+    break;
   case preg_match('/^\/rol_opcion\/?$/', $url):
     require __DIR__ . '/vistas/rol_opcion/mostrar.php';
     break;

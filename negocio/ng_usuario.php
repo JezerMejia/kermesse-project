@@ -8,7 +8,6 @@ $usuario = new Usuario();
 
 if ($_POST) {
   $editar = $_POST['id_usuario'] != 0;
-  // echo $_POST;
 
   $usuario->__SET('usuario', $_POST['usuario']);
   $usuario->__SET('pwd', $_POST['pwd']);
