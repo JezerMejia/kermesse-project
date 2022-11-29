@@ -22,13 +22,21 @@ function update($dt_kermesse) {
 
   $dt_kermesse->update($kermesse);
 }
+function remove($dt_kermesse) {
+  $id_kermesse = $_POST['id'];
+  $dt_kermesse->delete_by_id($id_kermesse);
+}
 
 if ($_POST) {
   $dt_kermesse = new DtKermesse();
 
   $editar = array_key_exists('id_kermesse', $_POST) || !empty($_POST['id_kermesse']);
+  $delete = array_key_exists('delete', $_POST);
 
-  if ($editar) {
+  if ($delete) {
+    remove($dt_kermesse);
+    header("Location: /kermesse-project/kermesse");
+  } else if ($editar) {
     update($dt_kermesse);
     header("Location: /kermesse-project/kermesse/");
   } else {

@@ -41,7 +41,6 @@ $page_title = 'Agregar Usuario';
           </div>
 
           <input name="estado" type="hidden" value="1">
-          <input hidden value="0" name="id_usuario"/>
 
           <div class="mt-4 d-flex gap-3">
             <button class="btn btn-primary" type="submit">Agregar</button>

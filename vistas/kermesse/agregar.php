@@ -13,7 +13,6 @@ $parroquias = $dt_parroquia->get_data();
       <div class="card-body">
         <form action="<?php echo $base_url?>/negocio/ng_kermesse.php" method="POST">
 
-          <input name="id_kermesse" type="hidden" value="0"/>
           <input name="estado" type="hidden" value="1">
           <input name="usuario_creacion" type="hidden" value="<?php echo $logged_user->__GET('id_usuario') ?>">
           <input name="fecha_creacion" type="hidden" value="<?php echo date('Y-m-d') ?>">
@@ -47,8 +46,6 @@ $parroquias = $dt_parroquia->get_data();
             <label>Descripción</label>
             <input class="form-control" type="text" name="descripcion">
           </div>
-
-
           
           <div class="mt-4 d-flex gap-3">
             <button class="btn btn-primary" type="submit">Agregar</button>
