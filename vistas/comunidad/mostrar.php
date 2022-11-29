@@ -7,7 +7,6 @@ $campos = ['id_comunidad', 'nombre', 'responsable','desc_contribucion','estado']
 
 $dt_comunidad = new DtComunidad();
 $datos = $dt_comunidad->get_data()
-
 ?>
 
 <?php include('./partials/_nav.php') ?>
