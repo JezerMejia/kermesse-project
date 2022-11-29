@@ -37,11 +37,11 @@ $page_title = 'Editar Ingreso comunidad';
         Editar ingreso comunidad
       </div>
       <div class="card-body">
-        <form method="POST" action="./negocio/NgUsuario.php">
+        <form action="<?php echo $base_url ?>/negocio/ng_ingreso_comunidad.php" method="POST">
           <input type="hidden" value="2" name="txtaccion" id="txtaccion" />
           <div class="mb-3">
             <label for="nombres">ID Usuario:</label>
-            <input class="form-control" type="text" name="id_usuario"
+            <input class="form-control" type="text" name="id_ingreso_comunidad"
             value="<?php echo $ingreso_comunidad->__GET('id_ingreso_comunidad') ?>" readonly required />
           </div>
           <div class="mb-3">
@@ -91,41 +91,6 @@ $page_title = 'Editar Ingreso comunidad';
             <label>Cantidad de productos:</label>
             <input class="form-control" type="text" name="cant_productos"
             value="<?php echo $ingreso_comunidad->__GET('cant_productos') ?>" required />
-          </div>
-          <div class="mb-3">
-            <label for="pwd">Total Bonos:</label>
-            <input class="form-control" type="text" name="total_bonos"
-            value="<?php echo $ingreso_comunidad->__GET('total_bonos') ?>" required />
-          </div>
-          <div class="mb-3">
-            <label for="pwd">Usuario:</label>
-            <input class="form-control" type="text" name="usuario" required
-            value="<?php echo $ingreso_comunidad->__GET('usuario_creacion') ?>" />
-          </div>
-          <div class="mb-3">
-            <label>Fecha de creacion:</label>
-            <input class="form-control" type=datetime-local step="1" title="Ingrese la fecha de creacion"
-            value="<?php echo $ingreso_comunidad->__GET('fecha_creacion') ?>" required />
-          </div>
-          <div class="mb-3">
-            <label for="pwd">Usuario modificación:</label>
-            <input class="form-control" type="text" name="usuario_modificado" required
-            value="<?php echo $ingreso_comunidad->__GET('usuario_modificacion') ?>" />
-          </div>
-          <div class="mb-3">
-            <label>Fecha modificación:</label>
-            <input class="form-control" type=datetime-local step="1" title="Ingrese la fecha de edicion"
-            value="<?php echo $ingreso_comunidad->__GET('fecha_modificacion') ?>" required />
-          </div>
-          <div class="mb-3">
-            <label for="pwd">Usuario eliminación:</label>
-            <input class="form-control" type="text" name="usuario_eliminado" required
-            value="<?php echo $ingreso_comunidad->__GET('usuario_eliminacion') ?>" />
-          </div>
-          <div class="mb-3">
-            <label>Fecha eliminación:</label>
-            <input class="form-control" type=datetime-local step="1" title="Ingrese la fecha de eliminación"
-            value="<?php echo $ingreso_comunidad->__GET('fecha_eliminacion') ?>" required />
           </div>
 
           <input class="form-check-input" id="estado" type="hidden" value="1" name="estado">

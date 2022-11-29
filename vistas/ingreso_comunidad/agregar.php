@@ -32,14 +32,6 @@ $datos = []
             <label for="pwd">Total Bonos:</label>
             <input class="form-control" type="text" name="total_bonos" required />
           </div>
-          <div class="mb-3">
-            <label for="pwd">Usuario:</label>
-            <input class="form-control" type="text" name="usuario" required />
-          </div>
-          <div class="mb-3">
-            <label>Fecha de creacion:</label>
-            <input class="form-control" type=datetime-local step="1" title="Ingrese la fecha de creacion" required />
-          </div>
 
           <input class="form-check-input" id="estado" type="hidden" value="1" name="estado">
           <div class="mt-4 d-flex gap-3">

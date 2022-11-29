@@ -97,47 +97,6 @@ $page_title = 'Visualizar Ingreso comunidad';
             <input class="form-control form-control-solid" id="exampleFormControlInput1" type="total_bonos" placeholder="Total Bonos"
             value="<?php echo $ingreso_comunidad->__GET('total_bonos') ?>" disabled />
           </div>
-
-          <div class="mb-3">
-            <label for="exampleFormControlInput1">Estado</label>
-            <input class="form-control form-control-solid" id="exampleFormControlInput1" type="estado" placeholder="Estado" disabled />
-          </div>
-
-          <div class="mb-3">
-            <label for="exampleFormControlInput1">Usuario</label>
-            <input class="form-control form-control-solid" id="exampleFormControlInput1" type="usuario_creacion" placeholder="Usuario"
-            value="<?php echo $ingreso_comunidad->__GET('usuario_creacion') ?>" disabled />
-          </div>
-
-          <div class="mb-3">
-            <label for="exampleFormControlInput1">Fecha de creacion</label>
-            <input class="form-control" type=datetime-local step="1" title="Ingrese la fecha de creacion"
-            value="<?php echo $ingreso_comunidad->__GET('fecha_creacion') ?>" disabled required />
-          </div>
-
-          <div class="mb-3">
-            <label for="pwd">Usuario modificación:</label>
-            <input class="form-control" type="text" name="usuario_modificado" required
-            value="<?php echo $ingreso_comunidad->__GET('usuario_modificacion') ?>" disabled />
-          </div>
-
-          <div class="mb-3">
-            <label>Fecha modificación:</label>
-            <input class="form-control" type=datetime-local step="1" title="Ingrese la fecha de edicion"
-            value="<?php echo $ingreso_comunidad->__GET('fecha_modificacion') ?>" disabled required />
-          </div>
-
-          <div class="mb-3">
-            <label for="pwd">Usuario eliminación:</label>
-            <input class="form-control" type="text" name="usuario_eliminado" required
-            value="<?php echo $ingreso_comunidad->__GET('usuario_eliminacion') ?>" disabled/>
-          </div>
-
-          <div class="mb-3">
-            <label>Fecha eliminación:</label>
-            <input class="form-control" type=datetime-local step="1" title="Ingrese la fecha de eliminación"
-            value="<?php echo $ingreso_comunidad->__GET('fecha_eliminacion') ?>"  disabled required />
-          </div>
         </form>
         <!---->
       </div>

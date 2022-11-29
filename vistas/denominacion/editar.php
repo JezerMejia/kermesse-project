@@ -28,7 +28,7 @@ $page_title = 'Editar denominacion';
         Editar de la denominación
       </div>
       <div class="card-body">
-        <form method="POST" action="./negocio/NgUsuario.php">
+        <form action="<?php echo $base_url ?>/negocio/ng_denominacion.php" method="POST">
           <input type="hidden" value="2" name="txtaccion" id="txtaccion" />
           <div class="mb-3">
             <label>ID:</label>

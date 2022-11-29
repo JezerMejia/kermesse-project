@@ -8,7 +8,7 @@ $dt_kermesse = new DtKermesse();
 
 
 $lista_precio = $dt_lista_precio->find_by_id($id_from_url);
-$id_kermesse = $lista_precio->__GET("id_kermesse");
+$id_kermesses = $lista_precio->__GET("id_kermesse");
 
 $kermesses = $dt_kermesse->get_data();
 
@@ -30,21 +30,21 @@ $page_title = 'Editar Listra precio';
         Editar de la denominación
       </div>
       <div class="card-body">
-        <form method="POST" action="./negocio/NgUsuario.php">
+        <form action="<?php echo $base_url ?>/negocio/ng_lista_precio.php" method="POST">
           <input type="hidden" value="2" name="txtaccion" id="txtaccion" />
           
           <div class="mb-3">
             <label for="nombres">ID:</label>
-            <input class="form-control" type="Text" name="id"
+            <input class="form-control" type="Text" name="id_lista_precio"
             value="<?php echo $lista_precio->__GET('id_lista_precio') ?>" readonly required />
           </div>
           
           <div class="mb-3">
           <label>Kermesse:</label>
-            <select class="form-control" name="id_kermesses">
+            <select class="form-control" name="id_kermesse">
               <?php foreach ($kermesses as $kermesses) : ?>
                 <?php
-                $ker_id = $kermesses->__GET('id_kermesses');
+                $ker_id = $kermesses->__GET('id_kermesse');
                 $ker_name = $kermesses->__GET('nombre');
                 ?>
                 <option value="<?php echo $ker_id ?>" <?php echo ($id_kermesses == $ker_id) ? "selected" : "" ?>>
@@ -63,7 +63,7 @@ $page_title = 'Editar Listra precio';
           <div class="mb-3">
             <label for="pwd">Descripcion:</label>
             <input class="form-control" type="Text" name="descripcion"
-            value="<?php echo $lista_precio->__GET('descripccion') ?>" required />
+            value="<?php echo $lista_precio->__GET('descripcion') ?>" required />
           </div>
 
           <input class="form-check-input" id="estado" type="hidden" value="1" name="estado">
