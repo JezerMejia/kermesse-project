@@ -104,7 +104,7 @@ class DataTableTemplate {
     if (is_null($entity)) {
       throw new Exception("UPDATE: Entity is null");
     }
-    $primary_value = $entity->__GET($this->primary_key);
+    $primary_value = $entity->__GET($this->et_fields[0]);
     $found_entity = $this->find_by_id($primary_value);
 
     if (is_null($found_entity)) {
@@ -167,7 +167,7 @@ class DataTableTemplate {
     if (is_null($entity)) {
       throw new Exception("DELETE: Entity is null");
     }
-    $primary_value = $entity->__GET($this->primary_key);
+    $primary_value = $entity->__GET($this->et_fields[0]);
     $this->delete_by_id($primary_value);
   }
 }
