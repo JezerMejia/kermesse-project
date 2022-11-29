@@ -92,6 +92,9 @@ if(!$has_access) {
     case preg_match('/^\/arqueo_caja_det\/editar\/\d*$/', $url):
       require __DIR__ . '/vistas/arqueo_caja_det/editar.php';
       break;
+    case preg_match('/^\/arqueo_caja_det\/eliminar\/\d*$/', $url):
+      require __DIR__ . '/vistas/arqueo_caja_det/eliminar.php';
+      break;
     case preg_match('/^\/arqueo_caja_det\/agregar$/', $url):
       require __DIR__ . '/vistas/arqueo_caja_det/agregar.php';
       break;
