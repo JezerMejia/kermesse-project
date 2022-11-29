@@ -38,7 +38,6 @@ class DtOpcion extends DataTableTemplate {
         return [];
       }
 
-      return $result->fetchAll(PDO::FETCH_OBJ);
     } catch (Exception $e) {
       die($e->getMessage());
     }

@@ -67,6 +67,9 @@ if(!$has_access) {
     case preg_match('/^\/tasa_cambio_det\/editar\/\d*$/', $url):
       require __DIR__ . '/vistas/tasa_cambio_det/editar.php';
       break;
+    case preg_match('/^\/tasa_cambio_det\/eliminar\/\d*$/', $url):
+      require __DIR__ . '/vistas/tasa_cambio_det/eliminar.php';
+      break;
     case preg_match('/^\/tasa_cambio_det\/agregar$/', $url):
       require __DIR__ . '/vistas/tasa_cambio_det/agregar.php';
       break;
@@ -79,6 +82,9 @@ if(!$has_access) {
     case preg_match('/^\/arqueo_caja\/editar\/\d*$/', $url):
       require __DIR__ . '/vistas/arqueo_caja/editar.php';
       break;
+    case preg_match('/^\/arqueo_caja\/eliminar\/\d*$/', $url):
+      require __DIR__ . '/vistas/arqueo_caja/eliminar.php';
+      break;
     case preg_match('/^\/arqueo_caja\/agregar$/', $url):
       require __DIR__ . '/vistas/arqueo_caja/agregar.php';
       break;
@@ -90,6 +96,9 @@ if(!$has_access) {
       break;
     case preg_match('/^\/arqueo_caja_det\/editar\/\d*$/', $url):
       require __DIR__ . '/vistas/arqueo_caja_det/editar.php';
+      break;
+    case preg_match('/^\/arqueo_caja_det\/eliminar\/\d*$/', $url):
+      require __DIR__ . '/vistas/arqueo_caja_det/eliminar.php';
       break;
     case preg_match('/^\/arqueo_caja_det\/agregar$/', $url):
       require __DIR__ . '/vistas/arqueo_caja_det/agregar.php';
@@ -306,6 +315,9 @@ if(!$has_access) {
       break;
     case preg_match('/^\/tasa_cambio\/editar\/\d*$/', $url):
       require __DIR__ . '/vistas/tasa_cambio/editar.php';
+      break;
+    case preg_match('/^\/tasa_cambio\/eliminar\/\d*$/', $url):
+      require __DIR__ . '/vistas/tasa_cambio/eliminar.php';
       break;
     case preg_match('/^\/tasa_cambio\/agregar$/', $url):
       require __DIR__ . '/vistas/tasa_cambio/agregar.php';

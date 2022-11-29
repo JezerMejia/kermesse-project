@@ -1,22 +1,29 @@
 <?php
-include('entidades/arqueo_caja_det.php');
-include('datos/dt_arqueo_caja_det.php');
+include_once('datos/dt_moneda.php');
+include_once('datos/dt_denominacion.php');
+
 $page_title = 'Arqueo Caja Det';
-$encabezados = ['ID', 'ID Arqueo caja', 'ID Moneda', 'Cantidad', 'Subtotal', 'Opciones'];
+$encabezados = ['ID', 'Moneda', 'Denominación', 'Cantidad', 'Subtotal', 'Opciones'];
 $campo_id = 'id_arqueo_caja_det';
-// $campos = ['id_arqueo_caja_det', '_arqueo_caja', 'id_moneda', 'id_denominacion', 'cantidad', 'subtotal'];
-$campos = ['id_arqueo_caja_det', 'id_arqueo_caja', 'id_moneda', 'cantidad', 'subtotal'];
+$campos = ['id_arqueo_caja_det', 'moneda', 'denominacion', 'cantidad', 'subtotal'];
+$tabla = "arqueo_caja_det";
 
-$acd = new DtArqueoCajaDet();
+if($mostrar) {
+  array_pop($encabezados);
+}
 
-$datos = $acd->get_data();
+$dt_arqueo_caja_det = new DtArqueoCajaDet();
+$dt_moneda = new DtMoneda();
+$dt_denominacion = new DtDenominacion();
+
+$detalles = $dt_arqueo_caja_det->get_by_parent_id($id_from_url);
+
+foreach($detalles as $det) {
+  $moneda = $dt_moneda->find_by_id($det->__GET('id_moneda'));
+  $denominacion = $dt_denominacion->find_by_id($det->__GET('id_denominacion'));
+  $det->__SET('moneda', $moneda->__GET('nombre'));
+  $det->__SET('denominacion', $denominacion->__GET('valor_letras'));
+}
 ?>
 
-<?php include('./partials/_nav.php') ?>
-<main>
-<div class="container-fluid px-4">
-  <h1 class="mt-4"><?php echo ("$page_title") ?></h1>
-  <?php include('./partials/_table.php') ?>
-</div>
-</main>
-<?php include('./partials/_footer.php') ?>
+<?php include('./partials/_table_det.php') ?>

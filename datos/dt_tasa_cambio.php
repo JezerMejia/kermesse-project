@@ -1,7 +1,7 @@
 <?php
 
-include_once "data_table_template.php";
-include_once "entidades/tasa_cambio.php";
+include_once dirname(__DIR__) . "/datos/data_table_template.php";
+include_once dirname(__DIR__) . "/entidades/tasa_cambio.php";
 
 class DtTasaCambio extends DataTableTemplate {
 
