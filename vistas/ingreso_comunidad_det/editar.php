@@ -1,25 +1,19 @@
 <?php
 include('entidades/ingreso_comunidad_det.php');
-$page_title = 'Editar Ingreso Comunidad Det';
-$encabezados = [];
-$campo_id = 'id_ingreso_comunidad_det';
-$campos = ['id_ingreso_comunidad_det'];
-$datos = []
+include('datos/dt_ingreso_comunidad_det.php');
+include('datos/dt_control_bonos.php');
+$page_title = 'Agregar lista precio';
+$dt_ingreso_comunidad_det = new DtIngresoComunidadDet();
+$dt_control_bonos = new DtControlBonos();
+$control_bonos = $dt_control_bonos->get_data();
+$detalle = $dt_ingreso_comunidad_det->find_by_id($id_from_url);
+?>
 ?>
 
 <?php include('./partials/_nav.php') ?>
 <main>
   <div class="container-fluid px-4">
     <h1 class="mt-4"><?php echo ("$page_title - $id_from_url") ?></h1>
-    <ol class="breadcrumb mb-4">
-      <!--<li class="breadcrumb-item">
-          <a href="./partials/_nav.php">Gestión Usuarios</a>
-        </li>*/
-      <li class="breadcrumb-item active">
-         Editar Ingreso
-      </li>
-    -->
-    </ol>
     <div class="card mb-4">
       <div class="card-body">
         En este formulario podrá editar los datos de los Ingreso de comunidad del sistema.
@@ -31,43 +25,49 @@ $datos = []
         Editar ingreso comunidad det
       </div>
       <div class="card-body">
-        <form method="POST" action="./negocio/NgUsuario.php">
-          <input type="hidden" value="2" name="txtaccion" id="txtaccion" />
-          <div class="form-floating mb-3">
-            <input class="form-control" id="id_user" name="id_user" type="text" readonly required />
-            <input class="form-control" id="idU" name="idU" type="hidden" />
-            <label for="nombres">ID Usuario:</label>
+        <form action="<?php echo $base_url ?>/negocio/ng_ingreso_comunidad_det.php" method="POST">
+          <input name="parent_id" type="hidden" value="<?php echo $_GET['parent_id'] ?>">
+          <input name="id_ingreso_comunidad" type="hidden" value="<?php echo $_GET['parent_id'] ?>">
+
+          <div class="mb-3">
+            <label>ID</label>
+            <input name="id_ingreso_comunidad_det" type="text" readonly class="form-control" value="<?php echo $detalle->__GET('id_ingreso_comunidad_det') ?>" />
           </div>
-          <div class="form-floating mb-3">
-            <input class="form-control" id="user" name="user" type="text" title="Ingrese su usuario" readonly required />
-            <input class="form-control" id="userHidden" name="userHidden" type="hidden" />
-            <label for="nombres">ID Ingreso de comunidad:</label>
+
+          <div class="mb-3">
+            <label>Control bonos</label>
+            <select class="form-control" name="id_bono">
+              <?php foreach ($control_bonos as $bono) : ?>
+                <option value="<?php echo $bono->__GET('id_bono') ?>">
+                  <?php echo ($bono->__GET('nombre')) ?>
+                </option>
+              <?php endforeach; ?>
+            </select>
           </div>
-          <div class="form-floating mb-3">
-            <input class="form-control" id="user" name="user" type="text" title="Ingrese su usuario" readonly required />
-            <input class="form-control" id="userHidden" name="userHidden" type="hidden" />
-            <label for="nombres">ID Bono:</label>
+
+          <div class="mb-3">
+            <label>Denominacion</label>
+            <input class="form-control" step="0.01" type="number" name="cantidad" value="<?php echo $detalle->__GET('denominacion') ?>">
           </div>
-          <div class="form-floating mb-3">
-            <input class="form-control" title="Ingrese sus apellidos" required />
-            <label for="apellidos">Denominacion:</label>
+
+          <div class="mb-3">
+            <label>Cantidad</label>
+            <input class="form-control" step="0.01" type="number" name="cantidad" value="<?php echo $detalle->__GET('cantidad') ?>">
           </div>
-          <div class="form-floating mb-3">
-            <input class="form-control" title="Ingrese una contraseña segura" required />
-            <label for="pwd">Cantidad:</label>
+
+          <div class="mb-3">
+            <label>Subtotal</label>
+            <input class="form-control" step="0.01" type="number" name="subtotal" value="<?php echo $detalle->__GET('subtotal_bono') ?>">
           </div>
-          <div class="form-floating mb-3">
-            <input class="form-control" title="Ingrese una contraseña segura" required />
-            <label for="pwd">Subtotal del bono:</label>
+
+          <div class="mt-4 d-flex gap-3">
+            <button class="btn btn-primary" type="submit">Guardar</button>
+            <button class="btn btn-secondary" type="button">Cancelar</button>
           </div>
-          <div class="d-flex align-items-end justify-content-end mt-4 mb-0 gap-3">
-            <input class="btn btn-primary" type="submit" value="Guardar" />
-            <input class="btn btn-danger" type="reset" value="Cancelar" />
-          </div>
+        </form>
         </form>
       </div>
     </div>
-
   </div>
 </main>
 <?php include('./partials/_footer.php') ?>
