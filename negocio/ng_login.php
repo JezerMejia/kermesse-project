@@ -8,7 +8,7 @@ $dt_usuario = new DtUsuario();
 if ($_POST) {
   $username = $_POST["usuario"];
   $password = $_POST["pwd"];
-  
+
   if (!empty($username) && !empty($password)) {
     $usuario = $dt_usuario->login($username, $password);
     if (!empty($usuario)) {
@@ -19,6 +19,12 @@ if ($_POST) {
       } else {
         header("Location: /kermesse-project");
       }
+    } else {
+      header("Location: /kermesse-project/login?error=3;username=$username");
     }
+  } else if (!empty($username)){
+    header("Location: /kermesse-project/login?error=2;username=$username");
+  } else {
+    header("Location: /kermesse-project/login?error=1");
   }
 }
