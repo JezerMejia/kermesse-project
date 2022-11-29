@@ -6,20 +6,18 @@ include('datos/dt_comunidad.php');
 include('datos/dt_producto.php');
 
 $dt_ingreso_comunidad = new DtIngresoComunidad();
-$dt_kermesse = new DtKermesse();
 $dt_comunidad = new DtComunidad();
 $dt_producto = new DtProducto();
 
 $ingreso_comunidad = $dt_ingreso_comunidad->find_by_id($id_from_url);
-$id_kermesses = $ingreso_comunidad->__GET("id_kermesses");
 $id_comunidad = $ingreso_comunidad->__GET("id_comunidad");
 $id_producto = $ingreso_comunidad->__GET("id_producto");
 
-$kermesses = $dt_kermesse->get_data();
 $comunidad = $dt_comunidad->get_data();
 $producto = $dt_producto->get_data();
 
 $page_title = 'Editar Ingreso comunidad';
+$mostrar = false;
 ?>
 
 <?php include('./partials/_nav.php') ?>
@@ -101,6 +99,8 @@ $page_title = 'Editar Ingreso comunidad';
         </form>
       </div>
     </div>
+    <h2>Detalles</h2>
+    <?php include_once 'vistas/ingreso_comunidad_det/mostrar.php' ?>
   </div>
 </main>
 <?php include('./partials/_footer.php') ?>
