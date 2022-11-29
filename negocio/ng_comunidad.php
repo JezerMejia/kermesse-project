@@ -35,8 +35,8 @@ function update($dt_comunidad) {
   $_SESSION["alert_msj"] = $alert_msj;
 }
 function remove($dt_comunidad) {
-  $id_comunidad = $_POST['id'];
-  $dt_comunidad->delete_by_id($id_comunidad);
+  $comunidad = $dt_comunidad->find_by_id($_POST['id']);
+  $dt_comunidad->delete($comunidad);
 
   $alert_msj = new AlertMsj("La comunidad fue eliminada", MSJ_DANGER);
   $_SESSION["alert_msj"] = $alert_msj;

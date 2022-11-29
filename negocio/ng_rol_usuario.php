@@ -34,8 +34,8 @@ function update($dt_rol_usuario) {
   $_SESSION["alert_msj"] = $alert_msj;
 }
 function remove($dt_rol_usuario) {
-  $id_rol_usuario = $_POST['id'];
-  $dt_rol_usuario->delete_by_id($id_rol_usuario);
+  $rol_usuario = $dt_rol_usuario->find_by_id($_POST['id']);
+  $dt_rol_usuario->delete($rol_usuario);
 
   $alert_msj = new AlertMsj("Se eliminó la relación de rol a usuario", MSJ_DANGER);
   $_SESSION["alert_msj"] = $alert_msj;

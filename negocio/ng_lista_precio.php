@@ -34,8 +34,8 @@ function update($dt_lista_precio) {
   $_SESSION["alert_msj"] = $alert_msj;
 }
 function remove($dt_lista_precio) {
-  $id_lista_precio = $_POST['id'];
-  $dt_lista_precio->delete_by_id($id_lista_precio);
+  $lista_precio = $dt_lista_precio->find_by_id($_POST['id']);
+  $dt_lista_precio->delete($lista_precio);
 
   $alert_msj = new AlertMsj("El lista_precio fue eliminado", MSJ_DANGER);
   $_SESSION["alert_msj"] = $alert_msj;

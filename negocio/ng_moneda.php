@@ -35,8 +35,8 @@ function update($dt_moneda) {
   $_SESSION["alert_msj"] = $alert_msj;
 }
 function remove($dt_moneda) {
-  $id_moneda = $_POST['id'];
-  $dt_moneda->delete_by_id($id_moneda);
+  $moneda = $dt_moneda->find_by_id($_POST['id']);
+  $dt_moneda->delete($moneda);
 
   $alert_msj = new AlertMsj("La moneda fue eliminada", MSJ_DANGER);
   $_SESSION["alert_msj"] = $alert_msj;

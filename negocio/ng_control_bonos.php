@@ -32,8 +32,8 @@ function update($dt_control_bonos) {
   $_SESSION["alert_msj"] = $alert_msj;
 }
 function remove($dt_control_bonos) {
-  $id_control_bonos = $_POST['id'];
-  $dt_control_bonos->delete_by_id($id_control_bonos);
+  $control_bonos = $dt_control_bonos->find_by_id($_POST['id']);
+  $dt_control_bonos->delete($control_bonos);
 
   $alert_msj = new AlertMsj("El control bono fue eliminado", MSJ_DANGER);
   $_SESSION["alert_msj"] = $alert_msj;

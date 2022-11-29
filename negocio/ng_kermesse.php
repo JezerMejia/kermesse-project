@@ -32,8 +32,8 @@ function update($dt_kermesse) {
   $_SESSION["alert_msj"] = $alert_msj;
 }
 function remove($dt_kermesse) {
-  $id_kermesse = $_POST['id'];
-  $dt_kermesse->delete_by_id($id_kermesse);
+  $kermesse = $dt_kermesse->find_by_id($_POST['id']);
+  $dt_kermesse->delete($kermesse);
 
   $alert_msj = new AlertMsj("El arqueo de caja fue eliminado", MSJ_DANGER);
   $_SESSION["alert_msj"] = $alert_msj;

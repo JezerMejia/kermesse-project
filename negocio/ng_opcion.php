@@ -35,8 +35,8 @@ function update($dt_opcion) {
   $_SESSION["alert_msj"] = $alert_msj;
 }
 function remove($dt_opcion) {
-  $id_opcion = $_POST['id'];
-  $dt_opcion->delete_by_id($id_opcion);
+  $opcion = $dt_opcion->find_by_id($_POST['id']);
+  $dt_opcion->delete($opcion);
 
   $alert_msj = new AlertMsj("La opcion fue eliminada", MSJ_DANGER);
   $_SESSION["alert_msj"] = $alert_msj;

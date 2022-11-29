@@ -2,6 +2,9 @@
 
 include_once('../entidades/arqueo_caja.php');
 include_once('../datos/dt_arqueo_caja.php');
+include_once('../entidades/alert_msj.php');
+
+session_start();
 
 function insert($dt_arqueo_caja) {
   $arqueo_caja = new ArqueoCaja();
@@ -29,8 +32,8 @@ function update($dt_arqueo_caja) {
   $_SESSION["alert_msj"] = $alert_msj;
 }
 function remove($dt_arqueo_caja) {
-  $id_arqueo_caja = $_POST['id'];
-  $dt_arqueo_caja->delete_by_id($id_arqueo_caja);
+  $arqueo_caja = $dt_arqueo_caja->find_by_id($_POST['id']);
+  $dt_arqueo_caja->delete($arqueo_caja);
 
   $alert_msj = new AlertMsj("El arqueo de caja fue eliminado", MSJ_DANGER);
   $_SESSION["alert_msj"] = $alert_msj;

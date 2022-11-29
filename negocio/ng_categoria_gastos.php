@@ -34,8 +34,8 @@ function update($dt_cat_gastos) {
   $_SESSION["alert_msj"] = $alert_msj;
 }
 function remove($dt_cat_gastos) {
-  $id_cat_gastos = $_POST['id'];
-  $dt_cat_gastos->delete_by_id($id_cat_gastos);
+  $cat_gasto = $dt_cat_gastos->find_by_id($_POST['id']);
+  $dt_cat_gastos->delete($cat_gasto);
 
   $alert_msj = new AlertMsj("La categoría de gastos fue eliminada", MSJ_DANGER);
   $_SESSION["alert_msj"] = $alert_msj;

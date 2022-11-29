@@ -2,6 +2,9 @@
 
 include_once('../entidades/usuario.php');
 include_once('../datos/dt_usuario.php');
+include_once('../entidades/alert_msj.php');
+
+session_start();
 
 function insert($dt_usuario) {
   $usuario = new Usuario();
@@ -29,8 +32,8 @@ function update($dt_usuario) {
   $_SESSION["alert_msj"] = $alert_msj;
 }
 function remove($dt_usuario) {
-  $id_usuario = $_POST['id'];
-  $dt_usuario->delete_by_id($id_usuario);
+  $usuario = $dt_usuario->find_by_id($_POST['id']);
+  $dt_usuario->delete($usuario);
 
   $alert_msj = new AlertMsj("El usuario fue eliminado", MSJ_DANGER);
   $_SESSION["alert_msj"] = $alert_msj;

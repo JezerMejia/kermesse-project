@@ -34,8 +34,8 @@ function update($dt_ingreso_comunidad) {
   $_SESSION["alert_msj"] = $alert_msj;
 }
 function remove($dt_ingreso_comunidad) {
-  $id_ingreso_comunidad = $_POST['id'];
-  $dt_ingreso_comunidad->delete_by_id($id_ingreso_comunidad);
+  $ingreso_comunidad = $dt_ingreso_comunidad->find_by_id($_POST['id']);
+  $dt_ingreso_comunidad->delete($ingreso_comunidad);
 
   $alert_msj = new AlertMsj("El ingreso_comunidad fue eliminado", MSJ_DANGER);
   $_SESSION["alert_msj"] = $alert_msj;

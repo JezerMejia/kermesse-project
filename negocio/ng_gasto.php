@@ -34,8 +34,8 @@ function update($dt_gasto) {
   $_SESSION["alert_msj"] = $alert_msj;
 }
 function remove($dt_gasto) {
-  $id_gasto = $_POST['id'];
-  $dt_gasto->delete_by_id($id_gasto);
+  $gasto = $dt_gasto->find_by_id($_POST['id']);
+  $dt_gasto->delete($gasto);
 
   $alert_msj = new AlertMsj("El gasto fue eliminado", MSJ_DANGER);
   $_SESSION["alert_msj"] = $alert_msj;

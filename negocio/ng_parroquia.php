@@ -2,6 +2,9 @@
 
 include_once ('../entidades/parroquia.php');
 include_once ('../datos/dt_parroquia.php');
+include_once('../entidades/alert_msj.php');
+
+session_start();
 
 function insert($dt_parroquia) {
   $parroquia = new parroquia();
@@ -23,8 +26,8 @@ function update($dt_parroquia) {
   $dt_parroquia->update($parroquia);
 }
 function remove($dt_parroquia) {
-  $id_parroquia = $_POST['id'];
-  $dt_parroquia->delete_by_id($id_parroquia);
+  $parroquia = $dt_parroquia->find_by_id($_POST['id']);
+  $dt_parroquia->delete($parroquia);
 }
 
 if ($_POST) {

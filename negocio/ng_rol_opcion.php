@@ -35,8 +35,8 @@ function update($dt_rol_opcion) {
   $_SESSION["alert_msj"] = $alert_msj;
 }
 function remove($dt_rol_opcion) {
-  $id_rol_opcion = $_POST['id'];
-  $dt_rol_opcion->delete_by_id($id_rol_opcion);
+  $rol_opcion = $dt_rol_opcion->find_by_id($_POST['id']);
+  $dt_rol_opcion->delete($rol_opcion);
 
   $alert_msj = new AlertMsj("El rol opcion fue eliminada", MSJ_DANGER);
   $_SESSION["alert_msj"] = $alert_msj;

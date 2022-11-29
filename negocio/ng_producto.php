@@ -35,8 +35,8 @@ function update($dt_producto) {
   $_SESSION["alert_msj"] = $alert_msj;
 }
 function remove($dt_producto) {
-  $id_producto = $_POST['id'];
-  $dt_producto->delete_by_id($id_producto);
+  $producto = $dt_producto->find_by_id($_POST['id']);
+  $dt_producto->delete($producto);
 
   $alert_msj = new AlertMsj("El producto fue eliminado", MSJ_DANGER);
   $_SESSION["alert_msj"] = $alert_msj;

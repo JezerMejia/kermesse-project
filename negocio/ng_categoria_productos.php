@@ -34,8 +34,8 @@ function update($dt_cat_prod) {
   $_SESSION["alert_msj"] = $alert_msj;
 }
 function remove($dt_cat_prod) {
-  $id_cat_prod = $_POST['id'];
-  $dt_cat_prod->delete_by_id($id_cat_prod);
+  $cat_prod = $dt_cat_prod->find_by_id($_POST['id']);
+  $dt_cat_prod->delete($cat_prod);
 
   $alert_msj = new AlertMsj("La categoría de productos fue eliminada", MSJ_DANGER);
   $_SESSION["alert_msj"] = $alert_msj;

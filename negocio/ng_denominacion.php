@@ -30,8 +30,9 @@ function update($dt_denominacion) {
   $_SESSION["alert_msj"] = $alert_msj;
 }
 function remove($dt_denominacion) {
-  $id_denominacion = $_POST['id'];
-  $dt_denominacion->delete_by_id($id_denominacion);
+  $denominacion = $dt_denominacion->find_by_id($_POST['id']);
+  $dt_denominacion->delete($denominacion);
+
   $alert_msj = new AlertMsj("La denominacion fue eliminada", MSJ_DANGER);
   $_SESSION["alert_msj"] = $alert_msj;
 }

@@ -2,6 +2,9 @@
 
 include_once('../entidades/tasa_cambio.php');
 include_once('../datos/dt_tasa_cambio.php');
+include_once('../entidades/alert_msj.php');
+
+session_start();
 
 function insert($dt_tasa_cambio) {
   $tasa_cambio = new TasaCambio();
@@ -29,9 +32,9 @@ function update($dt_tasa_cambio) {
   $_SESSION["alert_msj"] = $alert_msj;
 }
 function remove($dt_tasa_cambio) {
-  $id_tasa_cambio = $_POST['id'];
-  $dt_tasa_cambio->delete_by_id($id_tasa_cambio);
-  
+  $tasa_cambio = $dt_tasa_cambio->find_by_id($_POST['id']);
+  $dt_tasa_cambio->delete($tasa_cambio);
+
   $alert_msj = new AlertMsj("La tasa de cambio fue eliminada", MSJ_DANGER);
   $_SESSION["alert_msj"] = $alert_msj;
 }
