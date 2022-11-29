@@ -6,6 +6,9 @@ $dt_kermesse = new DtKermesse();
 $dt_cat_gasto = new DtCategoriaGastos();
 $kermesses = $dt_kermesse->get_data();
 $categorias = $dt_cat_gasto->get_data();
+
+$now = new DateTime();
+$current_date = $now->format('Y-m-d H:i:s');
 ?>
 
 <?php include('./partials/_nav.php') ?>
@@ -15,6 +18,11 @@ $categorias = $dt_cat_gasto->get_data();
     <div class="card mb-4 w-100 p-2">
       <div class="card-body">
       <form action="<?php echo $base_url?>/negocio/ng_gasto.php" method="POST">
+          <input type="hidden" name="usuario_creacion"
+          value="<?php echo $logged_user->__GET('id_usuario'); ?>">
+          <input type="hidden" name="fecha_creacion"
+          value="<?php echo $current_date; ?>">
+
           <div class="mb-3">
             <label>Kermesse</label>
             <select class="form-control" name="id_kermesse">
