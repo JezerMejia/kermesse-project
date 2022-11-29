@@ -305,6 +305,9 @@ if(!$has_access) {
     case preg_match('/^\/producto\/agregar$/', $url):
       require __DIR__ . '/vistas/producto/agregar.php';
       break;
+    case preg_match('/^\/producto\/eliminar\/\d*$/', $url):
+      require __DIR__ . '/vistas/producto/eliminar.php';
+      break;
     case preg_match('/^\/rol\/?$/', $url):
       require __DIR__ . '/vistas/rol/mostrar.php';
       break;
