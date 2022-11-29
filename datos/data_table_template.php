@@ -136,9 +136,7 @@ class DataTableTemplate {
       array_push($columns, $db_field);
       array_push($values, $new_value);
     }
-    if (count($columns) == 0) {
-      throw new Exception("UPDATE: There is no data to be updated");
-    }
+    if (count($columns) == 0) return;
 
     $assignment = implode(",", array_map($parse_update, $columns, $values));
     $query = "UPDATE $this->table_name SET $assignment WHERE $this->primary_key=$primary_value;";
